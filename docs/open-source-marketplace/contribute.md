@@ -92,13 +92,13 @@ You can pick one of yours or use a [GitLab template project](https://gitlab.com/
         - remote : 'https://gitlab.com/<project>/-/raw/<hash>/templates/<template_name>/<template_name>.yml'
       ```
       Add, commit and push your modifications and check the result of the pipeline on Git Lab, under CI/CD > Pipelines.
-      After the merge request approval, you can remote it directly from the hub, check the [quick use section](/official-templates/use-templates).
+      After the merge request approval, you can remote it directly from the hub, check the [quick use section](/docs/marketplace/use-templates).
 2. Test the behaviour of your template 🎲
     * If you're creating a template from one of the [hub's issue](https://gitlab.com/r2devops/hub/-/issues), there should be at least one scenario. Test each scenario separately and ensure the pipeline succeed.
     * If you're creating a template on your own, think of each case, your template should be the most generic as possible.
 
 :::note 
-👉 You can customize it with [variables](/official-templates/contribute/#variables)
+👉 You can customize it with [variables](/docs/open-source-marketplace/contribute/#variables)
 :::
 
 ### 🚀 Step 4: Merge request
@@ -391,13 +391,13 @@ The templates of the hub should remain as generic as possible. In order to ensur
 
 :::info
 The templates of the hub can be dynamically
-[customized](/official-templates/use-templates/#templates-customization) by users.
+[customized](/docs/marketplace/use-templates/#templates-customization) by users.
 :::
 
 ### 📖 Template documentation
 
 As described in [R2Devops/hub template
-structure](/marketplace/manage-templates/#template-documentation), the documentation of a template is
+structure](/docs/marketplace/manage-templates/#template-documentation), the documentation of a template is
 written inside its `README.md` file.
 
 :::tip
