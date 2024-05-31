@@ -1,3 +1,5 @@
+# Local Docker compose
+
 !!! warning "Only for testing purposes on your local computer"
 This page describes how to quickly setup a self-managed instance of
 R2Devops for **testing purposes** using Docker-compose on **your local

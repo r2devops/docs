@@ -1,3 +1,5 @@
+# Docker compose with custom certifications
+
 This page describes how to setup a self-managed instance of R2Devops using
 **Docker-compose**.
 
@@ -88,9 +90,9 @@ In your `.env` file:
 
    !!! example "Example with domain name `mydomain.com`"
    `bash
-     DOMAIN_NAME="r2devops.mydomain.com"
-     JOBS_GITLAB_URL="https://gitlab.mydomain.com"
-     `
+  DOMAIN_NAME="r2devops.mydomain.com"
+  JOBS_GITLAB_URL="https://gitlab.mydomain.com"
+  `
 
 1. Edit the `.docker/r2devops/config.json` file by updating `apiUrl`,
    `apiUrlIdentities` and `gitLabApiUrl` parameters
@@ -107,9 +109,9 @@ In your `.env` file:
 
    !!! example "Example with domain name `mydomain.com`"
    `json
-     "apiUrl": "https://r2devops.mydomain.com/api",
-     "gitLabApiUrl": "https://gitlab.mydomain.com",
-     `
+  "apiUrl": "https://r2devops.mydomain.com/api",
+  "gitLabApiUrl": "https://gitlab.mydomain.com",
+  `
 
 1. Create DNS record
 

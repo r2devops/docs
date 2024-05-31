@@ -1,8 +1,3 @@
----
-title: Contribute to R2Devops Hub official template
-description: Learn how to update or create an official template in R2Devops Hub
----
-
 # Contribute to R2Devops official CI/CD Repository
 
 This page describes how to create or update a template in the
@@ -46,17 +41,15 @@ repository (yes, what a shame, after all your hard work...). 😕
     2. Make sure that you have NPM installed, more about that [here](https://nodejs.org/en/download/)
     3. Install the package `Cookicutter` by executing this command:
 
-
-        ```shell
-        npm install -g cookiecutter
-        ```
+       ```shell
+       npm install -g cookiecutter
+       ```
 
     4. In the `hub` folder, run this command and input the necessary information:
 
-
-        ```shell
-        npx cookiecutter
-        ```
+       ```shell
+       npx cookiecutter
+       ```
 
     :::info
     Alternatively, you can do the last steps manually by creating a new directory dedicated to your template in `templates/` folder if you want to add a new template. If you want to modify an existing template, you don't have to create a new directory.
@@ -349,12 +342,12 @@ interface:
    template [`trivy_image`](https://r2devops.io/marketplace/gitlab/r2devops/hub/trivy_image) that
    uses its output as `junit` report in `artifacts:reports:junit` section:
    `yaml
-    trivy_image:
-      [...]
-      artifacts:
-        reports:
-          junit: "$TRIVY_OUTPUT"
-    `
+ trivy_image:
+   [...]
+   artifacts:
+     reports:
+       junit: "$TRIVY_OUTPUT"
+ `
    :::
 
 2. Quick integration with [`artifacts:expose_as`](https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as)
@@ -367,7 +360,8 @@ interface:
    :::note[Example of `artifacts:expose_as` report]
    template [`nmap`](https://r2devops.io/marketplace/gitlab/r2devops/hub/nmap) uses `artifacts:expose_as`
    to expose its `HTML` report:
-   `yaml
+
+   ```yaml
     nmap:
       [...]
       artifacts:
@@ -375,7 +369,8 @@ interface:
         paths:
           - "${HTML_OUTPUT}"
         when: always
-    `
+   ```
+
    :::
 
 3. Simple artifact without integration
@@ -383,13 +378,13 @@ interface:
    :::note[Example of `artifacts`]
    template that specify an `artifact`:
    `yaml
-    template_name:
-      [...]
-      artifacts:
-        paths:
-          - "output"
-        when: always
-    `
+ template_name:
+   [...]
+   artifacts:
+     paths:
+       - "output"
+     when: always
+ `
    :::
 
 #### 🔩 Keep your template generic

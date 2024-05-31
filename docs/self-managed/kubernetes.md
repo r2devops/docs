@@ -1,3 +1,5 @@
+# Kubernetes
+
 This page describes how to run a self-managed instance of R2Devops on
 **Kubernetes**.
 
@@ -364,7 +366,8 @@ This is an example of custom `values.yaml` file using all services from chart
 dependencies.
 
 ??? note "Example (to expand)"
-```yaml
+
+````yaml
 front:
 host: "r2devops.mydomain.com"
 
@@ -474,3 +477,4 @@ host: "r2devops.mydomain.com"
           REDACTED
           -----END CERTIFICATE-----
     ```
+````
