@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# ⚙️  Settings
+# ⚙️ Settings
 
 ## Overview
 
@@ -35,7 +35,6 @@ Configure the projects you want to analyze directly from the R2Devops Dashboard.
 :::
 
 ![Projects Analysis Configuration](./img/projects_selector_access.gif)
-
 
 ### ⚙️ Configure your trusted registries
 

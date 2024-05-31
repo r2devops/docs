@@ -32,11 +32,11 @@ A project could have multiple CI/CD engines. For example, `project1` could have:
 
 - `50%` of **GitLab**
 - `50%` of **Jenkins**
-:::
+  :::
 
 ## Pipeline Composition
 
-The Dashboard provides an overview of your entire organization's CI/CD composition. 
+The Dashboard provides an overview of your entire organization's CI/CD composition.
 
 ![Pipelines composition chart](./img/pipeline-composition-chart.png)
 
@@ -49,7 +49,7 @@ For every GitLab project's CI/CD, we count all jobs and categorize them into:
 
 This insight serves multiple purposes, such as:
 
-- Identifying and reducing hardcoded jobs, which can accumulate technical debt. 
+- Identifying and reducing hardcoded jobs, which can accumulate technical debt.
 - Transitioning to utilizing solely `Marketplace templates`.
 - Follow adoption of `Templates` or `Marketplace templates` of your whole organization.
 
@@ -59,7 +59,7 @@ A project could be composed of a mix of multiple types. For example, `project1` 
 - `13.3%` of **Hardcoded Jobs**
 - `24.3%` of **Templates**
 - `62.4%` of **Marketplace Templates**
-:::
+  :::
 
 ## Scores
 
@@ -105,4 +105,3 @@ Current criteria with penalties:
 
 - Secrets leaks inside the CI/CD configuration file
 - Container image status declared as unsafe, indicating it comes from a non-official registry inside Docker Hub
-

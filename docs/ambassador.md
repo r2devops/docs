@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # Ambassador
 
+import Button from '@site/src/components/Button/Button.component';
+
 ## 📜 Introduction
 
 At R2Devops, we highly value our community of supporters and users who contribute to the growth and improvement of our platform.
@@ -30,18 +32,14 @@ To become an R2Devops Ambassador, individuals must meet at least four of the fol
 
 ## 🚀 Start your ambassador journey
 
-<a target="_blank" rel="nofollow noreferrer" href="https://discord.r2devops.io/?utm_medium=website&utm_source=r2devopsdocumentation&utm_campaign=ambassador">
-<button class="md-button border-radius-10 md-button" >
-        :fontawesome-brands-discord: Join Discord
-</button>
-</a>
-<a target="_blank" rel="nofollow noreferrer" href="https://www.linkedin.com/sharing/share-offsite/?url=https://r2devops.io/">
-<button class="md-button border-radius-10 md-button" >
-        :fontawesome-brands-linkedin: Share on LinkedIn
-</button>
-</a>
-
-
+<section className="button-container">
+    <Button href="https://discord.r2devops.io/?utm_medium=website&utm_source=r2devopsdocumentation&utm_campaign=ambassador">
+        <span><FAIcon icon="fa-brands fa-discord" size="sm" /> Join Discord</span>
+    </Button>
+    <Button href="https://www.linkedin.com/sharing/share-offsite/?url=https://r2devops.io/">
+        <span><FAIcon icon="fa-brands fa-linkedin" size="sm" /> Share on LinkedIn</span>
+    </Button>
+</section>
 
 ## 🎁 Rewards
 

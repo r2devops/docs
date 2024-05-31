@@ -28,3 +28,27 @@
   --ifm-color-primary-lightest: #12daff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .button-container {
+    flex-direction: row;
+  }
+}
+
+.button-container .button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .button-container .button {
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+}

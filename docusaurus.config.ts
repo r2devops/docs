@@ -1,10 +1,11 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'R2Devops documentation',
-  tagline: 'Protect your Software Supply Chain with R2Devops! Stay informed with real-time CI/CD tracking, detect CVEs and ensure pipelines compliance',
+  tagline:
+    'Protect your Software Supply Chain with R2Devops! Stay informed with real-time CI/CD tracking, detect CVEs and ensure pipelines compliance',
   favicon: 'img/logo-documentation.svg',
 
   // Set the production url of your site here
@@ -70,7 +71,7 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -124,8 +125,11 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
     metadata: [
-      {name: 'keywords', content: 'compliance, ci/cd, r2devops, security, documentation, blog'},
-      {name: 'twitter:card', content: 'summary_large_image'},
+      {
+        name: 'keywords',
+        content: 'compliance, ci/cd, r2devops, security, documentation, blog',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     headTags: [
       // Declare a <link> preconnect tag
