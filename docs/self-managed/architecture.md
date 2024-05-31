@@ -1,0 +1,12 @@
+## 🏗️: Infrastructure
+
+The R2Devops Infrastructure is composed of the following components:
+
+![R2Devops infrastructure](./img/r2devops-containers.svg)
+
+- **R2Devops frontend**: the R2Devops interface
+- **R2Devops backend**: the R2Devops backend and API
+- **R2Devops worker**: used to run the tasks of asynchronous requests
+- **S3-compliant service like [MinIO](https://github.com/minio/minio)**: used to store a local copy of templates files (YAML configuration, documentation, changelog)
+- **[PostgreSQL](https://github.com/postgres/postgres)**: used to store R2Devops backend data
+- **[Redis](https://github.com/redis/redis)**: used to cache R2Devops data and create tasks lists for workers

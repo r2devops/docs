@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - 1-migrate-r2devops-docs-and-blog # TODO: Remove this line after migrating the docs and blog
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -25,7 +24,7 @@ jobs:
         run: npm install --frozen-lockfile
       - name: Build website
         run: npm run build
-        
+
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:

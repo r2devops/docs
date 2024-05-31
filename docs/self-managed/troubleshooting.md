@@ -1,0 +1,48 @@
+# Troubleshooting
+
+The installation is not working as expected ? You're at the right place !
+
+Here are the common errors and how to solve them :
+
+## General
+
+Issues related to all installation methods
+
+??? failure "Redirect URI Invalid error in GitLab"
+This error occurs when the Redirect URL set for your GitLab application
+doesn't correspond to the `API_URL`. Please, ensure you write the correct
+URL as described in the [section
+OIDC](/self-hosted/installation/#create-an-application)
+
+## Kubernetes
+
+Issues related to installation on Kubernetes using the Helm chart
+
+??? failure "No persistent volumes for chart dependencies PostgreSQL, Redis and/or MinIO"
+These 3 dependencies requires Persistent Volumes to work. If you haven't a
+default storage class or if you want to use a specific storage class you need to add an option in all of theses values:
+
+    ```yaml
+    minio:
+      [...]
+      global:
+        storageClass: REPLACE_ME_BY_STORAGE_CLASS
+
+    postgresql:
+      [...]
+      global:
+        storageClass: REPLACE_ME_BY_STORAGE_CLASS
+        [...]
+
+    redis:
+      [...]
+      global:
+        storageClass: REPLACE_ME_BY_STORAGE_CLASS
+    ```
+
+## Support
+
+!!! question "Don't find what you're looking for ?"
+Reach our support using the `#support` channel on [Discord](https://discord.r2devops.io)
+
+    You can also send an email to [tech@r2devops.io](mailto:tech@r2devops.io)
