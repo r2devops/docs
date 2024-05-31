@@ -1,58 +1,51 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Set a branch to trigger deployment
+      - main
+    # Review gh actions docs if you want to further define triggers, paths, etc
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   build:
+    name: Build Docusaurus
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.4
-
-      - name: Setup Node.js environment 💻
-        uses: actions/setup-node@v2.4.1
+      - uses: actions/checkout@v4
         with:
-          node-version: '14'
-
-      - name: Cache dependencies 📦
-        uses: actions/cache@v2.1.6
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 18
+          cache: npm
 
-      - name: Install and Build 🔧
-        run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm install --frozen-lockfile
+      - name: Build website
+        run: npm build
 
-      - name: Upload build artifact 📦
-        uses: actions/upload-artifact@v2.3.1
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: website
           path: build
 
   deploy:
+    name: Deploy to GitHub Pages
     needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.4
-
-      - name: Download build artifact 📦
-        uses: actions/download-artifact@v2.1.1
-        with:
-          name: website
-          path: build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          branch: gh-pages  # The branch the action should deploy to.
-          folder: build  # The folder the action should deploy.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
