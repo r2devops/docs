@@ -2,46 +2,45 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
+<!-- <h1 class="flex gap-2" style="margin-bottom:0px!important">
+    <img style={{width: "50px"}} src="images/logo-documentation.svg"/>
+    Welcome to <p class="default_color">R2Devops</p> Documentation!
+</h1> -->
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## ⚡ Get started
 
-## Getting Started
+<div class="tx-card-container gap-4">
+    <a class="w-full" alt="To self-managed R2Devops platform documentation" href="./self-managed/">
+        <button class="w-full md-button border-radius-10 md-button" >
+            ⚙️ Install your R2Devops instance
+        </button>
+    </a>
+    <a class="w-full" alt="To dashboard documentation" href="./dashboard/how-it-works">
+        <button class="w-full md-button border-radius-10 md-button" >
+            📊 Configure and use your CI/CD dashboard
+        </button>
+    </a>
+    <a class="w-full" alt="To manage templates documentation" href="./marketplace/manage-templates">
+        <button class="w-full md-button border-radius-10 md-button" >
+            💼 Create and use your marketplace templates
+        </button>
+    </a>
+    <a class="w-full" alt="To ambassador program documentation" href="./ambassador/">
+        <button class="w-full md-button border-radius-10 md-button" >
+            🦸 Join our ambassador program
+        </button>
+    </a>
+</div>
 
-Get started by **creating a new site**.
+## 💬 Community
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+:::tip[Community]
+We love talking with our contributors and users! Join our
+[Discord community :fontawesome-brands-discord:](https://discord.r2devops.io/?utm_medium=website&utm_source=r2devopsdocumentation?utm_campaign=addajob)
+:::
 
-### What you'll need
+## 🙋 Support
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- <a alt="Join R2Devops.io Discord" href="https://discord.r2devops.io?utm_medium=website&utm_source=r2devopsdocumentation&utm_campaign=homepage" target="_blank">Join us on Discord</a>
+- <a alt="Open a ticket" href="https://tally.so/r/w5Edvw" target="_blank">Open a ticket</a>
