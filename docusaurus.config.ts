@@ -9,7 +9,7 @@ const config: Config = {
   favicon: 'img/logo-documentation.svg',
 
   // Set the production url of your site here
-  url: 'https://docs.github.io/',
+  url: 'https://r2devops.github.io/docs/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -74,7 +74,7 @@ const config: Config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/r2devops/docs',
           label: 'GitHub',
           position: 'right',
         },
