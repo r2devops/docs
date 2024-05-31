@@ -29,6 +29,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* Code sections in light mode */
+html[data-theme="light"] pre {
+  background-color: rgba(225, 225, 225, 0.5)!important; /* Change this to your desired color */
+}
+
 .button-container {
   display: flex;
   flex-direction: column;
