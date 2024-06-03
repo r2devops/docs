@@ -1,4 +1,4 @@
-# 🏗️: Infrastructure
+# Infrastructure
 
 The R2Devops Infrastructure is composed of the following components:
 

@@ -66,7 +66,7 @@ In your `.env` file:
 
 2. (Optional) Add your license
 
-   !!! info "License key"
+   :::info[License key]
    If you do not have a license key, you can let the variable `LICENSE`
    empty (`value: ""`). Your R2Devops instance will be limited to 5
    projects.
@@ -77,7 +77,7 @@ In your `.env` file:
    ```bash title=".env" hl_lines="1"
    LICENSE="<license-key>"
    ```
-
+   :::
 ### 📄 Domain name
 
 1. Edit the `.env` file by updating value of `DOMAIN_NAME`, `CERTIFICATE_EMAIL`
@@ -89,12 +89,11 @@ In your `.env` file:
    JOBS_GITLAB_URL="https://<url_of_your_gitlab_instance>"
    ```
 
-   !!! example "Example with domain name `mydomain.com`"
-   `bash
-  DOMAIN_NAME="r2devops.mydomain.com"
-  CERTIFICATE_EMAIL="tech@mydomain.com"
-  JOBS_GITLAB_URL="https://gitlab.mydomain.com"
-  `
+   ```bash title="Example with domain name 'mydomain.com'" hl_lines="1-3"
+   DOMAIN_NAME="r2devops.mydomain.com"
+   CERTIFICATE_EMAIL="tech@mydomain.com"
+   JOBS_GITLAB_URL="https://gitlab.mydomain.com"
+   ```
 
 1. Edit the `.docker/r2devops/config.json` file by updating `apiUrl`,
    `apiUrlIdentities` and `gitLabApiUrl` parameters
@@ -109,11 +108,10 @@ In your `.env` file:
    }
    ```
 
-   !!! example "Example with domain name `mydomain.com`"
-   `json
-  "apiUrl": "https://r2devops.mydomain.com/api",
-  "gitLabApiUrl": "https://gitlab.mydomain.com",
-  `
+   ```bash title="Example with domain name 'mydomain.com'" hl_lines="1-3"
+   "apiUrl": "https://r2devops.mydomain.com/api",
+   "gitLabApiUrl": "https://gitlab.mydomain.com",
+   ```
 
 1. Create DNS record
 
@@ -121,11 +119,10 @@ In your `.env` file:
    - Type: `A`
    - Content: `<your-server-public-ip>`
 
-!!! info "Certificate"
-
-    A certificate will be auto-generated using Let's encrypt at the application
-    launch
-
+:::info[Certificate]
+A certificate will be auto-generated using Let's encrypt at the application
+launch
+:::
 ### 🦊 GitLab OIDC
 
 R2Devops uses GitLab as an OAuth2 provider to authenticate users. Let's see how
@@ -175,7 +172,7 @@ sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
 
 ### 🚀 Launch the application
 
-!!! success "Congratulations"
+:::success[Congratulations]
 You have successfully installed R2Devops on your server 🎉
 
     Now you can launch the application and ensure everything works as expected.
@@ -185,15 +182,17 @@ Run the following command to start the system:
 ```bash
 docker compose up -d
 ```
+:::
 
-!!! info "Reconfigure"
+:::info[Reconfigure]
 If you need to reconfigure some files and relaunch the application,
 after your updates you can simply run the command again to do so.
-`bash
-    docker compose up -d
-    `
+```bash
+docker compose up -d
+```
+:::
 
-!!! note "What's next"
+:::note[What's next]
 Now that you have finished this tutorial, here are some simple tasks you
 should give a try :
 
@@ -201,10 +200,12 @@ should give a try :
       [documentation](https://docs.r2devops.io)
     - 📕 Import your first job, here is the
       [tutorial](/marketplace/manage-templates/#create-a-marketplace)
+:::
 
-!!! error "Not the same behavior"
+:::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
 [troubleshooting](/self-managed/troubleshooting) section.
+:::
 
 ## 🔄 Backup and restore
 
@@ -235,15 +236,16 @@ following command:
 The script will create a `backups` directory and create a backup archive inside
 it prefixed with the date (`backup_r2-$DATE`)
 
-!!! note " Regular backup"
+:::note[Regular backup]
 You can use a cron job to perform regular backups.
 Here is a cron job that launch a backup every day at 2am:
-`bash
-    0 2 * * * /r2devops/backup.sh
-    `
+```bash
+0 2 * * * /r2devops/backup.sh
+```
 It can be added to your crontab with the command `crontab -e`. Check more
 information about cron jobs
 [here](https://help.ubuntu.com/community/CronHowto).
+:::
 
 ### 🛳️ Restore
 
@@ -265,6 +267,7 @@ To restore a backup from scratch on a new system, follow this process:
    ./restore.sh <path_to_your_backup_file>
    ```
 
-!!! error "Any errors during the restore process ?"
+:::danger[Any errors during the restore process ?]
 Did you encounter a problem during the restore process ? See the
 [troubleshooting](/self-managed/troubleshooting) section.
+:::

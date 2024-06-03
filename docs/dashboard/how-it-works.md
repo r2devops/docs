@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# ❓ How it works
+# How it works
 
 ## Summary
 
