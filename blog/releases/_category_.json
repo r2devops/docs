@@ -1,0 +1,10 @@
+{
+    "position": 2.5,
+    "collapsible": true,
+    "collapsed": false,
+    "className": "red",
+    "link": {
+      "type": "generated-index",
+      "title": "Platform releases"
+    }
+  }

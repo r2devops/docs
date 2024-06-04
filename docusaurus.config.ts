@@ -37,14 +37,15 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/r2devops/docs/tree/main/',
         },
         blog: {
+          blogTitle: 'R2Devops Blog',
           showReadingTime: true,
-          // Please change this to your repo.
+          blogSidebarTitle: 'All blog posts',
+          blogSidebarCount: 'ALL',
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/r2devops/docs/tree/main/',
@@ -63,7 +64,7 @@ const config: Config = {
       // title: 'Documentation',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo-documentation.svg',
+        src: 'img/r2devops_logo.svg',
       },
       items: [
         {
@@ -73,35 +74,48 @@ const config: Config = {
           label: 'Documentation',
         },
         { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          href: 'https://github.com/r2devops/docs',
-          label: 'GitHub',
-          position: 'right',
-        },
+
       ],
     },
     footer: {
-      style: 'dark',
+      logo: {
+        alt: 'R2Devops Logo',
+        src: 'img/r2devops_logo.svg',
+        width: 160,
+        height: 51,
+      },
       links: [
         {
           title: 'Docs',
           items: [
             {
-              label: 'Documentation',
+              label: 'Introduction',
               to: '/docs/intro',
+            },
+            {
+              label: 'Self-managed',
+              to: '/docs/self-managed',
+            },
+            {
+              label: 'Marketplace',
+              to: '/docs/marketplace/use-templates',
+            },
+            {
+              label: 'Ambassador',
+              to: '/docs/ambassador',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Blog',
           items: [
             {
-              label: 'Discord',
-              href: 'https://discord.r2devops.io/',
+              label: 'All posts',
+              to: '/blog',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/r2devops_io',
+              label: 'Releases',
+              to: '/blog/tags/releases',
             },
           ],
         },
@@ -109,13 +123,21 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Discord',
+              href: 'https://discord.r2devops.io/',
             },
             {
               label: 'GitHub',
               href: 'https://github.com/r2devops/docs',
             },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/r2devops_io',
+            },
+            {
+              label: 'Open a support ticket',
+              href: 'https://tally.so/r/w5Edvw',
+            }
           ],
         },
       ],

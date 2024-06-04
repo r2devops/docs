@@ -7,7 +7,7 @@ This page describes how to create or update a template in the
 In order to contribute efficiently, we recommend you to know the following topics:
 
 - [x] [GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
-      :::
+:::
 
 :::tip
 If you are hesitant about which template to create/update, you can get inspired by our [pre-made template issues on GitLab](https://gitlab.com/r2devops/hub/-/issues?label_name%5B%5D=Contributing%3A%3AEasy+first+step) under the label `Easy first step`.

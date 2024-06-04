@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+slug: '/self-managed/docker-compose'
 ---
 
 # Docker compose

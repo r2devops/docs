@@ -1,3 +1,7 @@
+---
+slug: '/self-managed/kubernetes'
+---
+
 # Kubernetes
 
 This page describes how to run a self-managed instance of R2Devops on

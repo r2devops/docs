@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+slug: '/self-managed/docker-compose-custom-certs'
 ---
 
 # Docker compose with custom certifications
