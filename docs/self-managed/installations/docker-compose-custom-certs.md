@@ -1,4 +1,8 @@
-# Docker compose
+---
+sidebar_position: 3
+---
+
+# Docker compose with custom certifications
 
 This page describes how to setup a self-managed instance of R2Devops using
 **Docker-compose**.
@@ -78,23 +82,21 @@ In your `.env` file:
    LICENSE="<license-key>"
    ```
    :::
+
 ### 📄 Domain name
 
-1. Edit the `.env` file by updating value of `DOMAIN_NAME`, `CERTIFICATE_EMAIL`
-   and `JOBS_GITLAB_URL` variables
+1. Edit the `.env` file by updating value of `DOMAIN_NAME`, and
+   `JOBS_GITLAB_URL` variables
 
    ```bash title=".env" hl_lines="1-3"
    DOMAIN_NAME="r2devops.<domain_name>"
-   CERTIFICATE_EMAIL="<your_email>"
    JOBS_GITLAB_URL="https://<url_of_your_gitlab_instance>"
    ```
 
    ```bash title="Example with domain name 'mydomain.com'" hl_lines="1-3"
    DOMAIN_NAME="r2devops.mydomain.com"
-   CERTIFICATE_EMAIL="tech@mydomain.com"
    JOBS_GITLAB_URL="https://gitlab.mydomain.com"
    ```
-
 1. Edit the `.docker/r2devops/config.json` file by updating `apiUrl`,
    `apiUrlIdentities` and `gitLabApiUrl` parameters
 
@@ -108,9 +110,12 @@ In your `.env` file:
    }
    ```
 
-   ```bash title="Example with domain name 'mydomain.com'" hl_lines="1-3"
-   "apiUrl": "https://r2devops.mydomain.com/api",
-   "gitLabApiUrl": "https://gitlab.mydomain.com",
+   
+   ```bash title="Example with domain name 'mydomain.com'" hl_lines="3-5"
+   {
+       "apiUrl": "https://r2devops.mydomain.com/api",
+       "gitLabApiUrl": "https://gitlab.mydomain.com",
+   }
    ```
 
 1. Create DNS record
@@ -119,10 +124,6 @@ In your `.env` file:
    - Type: `A`
    - Content: `<your-server-public-ip>`
 
-:::info[Certificate]
-A certificate will be auto-generated using Let's encrypt at the application
-launch
-:::
 ### 🦊 GitLab OIDC
 
 R2Devops uses GitLab as an OAuth2 provider to authenticate users. Let's see how
@@ -170,6 +171,33 @@ sed -i."" "s/REPLACE_ME_BY_JOBS_REDIS_PASSWORD/$(openssl rand -hex 16)/g" .env
 sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
 ```
 
+### 📄 Configure certificate
+
+1. Generate your certificate
+
+   :::info 
+   - If you already have certificate or if you want to generate it using
+   your own process, you can directly go to step 2 - This step requires [certbot](https://github.com/certbot/certbot)
+
+   ```bash
+   certbot certonly --manual --preferred-challenges dns -d r2devops.<your_domain>
+   # Add DNS entry to solve DNS challenge
+   ```
+   :::
+1. Copy the fullchain and the private key
+
+   :::info
+   If you generated your certificates using certbot, they are located in
+   `/etc/letsencrypt/live/`
+
+   Replace path in commands below by the path of your certificate:
+
+   ```bash
+   cp path_to_r2devops_cert_fullchain .docker/traefik/certs/r2devops_fullchain.pem
+   cp path_to_r2devops_cert_privkey .docker/traefik/certs/r2devops_privkey.pem
+   ```
+   :::
+
 ### 🚀 Launch the application
 
 :::success[Congratulations]
@@ -180,16 +208,16 @@ You have successfully installed R2Devops on your server 🎉
 Run the following command to start the system:
 
 ```bash
-docker compose up -d
+docker compose -f compose.custom_certs.yml up -d
 ```
 :::
 
 :::info[Reconfigure]
 If you need to reconfigure some files and relaunch the application,
 after your updates you can simply run the command again to do so.
-```bash
-docker compose up -d
-```
+`bash
+    docker compose up -d
+    `
 :::
 
 :::note[What's next]
@@ -199,12 +227,12 @@ should give a try :
     - 📈 Learn how to use the platform by reading the
       [documentation](https://docs.r2devops.io)
     - 📕 Import your first job, here is the
-      [tutorial](/marketplace/manage-templates/#create-a-marketplace)
+      [tutorial](/get-started/manage-templates/#create-a-catalog)
 :::
 
 :::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
-[troubleshooting](/self-managed/troubleshooting) section.
+[troubleshooting](/docs/self-managed/troubleshooting) section.
 :::
 
 ## 🔄 Backup and restore
@@ -269,5 +297,5 @@ To restore a backup from scratch on a new system, follow this process:
 
 :::danger[Any errors during the restore process ?]
 Did you encounter a problem during the restore process ? See the
-[troubleshooting](/self-managed/troubleshooting) section.
+[troubleshooting](/docs/self-managed/troubleshooting) section.
 :::

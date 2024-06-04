@@ -38,11 +38,12 @@ and/or `Redis`. Both alternatives are detailed below.
 
 ### 📄 Domain name
 
-!!! info
+:::info
 You need a domain to run R2Devops. For example, if you have the domain name
 `mydomain.com`:
 
     - R2Devops URL will be `https://r2devops.mydomain.com`
+:::
 
 1. Create DNS record
 
@@ -86,9 +87,10 @@ Two examples are available at the end of this documentation:
 1. [Using only services embedded in the chart](#no-external-services)
 2. [Using only external services](#external-services)
 
-!!! note
+:::note
 For the following sections, we assume that your custom value file will be
 located in your current directory and be named `custom_values.yaml`
+:::
 
 #### 🔐 Secrets
 
@@ -158,10 +160,11 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
 
 1. Add license key (provided by R2Devops) and R2Devops domain
 
-   !!! info "License key"
+   :::info[License key]
    If you do not have a license key, you can let the variable
    `LICENSE` empty (`value: ""`). Your R2Devops instance will be
    limited to 5 projects.
+   :::
 
    ```yaml
    front:
@@ -207,14 +210,13 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
    worker:
      replicaCount: 10 # Default is 5. Increase it depending of your needs
    ```
-
 1. Add your GitLab instance domain and organization
 
-   !!! info "organization"
+   :::info[Organization]
    If you use a SaaS version of GitLab (like `gitlab.com`): add the name
    of your organization top-level group in `organization`. Else, let it
    empty
-
+   :::
    ```yaml
    gitlab:
      domain: 'https://gitlab.mydomain.com'
@@ -340,34 +342,38 @@ Run the following command:
 helm upgrade -n $R2DEVOPS_NS --install r2devops r2devops/r2devops -f custom_values.yaml
 ```
 
-!!! success "Congratulations"
+:::success[Congratulations]
 You have successfully installed R2Devops on your Kubernetes cluster 🎉
+:::
 
-!!! note "What's next"
+:::note[What's next]
 Now that you have finished this tutorial, here are some simple tasks you should give a try :
 
     - 📈 Learn how to use the platform by reading the [documentation](https://docs.r2devops.io)
     - 📕 Import your first job, here is the [tutorial](/get-started/manage-templates/#create-a-catalog)
+:::
 
-!!! error "Not the same behavior"
+:::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
-[troubleshooting](/self-managed/troubleshooting) section.
+[troubleshooting](/docs/self-managed/troubleshooting) section.
+:::
 
 ### 📚 Configuration example
 
-!!! info
+:::info
 The following examples run in a Kubernetes cluster using `nginx` as
 `ingressController`, `cert-manager` and a `clusterIssuer` named
-`letsencrypt-production`"
+`letsencrypt-production`
+:::
 
 #### 📦 No external services
 
 This is an example of custom `values.yaml` file using all services from chart
 dependencies.
 
-??? note "Example (to expand)"
+:::note[Example]
 
-````yaml
+```yaml
 front:
 host: "r2devops.mydomain.com"
 
@@ -411,14 +417,15 @@ host: "r2devops.mydomain.com"
         enabled: true
       auth:
         password: REDACTED
-    ```
+```
+:::
 
 #### 📥 External services
 
 This is an example of custom `values.yaml` file using external services for
 PostgreSQL and Redis.
 
-??? note "Example (to expand)"
+:::note[Example]
 ```yaml
 front:
 host: "r2devops.mydomain.com"
@@ -476,5 +483,5 @@ host: "r2devops.mydomain.com"
           -----BEGIN CERTIFICATE-----
           REDACTED
           -----END CERTIFICATE-----
-    ```
-````
+```
+:::

@@ -1,6 +1,6 @@
 ---
 id: self-managed
-slug: /category/self-managed
+slug: /self-managed
 sidebar_position: 1
 ---
 

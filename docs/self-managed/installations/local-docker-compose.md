@@ -1,15 +1,21 @@
+---
+sidebar_position: 4
+---
+
 # Local Docker compose
 
-!!! warning "Only for testing purposes on your local computer"
+:::warning[Only for testing purposes on your local computer]
 This page describes how to quickly setup a self-managed instance of
 R2Devops for **testing purposes** using Docker-compose on **your local
 computer**. This is not suitable for production
 
-    See production ready methods on [Home page](..)
+    See production ready methods on [Home page](/docs/self-managed/)
+:::
 
-!!! success "Data Confidentiality"
+:::success[Data Confidentiality]
 During the analysis, **no data leaves your environment**, ensuring the
 confidentiality and security of your information.
+:::
 
 ## 💻 Requirements
 
@@ -82,9 +88,10 @@ Preferences > Applications` (example:
 
 ## 🔐 (Optional) Add your license
 
-!!! info "License key"
+:::info[License key]
 If you do not have a license key, you can let the variable `LICENSE` empty
 (`value: ""`). Your R2Devops instance will be limited to 5 projects.
+:::
 
 Add your license key (provided by R2Devops): edit the `.env` file by updating
 value of `LICENSE` variable:
