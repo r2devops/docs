@@ -228,12 +228,12 @@ should give a try :
     - 📈 Learn how to use the platform by reading the
       [documentation](https://docs.r2devops.io)
     - 📕 Import your first job, here is the
-      [tutorial](/docs/marketplace/manage-templates/#create-a-catalog)
+      [tutorial](../marketplace/manage-templates/#create-a-catalog)
 :::
 
 :::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
-[troubleshooting](/docs/self-managed/troubleshooting) section.
+[troubleshooting](troubleshooting) section.
 :::
 
 ## 🔄 Backup and restore
@@ -298,5 +298,5 @@ To restore a backup from scratch on a new system, follow this process:
 
 :::danger[Any errors during the restore process ?]
 Did you encounter a problem during the restore process ? See the
-[troubleshooting](/docs/self-managed/troubleshooting) section.
+[troubleshooting](troubleshooting) section.
 :::

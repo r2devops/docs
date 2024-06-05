@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const organizationName = "r2devops";
 const projectName = "docs";
-const baseUrl = `/`;
+const baseUrl = `/${projectName}/`;
 
 const config: Config = {
   title: 'R2Devops documentation',
@@ -92,19 +92,19 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/docs/intro',
+              to: baseUrl + 'docs/intro',
             },
             {
               label: 'Self-managed',
-              to: '/docs/self-managed',
+              to: baseUrl + 'docs/self-managed',
             },
             {
               label: 'Marketplace',
-              to: '/docs/marketplace/use-templates',
+              to: baseUrl + 'docs/marketplace/use-templates',
             },
             {
               label: 'Ambassador',
-              to: '/docs/ambassador',
+              to: baseUrl + 'docs/ambassador',
             },
           ],
         },
@@ -113,11 +113,11 @@ const config: Config = {
           items: [
             {
               label: 'All posts',
-              to: '/blog',
+              to: baseUrl + 'blog',
             },
             {
               label: 'Releases',
-              to: '/blog/tags/releases',
+              to: baseUrl + 'blog/tags/releases',
             },
           ],
         },

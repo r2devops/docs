@@ -10,7 +10,7 @@ This page describes how to quickly setup a self-managed instance of
 R2Devops for **testing purposes** using Docker-compose on **your local
 computer**. This is not suitable for production
 
-    See production ready methods on [Home page](/docs/self-managed/)
+    See production ready methods on [Home page](./)
 :::
 
 :::success[Data Confidentiality]

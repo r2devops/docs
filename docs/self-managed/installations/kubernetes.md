@@ -354,12 +354,12 @@ You have successfully installed R2Devops on your Kubernetes cluster 🎉
 Now that you have finished this tutorial, here are some simple tasks you should give a try :
 
     - 📈 Learn how to use the platform by reading the [documentation](https://docs.r2devops.io)
-    - 📕 Import your first job, here is the [tutorial](/docs/marketplace/manage-templates/#create-a-catalog)
+    - 📕 Import your first job, here is the [tutorial](../marketplace/manage-templates/#create-a-catalog)
 :::
 
 :::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
-[troubleshooting](/docs/self-managed/troubleshooting) section.
+[troubleshooting](troubleshooting) section.
 :::
 
 ### 📚 Configuration example
