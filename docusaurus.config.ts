@@ -12,12 +12,12 @@ const config: Config = {
   url: 'https://r2devops.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'r2devops', // Usually your GitHub org/user name.
-  projectName: 'documentation', // Usually your repo name.
+  projectName: 'docs', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
@@ -63,7 +63,7 @@ const config: Config = {
     navbar: {
       // title: 'Documentation',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'R2Devops logo',
         src: 'img/r2devops_logo.svg',
       },
       items: [
