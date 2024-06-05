@@ -204,7 +204,7 @@ should give a try :
     - 📈 Learn how to use the platform by reading the
       [documentation](https://docs.r2devops.io)
     - 📕 Import your first job, here is the
-      [tutorial](/marketplace/manage-templates/#create-a-marketplace)
+      [tutorial](/docs/marketplace/manage-templates/#create-a-marketplace)
 :::
 
 :::danger[Not the same behavior]

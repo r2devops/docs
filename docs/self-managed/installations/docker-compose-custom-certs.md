@@ -228,7 +228,7 @@ should give a try :
     - 📈 Learn how to use the platform by reading the
       [documentation](https://docs.r2devops.io)
     - 📕 Import your first job, here is the
-      [tutorial](/get-started/manage-templates/#create-a-catalog)
+      [tutorial](/docs/marketplace/manage-templates/#create-a-catalog)
 :::
 
 :::danger[Not the same behavior]

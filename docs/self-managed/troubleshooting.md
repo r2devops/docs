@@ -11,7 +11,7 @@ Issues related to all installation methods
 This error occurs when the Redirect URL set for your GitLab application
 doesn't correspond to the `API_URL`. Please, ensure you write the correct
 URL as described in the [section
-OIDC](/self-hosted/installation/#create-an-application)
+OIDC](/docs/self-managed/docker-compose/#-gitlab-oidc)
 :::
 
 ## Kubernetes
@@ -44,6 +44,5 @@ default storage class or if you want to use a specific storage class you need to
 
 :::info[Don't find what you're looking for ?]
 Reach our support using the `#support` channel on [Discord](https://discord.r2devops.io)
-
-    You can also send an email to [support@r2devops.io](mailto:support@r2devops.io)
+You can also send an email to [support@r2devops.io](mailto:support@r2devops.io)
 :::

@@ -7,7 +7,7 @@ sidebar_position: 1
 # Self-managed Introduction
 
 This section describes how to setup your self-managed instance of R2Devops.
-To find out more about the application architecture, [read this](/docs/self-managed/architecture/).
+To find out more about the application architecture, [read this](/docs/self-managed/infrastructure/).
 
 Several methods are available:
 
