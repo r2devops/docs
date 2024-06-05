@@ -1,14 +1,14 @@
 ---
-title: Discover R2Devops' GitLab CI/CD Marketplace
+title: Discover R2Devops GitLab CI/CD Marketplace
 description: It's time to discover the ultimate place to find CI/CD templates for GitLab CI!
-tags: [R2Devops, GitLab, CI/CD, Marketplace, DevOps, Templates, Open Source, Collaboration, Quality Standard, Reusability, Maintainability, Observability, Inner Source]
+tags: [R2Devops, GitLab, CI/CD, Marketplace, Templates, Open Source, Maintainability, Inner Source]
 date: 2023-04-17
 ---
 <p hidden>#more</p>
 
 When it comes to implementing a continuous integration and continuous delivery (CI/CD) pipeline, developers are often faced with a plethora of options. However, finding a reliable and effective solution can be a daunting task. That's where [R2Devops](https://r2devops.io) comes in 🔥
 
-## What is R2Devops’ GitLab CI/CD Marketplace?
+## What is R2Devops GitLab CI/CD Marketplace?
 
 [R2Devops](https://r2devops.io) is an open source community that provides a marketplace of ready-to-use CI/CD templates for [GitLab](https://gitlab.com/). Our mission is to provide a collaborative space for developers to find, share and contribute to CI/CD templates. We propose the R2 standard which has the value of providing templates that are documented, versioned and configurable.
 
