@@ -23,7 +23,6 @@ const config: Config = {
   organizationName: 'r2devops', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   trailingSlash: false,
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
@@ -61,7 +60,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'docs/img/twitter_card.png',
+    image: 'img/twitter_card.png',
     navbar: {
       // title: 'Documentation',
       logo: {
@@ -152,7 +151,7 @@ const config: Config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'compliance, ci/cd, r2devops, security, maintainability, documentation, blog',
+        content: 'compliance, ci/cd, r2devops, security, documentation, blog',
       },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
@@ -176,7 +175,7 @@ const config: Config = {
           '@type': 'Organization',
           name: 'R2Devops documentation',
           url: 'https://docs.r2devops.io/',
-          logo: 'docs/img/twitter_card.png',
+          logo: 'img/twitter_card.png',
         }),
       },
     ],
