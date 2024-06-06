@@ -176,7 +176,7 @@ const config: Config = {
           '@type': 'Organization',
           name: 'R2Devops documentation',
           url: 'https://docs.r2devops.io/',
-          logo: 'img/twitter_card2.png',
+          logo: 'docs/img/twitter_card2.png',
         }),
       },
     ],
