@@ -53,30 +53,44 @@ function Feature({ title, img, href, description }: FeatureItem) {
       onClick={handleClick}
       className={clsx('col col--4 inner-shadow-hover')}
       style={{
-        backgroundColor: colorMode === 'dark' ? '#262626' : '#D9D9D9',
         color: colorMode === 'dark' ? '#F5F5F5' : '#262626',
         borderRadius: '10px',
         cursor: 'pointer',
         border: 'none',
+        padding: '4px',
+        background:
+          colorMode === 'dark'
+            ? 'linear-gradient(to right, rgb(151, 71, 255), #007c93, #00b1d2)'
+            : 'linear-gradient(to right, rgb(151, 71, 255), #007c93, #00b1d2 )',
       }}
     >
-      <div className="text--center">
-        <Heading as="h2" style={{ marginTop: '20px' }}>
-          {title}
-        </Heading>
+      <div
+        style={{
+          backgroundColor: colorMode === 'dark' ? '#262626' : '#F5F5F5',
+          paddingTop: '20px',
+          paddingBottom: '20px',
+          borderRadius: '10px',
+          height: '100%',
+        }}
+      >
+        <div className="text--center">
+          <Heading as="h2" style={{}}>
+            {title}
+          </Heading>
 
-        <img
-          style={{
-            maxWidth: '750px',
-            marginTop: '-40px',
-            marginBottom: '15px',
-          }}
-          className={styles.featureSvg}
-          src={img}
-        />
-      </div>
-      <div className="text--center padding-horiz--lg">
-        <p>{description}</p>
+          <img
+            style={{
+              maxWidth: '750px',
+              marginTop: '-40px',
+              marginBottom: '15px',
+            }}
+            className={styles.featureSvg}
+            src={img}
+          />
+        </div>
+        <div className="text--center padding-horiz--lg">
+          <p style={{ margin: 0 }}>{description}</p>
+        </div>
       </div>
     </button>
   );
@@ -86,7 +100,15 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row" style={{ justifyContent: 'center', gap: '3rem' }}>
+        <div
+          className="row"
+          style={{
+            justifyContent: 'center',
+            gap: '3rem',
+            marginLeft: '10px',
+            marginRight: '10px',
+          }}
+        >
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

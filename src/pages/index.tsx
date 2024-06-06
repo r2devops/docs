@@ -44,8 +44,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Welcome`}
+      description="Explore comprehensive guides on how to utilize the R2Devops platform, or delve into a wealth of content covering topics such as CI/CD, DevOps, and more."
     >
       <HomepageHeader />
       <main>

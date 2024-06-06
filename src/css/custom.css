@@ -69,10 +69,12 @@ html[data-theme='light'] pre {
 
 [data-theme='dark'] .inner-shadow-hover:hover {
   box-shadow: inset 0 0 10px #444444; /* Inner shadow for light theme */
+  scale: 1.025;
 }
 
 [data-theme='light'] .inner-shadow-hover:hover {
   box-shadow: inset 0 0 5px #242526; /* Inner shadow for light theme */
+  scale: 1.025;
 }
 
 [data-theme='dark'] .footer {
