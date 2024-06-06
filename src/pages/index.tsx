@@ -6,22 +6,11 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import r2devopsDashboard from '@site/static/img/r2devops_dashboard.png';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import { useColorMode } from '@docusaurus/theme-common';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const { colorMode, setColorMode } = useColorMode();
-  console.log(colorMode);
-
   return (
-    <header
-      className={clsx(styles.heroBanner)}
-      style={{
-        borderBottom:
-          colorMode === 'light' ? '2px solid #eaecef' : '1px solid #242526',
-      }}
-    >
+    <header className={clsx(styles.heroBanner, 'default-border-bottom')}>
       <div className="container">
         <Heading as="h1" className="hero__title" style={{ color: '#00b1d2' }}>
           {siteConfig.title}

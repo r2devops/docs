@@ -4,7 +4,6 @@ import styles from './styles.module.css';
 import r2doc from '@site/static/img/r2_doc.png';
 import r2blog from '@site/static/img/r2_blog.png';
 import { useHistory, useLocation } from '@docusaurus/router';
-import { useColorMode } from '@docusaurus/theme-common';
 
 type FeatureItem = {
   title: string;
@@ -47,13 +46,11 @@ function Feature({ title, img, href, description }: FeatureItem) {
   const handleClick = () => {
     history.push(href);
   };
-  const { colorMode, setColorMode } = useColorMode();
   return (
     <button
       onClick={handleClick}
       className={clsx('col col--4 inner-shadow-hover')}
       style={{
-        color: colorMode === 'light' ? '#262626' : '#F5F5F5',
         borderRadius: '10px',
         cursor: 'pointer',
         border: 'none',
@@ -62,15 +59,7 @@ function Feature({ title, img, href, description }: FeatureItem) {
           'linear-gradient(to right, rgb(151, 71, 255), #007c93, #00b1d2 )',
       }}
     >
-      <div
-        style={{
-          backgroundColor: colorMode === 'light' ? '#F5F5F5' : '#262626',
-          paddingTop: '20px',
-          paddingBottom: '20px',
-          borderRadius: '10px',
-          height: '100%',
-        }}
-      >
+      <div className="home-card">
         <div className="text--center">
           <Heading as="h2" style={{}}>
             {title}
