@@ -13,11 +13,15 @@ export default function Button({
   href,
   children,
   type = 'primary',
-  customStyles
+  customStyles,
 }: ButtonProps): JSX.Element {
   return (
     <div style={customStyles} className={styles.button}>
-      <Link style={{width: "100%"}} className={`button button--${type} button--lg`} to={href}>
+      <Link
+        style={{ width: '100%' }}
+        className={`button button--${type} button--lg`}
+        to={href}
+      >
         {children}
       </Link>
     </div>

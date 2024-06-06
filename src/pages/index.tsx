@@ -5,25 +5,36 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
+import r2devopsDashboard from '@site/static/img/r2devops_dashboard.png';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { useColorMode } from '@docusaurus/theme-common';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  const { colorMode, setColorMode } = useColorMode();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header
+      className={clsx(styles.heroBanner)}
+      style={{
+        borderBottom:
+          colorMode === 'dark' ? '1px solid #242526' : '2px solid #eaecef',
+      }}
+    >
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <Heading as="h1" className="hero__title" style={{ color: '#00b1d2' }}>
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
+
+        {/* <img style={{maxWidth: "750px"}} className={styles.featureSvg} src={r2devopsDashboard} /> */}
+        {/* <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to={"docs/intro"}
           >
             Docusaurus Tutorial - 5min ⏱️
           </Link>
-        </div>
+        </div> */}
       </div>
     </header>
   );

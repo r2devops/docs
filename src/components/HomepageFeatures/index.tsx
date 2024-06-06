@@ -1,57 +1,84 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import r2doc from '@site/static/img/r2_doc.png';
+import r2blog from '@site/static/img/r2_blog.png';
+import { useHistory, useLocation } from '@docusaurus/router';
+import { useColorMode } from '@docusaurus/theme-common';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  img: string;
+  href: string;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'R2Devops Documentation',
+    img: r2doc,
+    href: 'docs/intro',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Discover advanced CI/CD strategies with our R2Devops guides. Unlock
+        powerful features like the analysis dashboard, pipeline editor, and
+        CI/CD templates marketplace to streamline DevOps and boost security and
+        maintainability
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'R2Devops Blog',
+    img: r2blog,
+    href: 'blog/',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Your go-to resource for CI/CD, DevOps, maintainability, and security.
+        Access expert articles and tutorials to optimize your pipeline, use
+        advanced tools, and stay ahead in software development. Perfect for
+        beginners and pros alike
       </>
     ),
   },
 ];
 
-function Feature({ title, Svg, description }: FeatureItem) {
+function Feature({ title, img, href, description }: FeatureItem) {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push(href);
+  };
+  const { colorMode, setColorMode } = useColorMode();
   return (
-    <div className={clsx('col col--4')}>
+    <button
+      onClick={handleClick}
+      className={clsx('col col--4 inner-shadow-hover')}
+      style={{
+        backgroundColor: colorMode === 'dark' ? '#262626' : '#D9D9D9',
+        color: colorMode === 'dark' ? '#F5F5F5' : '#262626',
+        borderRadius: '10px',
+        cursor: 'pointer',
+        border: 'none',
+      }}
+    >
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Heading as="h2" style={{ marginTop: '20px' }}>
+          {title}
+        </Heading>
+
+        <img
+          style={{
+            maxWidth: '750px',
+            marginTop: '-40px',
+            marginBottom: '15px',
+          }}
+          className={styles.featureSvg}
+          src={img}
+        />
       </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+      <div className="text--center padding-horiz--lg">
         <p>{description}</p>
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -59,7 +86,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className="row" style={{ justifyContent: 'center', gap: '3rem' }}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
