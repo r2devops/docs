@@ -12,6 +12,8 @@ import { useColorMode } from '@docusaurus/theme-common';
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   const { colorMode, setColorMode } = useColorMode();
+  console.log(colorMode);
+  
   return (
     <header
       className={clsx(styles.heroBanner)}
