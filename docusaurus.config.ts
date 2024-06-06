@@ -61,7 +61,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/twitter_card.png',
+    image: 'docs/img/twitter_card.png',
     navbar: {
       // title: 'Documentation',
       logo: {
@@ -152,7 +152,7 @@ const config: Config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'compliance, ci/cd, r2devops, security, documentation, blog',
+        content: 'compliance, ci/cd, r2devops, security, maintainability, documentation, blog',
       },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
@@ -176,7 +176,7 @@ const config: Config = {
           '@type': 'Organization',
           name: 'R2Devops documentation',
           url: 'https://docs.r2devops.io/',
-          logo: 'docs/img/twitter_card2.png',
+          logo: 'docs/img/twitter_card.png',
         }),
       },
     ],
