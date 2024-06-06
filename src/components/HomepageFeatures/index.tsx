@@ -53,7 +53,7 @@ function Feature({ title, img, href, description }: FeatureItem) {
       onClick={handleClick}
       className={clsx('col col--4 inner-shadow-hover')}
       style={{
-        color: colorMode === 'dark' || !colorMode ? '#F5F5F5' : '#262626',
+        color: colorMode === 'light' ? '#262626' : '#F5F5F5',
         borderRadius: '10px',
         cursor: 'pointer',
         border: 'none',
@@ -64,8 +64,7 @@ function Feature({ title, img, href, description }: FeatureItem) {
     >
       <div
         style={{
-          backgroundColor:
-            colorMode === 'dark' || !colorMode ? '#262626' : '#F5F5F5',
+          backgroundColor: colorMode === 'light' ? '#F5F5F5' : '#262626',
           paddingTop: '20px',
           paddingBottom: '20px',
           borderRadius: '10px',

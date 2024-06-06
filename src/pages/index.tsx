@@ -13,15 +13,13 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   const { colorMode, setColorMode } = useColorMode();
   console.log(colorMode);
-  
+
   return (
     <header
       className={clsx(styles.heroBanner)}
       style={{
         borderBottom:
-          colorMode === 'dark' || !colorMode
-            ? '1px solid #242526'
-            : '2px solid #eaecef',
+          colorMode === 'light' ? '2px solid #eaecef' : '1px solid #242526',
       }}
     >
       <div className="container">
