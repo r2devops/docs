@@ -53,20 +53,19 @@ function Feature({ title, img, href, description }: FeatureItem) {
       onClick={handleClick}
       className={clsx('col col--4 inner-shadow-hover')}
       style={{
-        color: colorMode === 'dark' ? '#F5F5F5' : '#262626',
+        color: colorMode === 'dark' || !colorMode ? '#F5F5F5' : '#262626',
         borderRadius: '10px',
         cursor: 'pointer',
         border: 'none',
         padding: '4px',
         background:
-          colorMode === 'dark'
-            ? 'linear-gradient(to right, rgb(151, 71, 255), #007c93, #00b1d2)'
-            : 'linear-gradient(to right, rgb(151, 71, 255), #007c93, #00b1d2 )',
+          'linear-gradient(to right, rgb(151, 71, 255), #007c93, #00b1d2 )',
       }}
     >
       <div
         style={{
-          backgroundColor: colorMode === 'dark' ? '#262626' : '#F5F5F5',
+          backgroundColor:
+            colorMode === 'dark' || !colorMode ? '#262626' : '#F5F5F5',
           paddingTop: '20px',
           paddingBottom: '20px',
           borderRadius: '10px',

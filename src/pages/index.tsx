@@ -17,7 +17,9 @@ function HomepageHeader() {
       className={clsx(styles.heroBanner)}
       style={{
         borderBottom:
-          colorMode === 'dark' ? '1px solid #242526' : '2px solid #eaecef',
+          colorMode === 'dark' || !colorMode
+            ? '1px solid #242526'
+            : '2px solid #eaecef',
       }}
     >
       <div className="container">

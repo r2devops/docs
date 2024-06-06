@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const organizationName = "r2devops";
 const projectName = "docs";
-const baseUrl = `/${projectName}/`;
+const baseUrl = `/`;
 
 const config: Config = {
   title: 'R2Devops documentation',
