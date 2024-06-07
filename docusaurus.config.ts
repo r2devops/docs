@@ -60,7 +60,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/twitter_card.png',
+    image: 'https://pub-46d0a39071f847669783608fcac60dd2.r2.dev/social_card.png',
     navbar: {
       // title: 'Documentation',
       logo: {
@@ -175,7 +175,7 @@ const config: Config = {
           '@type': 'Organization',
           name: 'R2Devops documentation',
           url: 'https://docs.r2devops.io/',
-          logo: 'img/twitter_card.png',
+          logo: 'https://pub-46d0a39071f847669783608fcac60dd2.r2.dev/social_card.png',
         }),
       },
     ],
