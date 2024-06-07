@@ -40,13 +40,6 @@ export default function ReleaseLabels({
                       : 'release-label-activated'
                     : '',
                 )}
-                style={{
-                  color: licenses.includes(index)
-                    ? installType === 'SaaS' && selfManagedOnly
-                      ? undefined
-                      : '#F5F5F5'
-                    : undefined,
-                }}
               >
                 {licenses.includes(index) ? (
                   installType === 'SaaS' && selfManagedOnly ? (
