@@ -16,7 +16,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'R2Devops Documentation',
     img: r2doc,
-    href: 'docs/intro',
+    href: 'docs',
     description: (
       <>
         Discover advanced CI/CD strategies with our R2Devops guides. Unlock
