@@ -17,26 +17,7 @@ import Button from '@site/src/components/Button/Button.component';
 
 Follows these steps to setup your CI/CD pipeline in less than 5 minutes!
 
-1. If you haven't yet a `.gitlab-ci.yml` file in the root on your repository:
-   you can create it and use the following list of stages:
-
-   ```yaml
-   stages:
-     - build
-     - tests
-     - provision
-     - review
-     - release
-     - deploy
-     - others
-   ```
-
-:::info
-You can check the [stages](#stages) section to get more information about this list
-or if you already have a configuration with different stages.
-:::
-
-2. Select the templates you want in the [Marketplace](https://r2devops.io/marketplace) and append them in the
+1. Select the templates you want in the [Marketplace](https://r2devops.io/marketplace) and append them in the
    `include` list of your `.gitlab-ci.yml` file:
 
    ```yaml
@@ -50,10 +31,10 @@ or if you already have a configuration with different stages.
      - ...
    ```
 
-3. The templates can be customized 👉 check the [templates
-   customization](#templates-customization) section.
+2. The templates can be customized 👉 check the [templates
+   customization](#-templates-customization) section.
 
-4. Everything is ready! You can now benefit the full power of a CI/CD
+3. Everything is ready! You can now benefit the full power of a CI/CD
    pipeline 🎉🚀
 
    :::note
@@ -62,7 +43,7 @@ or if you already have a configuration with different stages.
    :::
 
 <Button href="https://r2devops.io/marketplace">
-  <span>See open-source marketplace 🚀</span>
+  <span>See Marketplace 🚀</span>
 </Button>
 
 ## 🤓 Pipeline examples
@@ -124,23 +105,6 @@ or if you already have a configuration with different stages.
     script:
       - make test
   ```
-
-## ▶ Stages
-
-By default, each templates from the marketplace is a part of on these stages:
-
-- **🧱 Build:** building and packaging of the software
-- **🔎 Tests:** testing your repository files with dynamic and static tests
-- **🛠 Provision:** preparation of the software infrastructure
-- **👌 Review:** deployment of the software in an isolated review environment
-- **🏷 Release:** releasing and tagging of the software
-- **🚀 Deploy:** deployment of the software on environments
-- **🦄 Others:** all other magic jobs not included in previous stages
-
-This is an efficient and simple workflow. Nevertheless, if you want to use your
-own custom stage list: you can re-declare yourself the stage of any template from
-the marketplace. Follow the [customization section](#templates-customization) to do it.
-
 ## 🔢 Versioning
 
 To retrieve a template version, choose among following syntaxes:
@@ -153,13 +117,13 @@ To retrieve a template version, choose among following syntaxes:
 ## 🔧 Templates customization
 
 :::info
-All the templates from the `r2devops/hub` specify a docker image to be run in a
+All the templates like the ones coming from the `r2devops/hub` specify a docker image to be run in a
 docker container.
 :::
 
 ### 🖌 Global
 
-Each templates of the hub can be customized. To do it, you have to include the template as usual and, in addition, override the options you want to customize.
+Some templates can be customized. To do it, you have to include the template as usual and, in addition, override the options you want to customize.
 
 :::tip
 This way, you can override all Gitlab templates parameters. All parameters

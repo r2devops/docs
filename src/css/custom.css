@@ -114,3 +114,26 @@ html[data-theme='light'] .home-card {
   background-color: #f5f5f5;
 }
 
+.release-label {
+  padding: 5px 15px;
+  border-radius: 1.5rem;
+  font-size: 0.8em;
+  border: 1px solid;
+  font-weight: 600;
+}
+
+html[data-theme='dark'] .release-label {
+  border-color: #444444;
+}
+
+html[data-theme='light'] .release-label {
+  border-color: #bababa;
+}
+
+html[data-theme='dark'] .release-label-activated {
+  background-color: rgba(0, 177, 210, 0.8);
+}
+
+html[data-theme='light'] .release-label-activated {
+  background-color: rgba(0, 177, 210, 1);
+}

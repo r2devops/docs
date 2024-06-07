@@ -1,37 +1,49 @@
-# R2Devops documentation
+# R2Devops Documentation
 
-This is the official R2Devops documentation, built with Docusaurus. It serves as a comprehensive guide to using the R2Devops platform, providing detailed instructions on installation, local development, building, and deployment. In addition to the technical documentation, it also features a blog section where you can find articles on a variety of topics related to CI/CD, DevOps, and more. Whether you're a new user or an experienced developer, this documentation is a valuable resource for understanding and making the most of the R2Devops platform.
+Welcome to the official R2Devops documentation. This resource, built with Docusaurus, serves as a comprehensive guide for using the R2Devops platform. It provides detailed instructions on installation, local development, building, and deployment. In addition to the technical documentation, we also feature a blog section where you can find articles on a variety of topics related to CI/CD, DevOps, and more. This documentation is a valuable resource for both new users and experienced developers looking to understand and maximize the potential of the R2Devops platform.
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator and it's using `@docusaurus/preset-classic` theme.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator, and utilizes the `@docusaurus/preset-classic` theme.
 
-## Documentation section
+## Documentation Section
 
-Everything you need to know about customizing the documentation sections is detailed in the [Docusaurus docs documentation](https://docusaurus.io/docs/docs-introduction)
+This section provides a step-by-step guide on how to create a new documentation page. For more advanced customization options, please refer to the [Docusaurus docs documentation](https://docusaurus.io/docs/docs-introduction).
 
-### Required when creating a new page
+### Creating a New Documentation Page
 
-1. Found the right folder, every folders is a section inside the documentation
-2. Create your page file inside it (The name will be the sub path in the url, if your create `my-page` in the `intro` folder, the url will be `intro/my-page`)
-3. You can use two types of file extension, `md` or `mdx`. Only use `mdx` when you need to put react component or html tags inside your markdown file
-4. Define the position of the page inside the sidebar with this configuration at the top of your file:
-    ```
+Follow these steps to create a new documentation page:
+
+1. **Identify the appropriate folder**: Each folder corresponds to a section within the documentation. Choose the one that best fits your new page.
+
+2. **Create your page file**: Within the chosen folder, create a new file. The filename will form part of the URL. For example, a file named `my-page` in the `intro` folder will result in the URL `intro/my-page`.
+
+3. **Choose the file extension**: Use `md` for standard markdown files. If your content includes React components or HTML tags, use `mdx`.
+
+4. **Set the sidebar position**: To define the page's position in the sidebar, add the following configuration at the top of your file:
+    ```markdown
     ---
     sidebar_position: 3
     ---
     ```
-5. Define a h1 title at the top of the file (in markdown it's like that: `# My title`), that will be the main title of your page that will be used as meta-data
+   Adjust the number to change the position as needed.
 
-## Blog section
+5. **Add a title**: Define a H1 title at the top of the file (in markdown, use `# My title`). This will be the main title of your page and will be used as metadata.
 
-Everything you need to know about customizing blog sections is detailed in the [Docusaurus blog documentation](https://docusaurus.io/docs/blog)
+## Blog Section
 
-### Required when creating a new page
+For detailed information on customizing blog sections, refer to the [Docusaurus blog documentation](https://docusaurus.io/docs/blog).
 
-1. If the page is a new `R2Devops release` you need to create a folder inside the [releases folder](./blog/releases/), this folder should have the name of the version. If it's not a `R2Devops release`, create a folder with the technical name of your blog article (The name will be the sub path in the url, if your create `my-folder-blog-page`, the url will be `my-folder-blog-page`)
-2. Create your page file inside this folder, the name of the page should always be `index.md` or `index.mdx`
-3. You can use two types of file extension, `md` or `mdx`. Only use `mdx` when you need to put react component or html tags inside your markdown file
-4. Define the meta-data of the page at the top of your file:
-    ```
+### Creating a New Page
+
+To create a new page, follow these steps:
+
+1. **Determine the type of page**: If the page is a new `R2Devops release`, create a folder within the [releases folder](./blog/releases/). The folder should be named after the version. For other blog articles, create a folder with a descriptive name. The folder name will form part of the URL. For example, a folder named `my-folder-blog-page` will result in the URL `my-folder-blog-page`.
+
+2. **Create the page file**: Within this folder, create a file named `index.md` or `index.mdx`.
+
+3. **Choose the file extension**: Use `md` for standard markdown files. If your content includes React components or HTML tags, use `mdx`.
+
+4. **Define the page metadata**: At the top of your file, include the following metadata:
+    ```markdown
     ---
     title: My awesome blog post
     description: Found information about all things awesome
@@ -40,9 +52,11 @@ Everything you need to know about customizing blog sections is detailed in the [
     date: 2023-04-14
     ---
     ```
-5. The `authors` attribute is defined inside the [authors file](./blog/authors.yml), if you need to create a new author, follow the same syntax than the existing ones
-6. Define a h1 title at the top of the file (in markdown it's like that: `# My title`), that will be the main title of your page that will be used as meta-data
-7. Blog article previews when visualizing all the blog articles should be manually defined, you just have the put this `<!-- truncate -->` where you want the preview of the blog post to stop
+5. **Specify the author**: The `authors` attribute should match an entry in the [authors file](./blog/authors.yml). If you need to add a new author, follow the existing syntax in the file.
+
+6. **Add a title**: Define a H1 title at the top of the file (in markdown, use `# My title`). This will be the main title of your page and will be used as metadata.
+
+7. **Set the preview point**: To define where the preview of the blog post ends when viewing all blog articles, insert `<!-- truncate -->` at the desired cutoff point.
 
 ## Local Development
 
