@@ -28,6 +28,8 @@ Follow these steps to create a new documentation page:
 
 5. **Add a title**: Define a H1 title at the top of the file (in markdown, use `# My title`). This will be the main title of your page and will be used as metadata.
 
+6. **Adding Images**: If your documentation requires images, create a directory named `img` in the same location as your documentation page. Use this directory to store and manage all the necessary images.
+
 ## Blog Section
 
 For detailed information on customizing blog sections, refer to the [Docusaurus blog documentation](https://docusaurus.io/docs/blog).
@@ -57,6 +59,23 @@ To create a new page, follow these steps:
 6. **Add a title**: Define a H1 title at the top of the file (in markdown, use `# My title`). This will be the main title of your page and will be used as metadata.
 
 7. **Set the preview point**: To define where the preview of the blog post ends when viewing all blog articles, insert `<!-- truncate -->` at the desired cutoff point.
+
+8. **For Release Notes**: When listing features in a release note, it's important to indicate their availability based on the R2Devops instance (SaaS or Self-managed) and license type (Free, Small Business, Enterprise). To do this, implement a React component after the feature title. Here are some examples:
+
+    | Example: A feature only available with the ENTERPRISE license on a Self-managed instance
+    ```mdx
+    ## 🔍 Enhanced CI/CD Compliance
+
+    <ReleaseLabels licenses={[2]} selfManagedOnly />
+    ```
+
+    | Example: A feature available for all cases
+    ```mdx "Example: A feature available for all cases"
+    ## 📚 Streamlined Dashboard Documentation & New Certifications Section
+
+    <ReleaseLabels licenses={[ 0, 1, 2 ]} />
+    ```
+
 
 ## Local Development
 
