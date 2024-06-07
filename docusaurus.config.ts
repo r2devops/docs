@@ -1,23 +1,28 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const organizationName = "r2devops";
+const projectName = "docs";
+const baseUrl = `/`;
+
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'R2Devops documentation',
+  tagline:
+    'Protect your Software Supply Chain with R2Devops! Stay informed with real-time CI/CD tracking, detect CVEs and ensure pipelines compliance',
+  favicon: 'img/logo-documentation.svg',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: `https://${organizationName}.github.io`,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
+  organizationName: 'r2devops', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
@@ -28,24 +33,23 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  plugins: [require.resolve('docusaurus-lunr-search')],
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
         },
         blog: {
+          blogTitle: 'R2Devops Blog',
           showReadingTime: true,
-          // Please change this to your repo.
+          blogSidebarTitle: 'All blog posts',
+          blogSidebarCount: 'ALL',
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -56,54 +60,63 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'https://pub-46d0a39071f847669783608fcac60dd2.r2.dev/social_card.png',
     navbar: {
-      title: 'My Site',
+      // title: 'Documentation',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'R2Devops logo',
+        src: 'img/r2devops_logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        { to: '/blog', label: 'Blog', position: 'left' },
+
       ],
     },
     footer: {
-      style: 'dark',
+      logo: {
+        alt: 'R2Devops Logo',
+        src: 'img/r2devops_logo.svg',
+        width: 160,
+        height: 51,
+      },
       links: [
         {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Introduction',
+              to: baseUrl + 'docs/intro',
+            },
+            {
+              label: 'Self-managed',
+              to: baseUrl + 'docs/self-managed',
+            },
+            {
+              label: 'Marketplace',
+              to: baseUrl + 'docs/marketplace/use-templates',
+            },
+            {
+              label: 'Ambassador',
+              to: baseUrl + 'docs/ambassador',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Blog',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'All posts',
+              to: baseUrl + 'blog',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Releases',
+              to: baseUrl + 'blog/tags/releases',
             },
           ],
         },
@@ -111,25 +124,36 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Discord',
+              href: 'https://discord.r2devops.io/',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/r2devops/docs',
             },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/r2devops_io',
+            },
+            {
+              label: 'Open a support ticket',
+              href: 'https://tally.so/r/w5Edvw',
+            }
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} R2Devops.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
     metadata: [
-      {name: 'keywords', content: 'compliance, ci/cd, r2devops, security, documentation, blog'},
-      {name: 'twitter:card', content: 'summary_large_image'},
+      {
+        name: 'keywords',
+        content: 'compliance, ci/cd, r2devops, security, documentation, blog',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     headTags: [
       // Declare a <link> preconnect tag
@@ -149,9 +173,9 @@ const config: Config = {
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org/',
           '@type': 'Organization',
-          name: 'Meta Open Source',
-          url: 'https://opensource.fb.com/',
-          logo: 'https://opensource.fb.com/img/logos/Meta-Open-Source.svg',
+          name: 'R2Devops documentation',
+          url: 'https://docs.r2devops.io/',
+          logo: 'https://pub-46d0a39071f847669783608fcac60dd2.r2.dev/social_card.png',
         }),
       },
     ],

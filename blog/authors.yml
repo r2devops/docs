@@ -1,17 +1,22 @@
-endi:
-  name: Endilie Yacop Sucipto
-  title: Maintainer of Docusaurus
-  url: https://github.com/endiliey
-  image_url: https://github.com/endiliey.png
+# slorber:
+#   name: Sébastien Lorber
+#   title: Docusaurus maintainer
+#   url: https://sebastienlorber.com
+#   image_url: https://github.com/slorber.png
 
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+r2devops:
+  name: R2Devops
+  url: https://r2devops.io
+  image_url: './R2.svg'
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+aurelien_coget:
+  name: Aurélien Coget
+  title: CEO & Co-Founder of R2Devops
+  url: https://www.linkedin.com/in/aurelien-coget/
+  image_url: https://media.licdn.com/dms/image/C4D03AQGtb7LRbaxK9A/profile-displayphoto-shrink_800_800/0/1548230201587?e=1723075200&v=beta&t=wn66bNp7n5gOI_FdL4cp6gMaZmK9AhcysGjMS72EUOY
+
+thomas_boni:
+  name: Thomas Boni
+  title: CTO & Co-Founder of R2Devops
+  url: https://www.linkedin.com/in/bonithomas/
+  image_url: https://media.licdn.com/dms/image/C4E03AQHQCR-mAbi4Xw/profile-displayphoto-shrink_400_400/0/1658992905632?e=1723075200&v=beta&t=fQ--M6fMBDCG-eq2-6xHoaJSTbbGTWsisg1MoOuAGh8
