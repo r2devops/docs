@@ -91,7 +91,7 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: baseUrl + 'docs/intro',
+              to: baseUrl + 'docs',
             },
             {
               label: 'Self-managed',
