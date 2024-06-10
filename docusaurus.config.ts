@@ -13,7 +13,7 @@ const config: Config = {
   favicon: 'img/logo-documentation.svg',
 
   // Set the production url of your site here
-  url: `https://${organizationName}.github.io`,
+  url: `https://docs.${organizationName}.io`,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl,
@@ -161,7 +161,7 @@ const config: Config = {
         tagName: 'link',
         attributes: {
           rel: 'preconnect',
-          href: 'https://example.com',
+          href: 'https://docs.r2devops.io',
         },
       },
       // Declare some json-ld structured data
