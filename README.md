@@ -75,6 +75,14 @@ To create a new page, follow these steps:
 
     <ReleaseLabels licenses={[ 0, 1, 2 ]} />
     ```
+    You also have to introduce the component `<ReleaseBottomButton />` at the end of every releases which is a CTA to test the platform, introduce it like this:
+
+    ```mdx
+    ...Your release note content
+    -----
+
+    <ReleaseBottomButton />
+    ```
 
 
 ## Local Development
