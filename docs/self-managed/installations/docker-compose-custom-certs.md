@@ -3,7 +3,7 @@ sidebar_position: 3
 slug: '/self-managed/docker-compose-custom-certs'
 ---
 
-# Docker compose with custom certifications
+# Docker compose with custom certificates
 
 This page describes how to setup a self-managed instance of R2Devops using
 **Docker-compose**.
