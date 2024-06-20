@@ -227,11 +227,15 @@ git pull           # Pull the latest changes from the repository into your direc
 
 ### 2. Update Your `.env` File
 
-Update the `Frontend` and `Backend` versions in your `.env` file as follows:
+To update the `Frontend` and `Backend` versions in your `.env` file, follow these steps:
+
+1. Open your `.env.example` file.
+2. Locate and copy the new versions of `FRONTEND_IMAGE_TAG` and `BACKEND_IMAGE_TAG`.
+3. Open your `.env` file and update the same variables with the new versions:
 
 ```sh
-FRONTEND_IMAGE_TAG="v1.35.0"
-BACKEND_IMAGE_TAG="v1.39.0"
+FRONTEND_IMAGE_TAG="NEW_FRONTEND_VERSION" # For example, v1.35.0
+BACKEND_IMAGE_TAG="NEW_BACKEND_VERSION" # For example, v1.39.0
 ```
 
 ### 3. Restart Your Containers
