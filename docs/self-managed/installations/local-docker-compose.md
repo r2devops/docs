@@ -131,8 +131,8 @@ To update the `Frontend` and `Backend` versions in your `.env` file, follow thes
 3. Open your `.env` file and update the same variables with the new versions:
 
 ```sh
-FRONTEND_IMAGE_TAG="NEW_FRONTEND_VERSION" # For example, v1.35.0
-BACKEND_IMAGE_TAG="NEW_BACKEND_VERSION" # For example, v1.39.0
+FRONTEND_IMAGE_TAG="<new_frontend_version>" # For example, v1.35.0
+BACKEND_IMAGE_TAG="<new_backend_version>" # For example, v1.39.0
 ```
 
 3. **Restart Your Containers**
