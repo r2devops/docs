@@ -240,35 +240,35 @@ Did you encounter a problem during the installation process ? See the
 
 Follow these steps to update your self-managed instance with the latest features
 
-### 1. Update the [`self-managed`](https://github.com/r2devops/self-managed/) Git Repository
+1. **Update the [`self-managed`](https://github.com/r2devops/self-managed/) Git Repository**
 
-Navigate to the location of your [`self-managed`](https://github.com/r2devops/self-managed/) repository and execute the following commands:
+   Navigate to the location of your [`self-managed`](https://github.com/r2devops/self-managed/) repository and execute the following commands:
 
-```sh
-git fetch          # Fetch the latest changes from the repository
-git pull           # Pull the latest changes from the repository into your directory
-```
+   ```sh
+   git fetch          # Fetch the latest changes from the repository
+   git pull           # Pull the latest changes from the repository into your directory
+   ```
 
-### 2. Update Your `.env` File
+2. **Update Your `.env` File**
 
-To update the `Frontend` and `Backend` versions in your `.env` file, follow these steps:
+   To update the `Frontend` and `Backend` versions in your `.env` file, follow these steps:
 
-1. Open your `.env.example` file.
-2. Locate and copy the new versions of `FRONTEND_IMAGE_TAG` and `BACKEND_IMAGE_TAG`.
-3. Open your `.env` file and update the same variables with the new versions:
+   1. Open your `.env.example` file.
+   2. Locate and copy the new versions of `FRONTEND_IMAGE_TAG` and `BACKEND_IMAGE_TAG`.
+   3. Open your `.env` file and update the same variables with the new versions:
 
-```sh
-FRONTEND_IMAGE_TAG="<new_frontend_version>" # For example, v1.35.0
-BACKEND_IMAGE_TAG="<new_backend_version>" # For example, v1.39.0
-```
+   ```sh
+   FRONTEND_IMAGE_TAG="<new_frontend_version>" # For example, v1.35.0
+   BACKEND_IMAGE_TAG="<new_backend_version>" # For example, v1.39.0
+   ```
 
-### 3. Restart Your Containers
+3. **Restart Your Containers**
 
-To apply the latest changes, restart your containers by executing the following command:
+   To apply the latest changes, restart your containers by executing the following command:
 
-```sh
-docker compose up -d
-```
+   ```sh
+   docker compose up -d
+   ```
 
 ## 🔄 Backup and restore
 
