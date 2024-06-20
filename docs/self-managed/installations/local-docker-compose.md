@@ -119,9 +119,7 @@ Navigate to the location of your [`self-managed`](https://github.com/r2devops/se
 
 ```sh
 git fetch          # Fetch the latest changes from the repository
-git stash          # Stash your current changes to save them during the repository update
 git pull           # Pull the latest changes from the repository into your directory
-git stash pop      # Restore your stashed changes
 ```
 
 2. **Update Your `.env` File***
@@ -131,12 +129,6 @@ Update the `Frontend` and `Backend` versions in your `.env` file as follows:
 ```sh
 FRONTEND_IMAGE_TAG="v1.35.0"
 BACKEND_IMAGE_TAG="v1.39.0"
-```
-
-Optionally, update the `License` value:
-
-```sh
-LICENSE="NEW_LICENSE"
 ```
 
 3. **Restart Your Containers**
