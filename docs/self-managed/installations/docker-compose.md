@@ -212,6 +212,44 @@ Did you encounter a problem during the installation process ? See the
 [troubleshooting](troubleshooting) section.
 :::
 
+## ⏫ Update
+
+Follow these steps to update your self-managed instance with the latest features
+
+### 1. Update the [`self-managed`](https://github.com/r2devops/self-managed/) Git Repository
+
+Navigate to the location of your [`self-managed`](https://github.com/r2devops/self-managed/) repository and execute the following commands:
+
+```sh
+git fetch          # Fetch the latest changes from the repository
+git stash          # Stash your current changes to save them during the repository update
+git pull           # Pull the latest changes from the repository into your directory
+git stash pop      # Restore your stashed changes
+```
+
+### 2. Update Your `.env` File
+
+Update the `Frontend` and `Backend` versions in your `.env` file as follows:
+
+```sh
+FRONTEND_IMAGE_TAG="v1.35.0"
+BACKEND_IMAGE_TAG="v1.39.0"
+```
+
+Optionally, update the `License` value:
+
+```sh
+LICENSE="NEW_LICENSE"
+```
+
+### 3. Restart Your Containers
+
+To apply the latest changes, restart your containers by executing the following command:
+
+```sh
+docker compose up -d
+```
+
 ## 🔄 Backup and restore
 
 Data required to fully backup and restore a R2Devops system are the following:
