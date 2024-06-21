@@ -1,0 +1,41 @@
+---
+title: 1.40 Release
+description: This release introduces a CI/CD policies issues table.
+tags: [Releases, Policies, Analysis]
+date: 2024-06-21
+---
+
+# R2Devops 1.40 Release
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ReleaseBottomButton from '@site/src/components/ReleaseBottomButton/ReleaseBottomButton.component';
+import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.component';
+
+:::info Docker Image Versions
+- Backend: `v1.39.0`
+- Frontend: `v1.36.0`
+- Helm chart: `v1.40.0`
+:::
+
+<!--truncate-->
+
+## 📋 CI/CD Policies Issues
+
+<ReleaseLabels licenses={[0, 1, 2]} />
+
+
+:::info[What is the 'CI/CD Policies Issues'?]
+    It's a summary of the CI/CD issues detected in projects during the analysis
+:::
+
+The main view of the dashboard now displays a table of issues related to CI/CD policies, allowing you to:
+
+- Quickly identify issues
+- Easily navigate to see more details
+- Take action to resolve the issues
+
+![CI/CD Policies Issues table](./policies_issues.gif)
+
+-----
+
+<ReleaseBottomButton />
