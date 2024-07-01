@@ -489,3 +489,15 @@ host: "r2devops.mydomain.com"
           -----END CERTIFICATE-----
 ```
 :::
+
+## ⏫ Update
+
+1. Update R2Devops Helm repository
+    ```sh
+    helm repo update
+    ```
+1. Run the helm upgrade
+    ```sh
+    helm upgrade -n $R2DEVOPS_NS --install r2devops r2devops/r2devops -f custom_values.yaml
+    ```
+1. You have successfully updated R2Devops 🎉
