@@ -175,6 +175,13 @@ sed -i."" "s/REPLACE_ME_BY_JOBS_REDIS_PASSWORD/$(openssl rand -hex 16)/g" .env
 sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
 ```
 
+### 📋 (Optional) Add your custom CA
+
+If your GitLab instance is using a TLS certificate signed with your own
+Certificate authority (CA):
+
+1. Add the CA certificate file in `.docker/ca-certificates`
+
 ### 🚀 Launch the application
 
 :::success[Congratulations]

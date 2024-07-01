@@ -199,6 +199,14 @@ sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
    ```
    :::
 
+### 📋 (Optional) Add your custom CA
+
+If your GitLab instance and/or R2Devops are using a TLS certificate signed with
+your own Certificate authority (CA):
+
+1. Add the CA certificate file in `.docker/ca-certificates`
+
+
 ### 🚀 Launch the application
 
 :::success[Congratulations]
