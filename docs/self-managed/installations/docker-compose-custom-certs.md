@@ -111,7 +111,7 @@ In your `.env` file:
    }
    ```
 
-   
+
    ```bash title="Example with domain name 'mydomain.com'" hl_lines="3-5"
    {
        "apiUrl": "https://r2devops.mydomain.com/api",
@@ -176,7 +176,7 @@ sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
 
 1. Generate your certificate
 
-   :::info 
+   :::info
    - If you already have certificate or if you want to generate it using
    your own process, you can directly go to step 2 - This step requires [certbot](https://github.com/certbot/certbot)
 
@@ -216,9 +216,9 @@ docker compose -f compose.custom_certs.yml up -d
 :::info[Reconfigure]
 If you need to reconfigure some files and relaunch the application,
 after your updates you can simply run the command again to do so.
-`bash
-    docker compose up -d
-    `
+```bash
+docker compose -f compose.custom_certs.yml up -d
+```
 :::
 
 :::note[What's next]
@@ -238,37 +238,27 @@ Did you encounter a problem during the installation process ? See the
 
 ## ⏫ Update
 
-Follow these steps to update your self-managed instance with the latest features
+Follow these steps to update your self-managed instance to a new version:
 
-1. **Update the [`self-managed`](https://github.com/r2devops/self-managed/) Git Repository**
-
-   Navigate to the location of your [`self-managed`](https://github.com/r2devops/self-managed/) repository and execute the following commands:
-
+1. Navigate to the location of your
+   [`self-managed`](https://github.com/r2devops/self-managed/) git repository
+1. Update it
    ```sh
-   git fetch          # Fetch the latest changes from the repository
-   git pull           # Pull the latest changes from the repository into your directory
+   git pull
    ```
-
-2. **Update Your `.env` File**
-
-   To update the `Frontend` and `Backend` versions in your `.env` file, follow these steps:
-
-   1. Open your `.env.example` file.
-   2. Locate and copy the new versions of `FRONTEND_IMAGE_TAG` and `BACKEND_IMAGE_TAG`.
-   3. Open your `.env` file and update the same variables with the new versions:
-
+1. Open the `.env.example` file and copy the values of  `FRONTEND_IMAGE_TAG`
+   and `BACKEND_IMAGE_TAG` variables
+1. Edit the `.env` file by updating values of `FRONTEND_IMAGE_TAG` and
+   `BACKEND_IMAGE_TAG` variables with the values previously copied
+   ```sh title=".env" hl_lines="1-2"
+   FRONTEND_IMAGE_TAG="new frontend version>"
+   BACKEND_IMAGE_TAG="<new backend version>"
+   ```
+1. Restart your containers
    ```sh
-   FRONTEND_IMAGE_TAG="<new_frontend_version>" # For example, v1.35.0
-   BACKEND_IMAGE_TAG="<new_backend_version>" # For example, v1.39.0
+   docker compose -f compose.custom_certs.yml up -d
    ```
-
-3. **Restart Your Containers**
-
-   To apply the latest changes, restart your containers by executing the following command:
-
-   ```sh
-   docker compose up -d
-   ```
+1. You have successfully updated R2Devops on your server 🎉
 
 ## 🔄 Backup and restore
 
