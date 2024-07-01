@@ -199,6 +199,13 @@ sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
    ```
    :::
 
+### 📋 (Optional) Add your custom CA
+
+If your GitLab instance and/or R2Devops are using a TLS certificate signed with
+your own Certificate authority (CA):
+
+- Add the CA certificate file in `.docker/ca-certificates`
+
 ### 🚀 Launch the application
 
 :::success[Congratulations]
@@ -251,7 +258,7 @@ Follow these steps to update your self-managed instance to a new version:
 1. Edit the `.env` file by updating values of `FRONTEND_IMAGE_TAG` and
    `BACKEND_IMAGE_TAG` variables with the values previously copied
    ```sh title=".env" hl_lines="1-2"
-   FRONTEND_IMAGE_TAG="new frontend version>"
+   FRONTEND_IMAGE_TAG="<new frontend version>"
    BACKEND_IMAGE_TAG="<new backend version>"
    ```
 1. Restart your containers
