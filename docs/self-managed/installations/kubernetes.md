@@ -88,8 +88,8 @@ This section describes how to configure your custom values file. The default
 [here](https://github.com/r2devops/self-managed/blob/main/charts/r2devops/values.yaml).
 Two examples are available at the end of this documentation:
 
-1. [Using only services embedded in the chart](#no-external-services)
-2. [Using only external services](#external-services)
+1. [Using only services embedded in the chart](#-no-external-services)
+2. [Using only external services](#-external-services)
 
 :::note
 For the following sections, we assume that your custom value file will be
@@ -354,12 +354,12 @@ You have successfully installed R2Devops on your Kubernetes cluster 🎉
 Now that you have finished this tutorial, here are some simple tasks you should give a try :
 
     - 📈 Learn how to use the platform by reading the [documentation](https://docs.r2devops.io)
-    - 📕 Import your first job, here is the [tutorial](../marketplace/manage-templates/#create-a-catalog)
+    - 📕 Import your first template, here is the [tutorial](../../marketplace/manage-templates.mdx#-create-a-marketplace)
 :::
 
 :::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
-[troubleshooting](troubleshooting) section.
+[troubleshooting](../troubleshooting.md) section.
 :::
 
 ### 📚 Configuration example

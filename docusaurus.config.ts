@@ -22,7 +22,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'r2devops', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
-  trailingSlash: false,
+  trailingSlash: undefined,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
