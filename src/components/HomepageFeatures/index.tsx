@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'R2Devops Blog',
     img: r2blog,
-    href: 'blog/',
+    href: 'blog',
     description: (
       <>
         Your go-to resource for CI/CD, DevOps, maintainability, and security.
