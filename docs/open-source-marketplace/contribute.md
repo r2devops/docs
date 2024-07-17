@@ -91,14 +91,14 @@ Before merging it into the hub, you should test it deeply to be sure it works as
             - remote : 'https://gitlab.com/<project>/-/raw/<hash>/templates/<template_name>/<template_name>.yml'
           ```
           Add, commit and push your modifications and check the result of the pipeline on Git Lab, under CI/CD > Pipelines.
-          After the merge request approval, you can remote it directly from the hub, check the [quick use section](../marketplace/use-templates).
+          After the merge request approval, you can remote it directly from the hub, check the [quick use section](../marketplace/use-templates.mdx).
 
 2.  Test the behaviour of your template 🎲
     - If you're creating a template from one of the [hub's issue](https://gitlab.com/r2devops/hub/-/issues), there should be at least one scenario. Test each scenario separately and ensure the pipeline succeed.
     - If you're creating a template on your own, think of each case, your template should be the most generic as possible.
 
 :::note
-👉 You can customize it with [variables](contribute/#-template-definition)
+👉 You can customize it with [variables](#-template-definition)
 :::
 
 ### 🚀 Step 4: Merge request
@@ -258,7 +258,7 @@ Variables
 #### 🐳 Docker image
 
 :::info
-As described in [our guidelines](#guidelines), all templates are run inside a
+As described in [our guidelines](#guidelines-required), all templates are run inside a
 container instance, so they must specify the Docker image to use. Depending on
 your template, it can be tricky to find the perfect image.
 :::
@@ -403,13 +403,13 @@ The templates of the hub should remain as generic as possible. In order to ensur
 
 :::info
 The templates of the hub can be dynamically
-[customized](../marketplace/use-templates/#templates-customization) by users.
+[customized](../marketplace/use-templates.mdx#-templates-customization) by users.
 :::
 
 ### 📖 Template documentation
 
 As described in [R2Devops/hub template
-structure](../marketplace/manage-templates/#template-documentation), the documentation of a template is
+structure](../marketplace/manage-templates.mdx#-template-documentation), the documentation of a template is
 written inside its `README.md` file.
 
 :::tip

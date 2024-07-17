@@ -100,14 +100,18 @@ In your `.env` file:
    ```
 1. Edit the `.docker/r2devops/config.json` file by updating `apiUrl`,
    `apiUrlIdentities` and `gitLabApiUrl` parameters
-
+   :::warning
+     Set `allowExternalQueries` to `false` if you want to prevent R2Devops from initiating queries to sources other than `backend` and `GitLab`.
+   :::
    ```bash hl_lines="3-5"
    {
        "appTitle": "R2Devops",
        "apiUrl": "https://r2devops.<domain_name>/api",
        "gitLabApiUrl": "https://<gitlab_intance_domain>",
        "selfHosted": true,
-       "docUrl": "https://docs.r2devops.io"
+       "docUrl": "https://docs.r2devops.io",
+       "debug": false,
+       "allowExternalQueries": true
    }
    ```
 
@@ -235,12 +239,12 @@ should give a try :
     - 📈 Learn how to use the platform by reading the
       [documentation](https://docs.r2devops.io)
     - 📕 Import your first job, here is the
-      [tutorial](../marketplace/manage-templates/#create-a-catalog)
+      [tutorial](../marketplace/manage-templates/#-create-a-marketplace)
 :::
 
 :::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
-[troubleshooting](troubleshooting) section.
+[troubleshooting](../troubleshooting.md) section.
 :::
 
 ## ⏫ Update
@@ -312,7 +316,7 @@ information about cron jobs
 To restore a backup from scratch on a new system, follow this process:
 
 1. Be sure that your new system is compliant with
-   [requirements](#requirements)
+   [requirements](#-requirements)
 1. Copy the backup file on your new server
 1. Clone the installation repository
    ```bash
@@ -329,5 +333,5 @@ To restore a backup from scratch on a new system, follow this process:
 
 :::danger[Any errors during the restore process ?]
 Did you encounter a problem during the restore process ? See the
-[troubleshooting](troubleshooting) section.
+[troubleshooting](../troubleshooting.md) section.
 :::
