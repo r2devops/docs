@@ -11,7 +11,7 @@ date: 2023-05-12
 
 <!-- TODO: Add the VSCode extension link -->
 
-Last week at R2Devops, I had the chance of writing a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=r2devops.template-picker-extension). Its purpose is to display the Public Marketplace of R2Devops once a `.gitlab-ci.yml` file is opened. This article will describe the process of creating a VSCode extension that shows a React Webview. 
+Last week at R2Devops, I had the chance of writing a VSCode extension. Its purpose is to display the Public Marketplace of R2Devops once a `.gitlab-ci.yml` file is opened. This article will describe the process of creating a VSCode extension that shows a React Webview. 
  
 ### Writing a VSCode extension
 
@@ -164,8 +164,6 @@ The `_getWebViewContent` method is crucial as it provides the HTML representatio
 
 ```
 
-The complete file could be found [here](https://gitlab.com/r2devops/hub/-/merge_requests/446#note_1305283448), with the other methods that are specific to our use case.
-
 Now that we have defined our WebView and the extension, we should exchange message between them.
 
 ### Link the extension and the Webview
@@ -217,10 +215,6 @@ You can find more detailed information about the tool on the [official documenta
 
 In summary, we created a VSCode extension that displays the R2Devops Public Templates Marketplace in a Sidebar using a webview built with React and the Webview UI Toolkit. We used the VSCode API to link the webview and the extension and showed notifications based on events. 
 
-The final step, and not the easiest, was to find a name and publish the extension. The choice remains for **Templates Picker !**
-
-The extension is now available on the [Microsoft Marketplace](https://marketplace.visualstudio.com/items?itemName=r2devops.template-picker-extension) 👀
-
-And below you can find the final project hosted on GitLab:
+Below you can find the final project hosted on GitLab:
 
 [R2Devops / Template picker](https://gitlab.com/r2devops/template-picker/)
