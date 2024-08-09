@@ -1,9 +1,9 @@
 ---
 
-title: 1.46 Release  
-description: This release introduces ability to create your own template labels, and ability to grants special permissions to access the analysis.  
-tags: [Releases, Analysis, Labels, Permissions]  
-date: 2024-08-09  
+**Title:** 1.46 Release  
+**Description:** This release introduces the ability to create custom template labels and grant special permissions to access analysis dashboards.  
+**Tags:** [Releases, Analysis, Labels, Permissions]  
+**Date:** 2024-08-09  
 
 ---
 
@@ -25,20 +25,22 @@ import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.comp
 
 <ReleaseLabels licenses={[2]} selfManagedOnly />
 
-You can now grant special permissions to view (read only) the analysis dashboard to user with [GitLab Auditor access right](https://docs.gitlab.com/ee/administration/auditor_users.html) or an entire group members.
+You can now grant special permissions for read-only access to the analysis dashboard. These permissions can be assigned to users with [GitLab Auditor access rights](https://docs.gitlab.com/ee/administration/auditor_users.html) or to entire groups.
 
 ![User experience demonstration of the Authorization Settings page](./authorization_settings.gif)
 
-## 🏷️ Labels Settings
+## 🏷️ Label Settings
 
-You can now create your own standards to label your templates. This feature helps you improve your control over your organization's CI/CD pipeline steps.
+<ReleaseLabels licenses={[2]} selfManagedOnly />
+
+This update allows you to create custom labels for your templates. This feature enhances your control over your organization's CI/CD pipeline steps by enabling you to define and manage your own standards.
 
 ![User experience demonstration of the Labels Settings page](./labels_settings.gif)
 
 ## ⚙️ Minor Updates
 
-- Improved the loading display of "Flag as Safe" action on variables.
-- Update Roadmap page content
+- Improved the loading display for the "Flag as Safe" action on variables.
+- Updated content on the Roadmap page.
 
 -----
 
