@@ -24,7 +24,6 @@ const config: Config = {
   projectName: 'docs', // Usually your repo name.
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -45,6 +44,7 @@ const config: Config = {
         blog: {
           blogTitle: 'R2Devops Blog',
           showReadingTime: true,
+          onUntruncatedBlogPosts: 'ignore',
           blogSidebarTitle: 'All blog posts',
           blogSidebarCount: 'ALL',
           // Remove this to remove the "edit this page" links.
