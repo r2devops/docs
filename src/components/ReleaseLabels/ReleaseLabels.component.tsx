@@ -14,8 +14,8 @@ export default function ReleaseLabels({
   licenses,
   selfManagedOnly,
 }: Props): JSX.Element {
-  const licensesList = ['Free', 'Small Business', 'Enterprise'];
-  const installationTypes = ['SaaS', 'Self-Managed'];
+  const licensesList = ['Free', 'Premium', 'Enterprise'];
+  const installationTypes = ['Self-Managed'];
   return (
     <div style={{ marginBottom: '2rem' }}>
       {installationTypes.map((installType) => (
