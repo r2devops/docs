@@ -379,48 +379,48 @@ dependencies.
 
 ```yaml
 front:
-host: "r2devops.mydomain.com"
+  host: "r2devops.mydomain.com"
 
-    jobs:
-      host: "r2devops.mydomain.com"
-      extraEnv:
-        - name: LICENSE
-          value: "REDACTED"
-        - name: SECRET_KEY
-          value: "REDACTED"
-        - name: GITLAB_OAUTH2_CLIENT_ID
-          value: "REDACTED"
-        - name: GITLAB_OAUTH2_CLIENT_SECRET
-          value: "REDACTED"
+jobs:
+  host: "r2devops.mydomain.com"
+  extraEnv:
+    - name: LICENSE
+      value: "REDACTED"
+    - name: SECRET_KEY
+      value: "REDACTED"
+    - name: GITLAB_OAUTH2_CLIENT_ID
+      value: "REDACTED"
+    - name: GITLAB_OAUTH2_CLIENT_SECRET
+      value: "REDACTED"
 
-    gitlab:
-      domain: "https://gitlab.mydomain.com"
+gitlab:
+  domain: "https://gitlab.mydomain.com"
 
-    worker:
-      replicaCount: 15
+worker:
+  replicaCount: 15
 
-    ingress:
-      enabled: true
-      className: "nginx"
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-production"
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
 
-    # ref. https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
+# ref. https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
+postgresql:
+  dependency:
+    enabled: true
+  global:
     postgresql:
-      dependency:
-        enabled: true
-      global:
-        postgresql:
-          auth:
-            password: REDACTED
-            postgresPassword: REDACTED
-
-    # ref. https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
-    redis:
-      dependency:
-        enabled: true
       auth:
         password: REDACTED
+        postgresPassword: REDACTED
+
+# ref. https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
+redis:
+  dependency:
+    enabled: true
+  auth:
+    password: REDACTED
 ```
 :::
 
@@ -432,61 +432,61 @@ PostgreSQL and Redis.
 :::note[Example]
 ```yaml
 front:
-host: "r2devops.mydomain.com"
+  host: "r2devops.mydomain.com"
 
-    jobs:
-      host: "r2devops.mydomain.com"
-      extraEnv:
-        - name: LICENSE
-          value: "REDACTED"
-        - name: SECRET_KEY
-          value: "REDACTED"
-        - name: GITLAB_OAUTH2_CLIENT_ID
-          value: "REDACTED"
-        - name: GITLAB_OAUTH2_CLIENT_SECRET
-          value: "REDACTED"
+jobs:
+  host: "r2devops.mydomain.com"
+  extraEnv:
+    - name: LICENSE
+      value: "REDACTED"
+    - name: SECRET_KEY
+      value: "REDACTED"
+    - name: GITLAB_OAUTH2_CLIENT_ID
+      value: "REDACTED"
+    - name: GITLAB_OAUTH2_CLIENT_SECRET
+      value: "REDACTED"
 
-    gitlab:
-      domain: "https://gitlab.mydomain.com"
+gitlab:
+  domain: "https://gitlab.mydomain.com"
 
-    worker:
-      replicaCount: 20
+worker:
+  replicaCount: 20
 
-    ingress:
-      enabled: true
-      className: "nginx"
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-production"
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
 
-    # ref. https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
+# ref. https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
+postgresql:
+  dependency:
+    enabled: false
+  global:
     postgresql:
-      dependency:
-        enabled: false
-      global:
-        postgresql:
-          auth:
-            username: REDACTED
-            postgresPassword: REDACTED
-      custom:
-        host: "database-1.REDACTED.us-east-1.rds.amazonaws.com"
-        port: 5432
-        dbName: "r2devops"
-        sslmode: "require"
-
-    # ref. https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
-    redis:
-      dependency:
-        enabled: false
       auth:
-        password: REDACTED
-      custom:
-        port: 6379
-        host: "REDACTED"
-        user: "REDACTED"
-        cert: |
-          -----BEGIN CERTIFICATE-----
-          REDACTED
-          -----END CERTIFICATE-----
+        username: REDACTED
+        postgresPassword: REDACTED
+  custom:
+    host: "database-1.REDACTED.us-east-1.rds.amazonaws.com"
+    port: 5432
+    dbName: "r2devops"
+    sslmode: "require"
+
+# ref. https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
+redis:
+  dependency:
+    enabled: false
+  auth:
+    password: REDACTED
+  custom:
+    port: 6379
+    host: "REDACTED"
+    user: "REDACTED"
+    cert: |
+      -----BEGIN CERTIFICATE-----
+      REDACTED
+      -----END CERTIFICATE-----
 ```
 :::
 
