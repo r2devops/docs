@@ -1,12 +1,13 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 slug: '/self-managed/local-podman'
 ---
 
-# Support
-This method is supported by [R2DevOps community](https://discord.r2devops.io/).
+# Local Podman
 
-# Local podman
+:::info
+This method is supported by [R2DevOps community](https://discord.r2devops.io/).
+:::
 
 :::warning[Only for testing purposes on your local computer]
 This page describes how to quickly setup a self-managed instance of

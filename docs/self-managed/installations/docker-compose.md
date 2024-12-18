@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 slug: '/self-managed/docker-compose'
 ---
 
@@ -207,16 +207,6 @@ after your updates you can simply run the command again to do so.
 ```bash
 docker compose up -d
 ```
-:::
-
-:::note[What's next]
-Now that you have finished this tutorial, here are some simple tasks you
-should give a try :
-
-    - 📈 Learn how to use the platform by reading the
-      [documentation](https://docs.r2devops.io)
-    - 📕 Import your first job, here is the
-      [tutorial](../../marketplace/manage-templates.mdx#-create-a-marketplace)
 :::
 
 :::danger[Not the same behavior]

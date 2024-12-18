@@ -9,39 +9,22 @@ type FeatureItem = {
   title: string;
   img: string;
   href: string;
-  description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'R2Devops Documentation',
+    title: 'Documentation',
     img: r2doc,
     href: 'docs',
-    description: (
-      <>
-        Discover advanced CI/CD strategies with our R2Devops guides. Unlock
-        powerful features like the analysis dashboard, pipeline editor, and
-        CI/CD templates marketplace to streamline DevOps and boost security and
-        maintainability
-      </>
-    ),
   },
   {
-    title: 'R2Devops Blog',
+    title: 'Blog',
     img: r2blog,
     href: 'blog',
-    description: (
-      <>
-        Your go-to resource for CI/CD, DevOps, maintainability, and security.
-        Access expert articles and tutorials to optimize your pipeline, use
-        advanced tools, and stay ahead in software development. Perfect for
-        beginners and pros alike
-      </>
-    ),
   },
 ];
 
-function Feature({ title, img, href, description }: FeatureItem) {
+function Feature({ title, img, href }: FeatureItem) {
   const history = useHistory();
   const handleClick = () => {
     history.push(href);
@@ -74,9 +57,6 @@ function Feature({ title, img, href, description }: FeatureItem) {
             className={styles.featureSvg}
             src={img}
           />
-        </div>
-        <div className="text--center padding-horiz--lg">
-          <p style={{ margin: 0 }}>{description}</p>
         </div>
       </div>
     </button>

@@ -1,59 +1,61 @@
 ---
-sidebar_position: 7
+sidebar_position: 4
 ---
 
-# Ambassador
+# Ambassador Program
 
 import Button from '@site/src/components/Button/Button.component';
 
-## 📜 Introduction
+## The Program
 
-At R2Devops, we highly value our community of supporters and users who contribute to the growth and improvement of our platform.
+The R2Devops Ambassadors Program allows individuals passionate about the
+problem we’re solving and our unique solution to become official brand
+ambassadors. In return for their commitment, ambassadors enjoy several
+exclusive benefits.
 
-The **R2Devops Ambassadors** are a select group of individuals who go above and beyond in promoting and supporting R2Devops.
+- **Goals**
+    - **Promote the solution**
+    - **Build a community of engaged experts**
+- **Duration**: 1 year
+- **Renewal:** each year, we are doing a retrospective meeting to renew the
+  title if relevant for both the Ambassador and R2Devops.
+- **Find ambassador on [r2devops.io/team](https://r2devops.io/team)**
 
-## 📋 Requirements for Becoming an Ambassador
+## Ambassadors' Benefits
 
-To become an R2Devops Ambassador, individuals must meet at least four of the following requirements:
+**As an ambassador, you will enjoy:**
 
-1. **Actively Share and Talk About the Platform**: Ambassadors actively promote R2Devops through social media, blogs, or other platforms.
+- A free R2Devops subscription for a personal usage.
+- Early access to new features.
+- Continuous training directly with the team.
+- Access to dedicated team support.
+- Visibility and recognition, with your contributions highlighted by the brand.
+- Invitations to exclusive events with the team.
+- A pack of exclusive goodies.
 
-2. **Report Bugs and Share Enhancement Ideas**: Ambassadors contribute to the platform's improvement by reporting bugs and suggesting enhancements.
+## Ambassadors' Responsibilities
 
-3. **Contribute to Technical Challenges**: Ambassadors contribute by resolving complex integration and technical issues.
+*💎 Helping R2Devops thrive.*
 
-4. **Actively Help and Engage on Discord**: Ambassadors participate in discussions on our Discord server, offering help and support to other users.
+**To be part of the program, you commit for one year to:**
 
-5. **Bring New Clients**: Ambassadors help bring new clients to R2Devops.
-
-6. **Review New Releases**: Ambassadors actively review and provide feedback on new releases.
-
-7. **Welcome and Onboard New Users**: Ambassadors create a welcoming environment for new users, helping them get started with R2Devops.
-
-## 🚀 Start your ambassador journey
-
-<section className="button-container">
-    <Button href="https://discord.r2devops.io/?utm_medium=website&utm_source=r2devopsdocumentation&utm_campaign=ambassador">
-        <span><FAIcon icon="fa-brands fa-discord" size="sm" /> Join Discord</span>
-    </Button>
-    <Button href="https://www.linkedin.com/sharing/share-offsite/?url=https://r2devops.io/">
-        <span><FAIcon icon="fa-brands fa-linkedin" size="sm" /> Share on LinkedIn</span>
-    </Button>
-</section>
-
-## 🎁 Rewards
-
-As a token of our appreciation, R2Devops Ambassadors receive the following rewards:
-
-- **✅** R2Devops Unlimited Premium License For Personal Usage
-- **✅** Goodies Pack (Includes stickers, t-shirt, sweatshirt, lunchbox, and pens)
-- **✅** Invitations to Special Events Where R2Devops has a booth
-- **✅** Special Access to R2Devops Staging Environment
-- **✅** Special Access to Some Private Repositories
-- **✅** Title on Discord to Recognize Ambassador Status
-- **✅** Private Channel `Ambassador` on Discord
-- **✅** Badge on GitLab User Profile
-- **✅** R2Devops Social Media Post Featuring Each New Ambassador
-- **✅** Be Listed on the [Team Page](https://r2devops.io/team#ambassadors) in the Official Website
-
-If you're interested in becoming an R2Devops Ambassador, start by actively engaging with our platform and community. Your contributions will not go unnoticed, and you may soon join the ranks of our esteemed Ambassadors!
+- **Obtain the R2Devops certification**
+- **Actively promote the brand on social media, blogs, events, etc.**
+    - Deliver at least 2 talks or write 2 posts (articles, LinkedIn posts, X
+      posts, etc.) showcasing the value R2Devops provides (not just a comment
+      or compliments). It should include constructive feedback (e.g., sharing
+      your experience with a new feature and what more you were expecting).
+- **Regularly participate in events or feedback sessions.**
+    - Attend at least 4 feedback sessions (30 minutes each) or webinars to
+      which you are invited.
+- **Refer new prospects/clients whenever possible.**
+    - **Raise awareness** among decision-makers (CISOs, CTOs, Lead DevOps)
+      about CI/CD pipeline security and compliance issues.
+    - **Consider recommending R2Devops** as a solution to these challenges,
+      provided it aligns with the context.
+    - **Connect** engaged decision-makers ready to solve their security
+      challenges with R2Devops at least once a year.
+- **Support solution implementation in companies.**
+    - Implement R2Devops at least once a year in a client project (either
+      personally or by assisting colleagues) to ensure your perspective and
+      feedback are grounded in real-world client experiences.

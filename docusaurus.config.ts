@@ -9,7 +9,7 @@ const baseUrl = `/`;
 const config: Config = {
   title: 'R2Devops documentation',
   tagline:
-    'Protect your Software Supply Chain with R2Devops! Stay informed with real-time CI/CD tracking, detect CVEs and ensure pipelines compliance',
+    'Protect your Software Supply Chain with R2Devops!',
   favicon: 'img/logo-documentation.svg',
 
   // Set the production url of your site here
@@ -74,7 +74,6 @@ const config: Config = {
           label: 'Documentation',
         },
         { to: '/blog', label: 'Blog', position: 'left' },
-
       ],
     },
     footer: {
@@ -89,19 +88,11 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduction',
-              to: baseUrl + 'docs',
-            },
-            {
-              label: 'Self-managed',
+              label: 'Installation',
               to: baseUrl + 'docs/self-managed',
             },
             {
-              label: 'Marketplace',
-              to: baseUrl + 'docs/marketplace/use-templates',
-            },
-            {
-              label: 'Ambassador',
+              label: 'Ambassador Program',
               to: baseUrl + 'docs/ambassador',
             },
           ],
@@ -135,8 +126,8 @@ const config: Config = {
               href: 'https://twitter.com/r2devops_io',
             },
             {
-              label: 'Open a support ticket',
-              href: 'https://tally.so/r/w5Edvw',
+              label: 'Open a ticket',
+              href: 'mailto:support@r2devops.helpscoutapp.com',
             }
           ],
         },
@@ -176,6 +167,17 @@ const config: Config = {
           url: 'https://docs.r2devops.io/',
           logo: 'https://pub-46d0a39071f847669783608fcac60dd2.r2.dev/social_card.png',
         }),
+      },
+      {
+          tagName: 'script',
+          attributes: {
+          type: 'text/javascript',
+          },
+          innerHTML: `
+          if (window.location.pathname === '/') {
+              window.location.replace('/docs');
+          }
+          `,
       },
     ],
   } satisfies Preset.ThemeConfig,
