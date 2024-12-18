@@ -20,4 +20,4 @@ Several methods are available.
 ## Installation methods supported by the community
 
 - [⏱️ Trying R2Devops on your local computer using podman](self-managed/installations/local-podman.md)
-- [🕸 Trying R2Devops using podman](self-managed/installations/podman.md)
+- [🕸 Running R2Devops using podman](self-managed/installations/podman.md)
