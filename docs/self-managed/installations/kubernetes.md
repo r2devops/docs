@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 slug: '/self-managed/kubernetes'
 ---
 
@@ -348,13 +349,6 @@ helm upgrade -n $R2DEVOPS_NS --install r2devops r2devops/r2devops -f custom_valu
 
 :::success[Congratulations]
 You have successfully installed R2Devops on your Kubernetes cluster 🎉
-:::
-
-:::note[What's next]
-Now that you have finished this tutorial, here are some simple tasks you should give a try :
-
-    - 📈 Learn how to use the platform by reading the [documentation](https://docs.r2devops.io)
-    - 📕 Import your first template, here is the [tutorial](../../marketplace/manage-templates.mdx#-create-a-marketplace)
 :::
 
 :::danger[Not the same behavior]

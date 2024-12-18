@@ -4,7 +4,7 @@ slug: /self-managed
 sidebar_position: 1
 ---
 
-# Self-managed Introduction
+# Installation
 
 This section describes how to setup your self-managed instance of R2Devops.
 To find out more about the application architecture, [read this](self-managed/infrastructure.mdx).

@@ -1,12 +1,13 @@
 ---
-sidebar_position: 6
+sidebar_position: 4
 slug: '/self-managed/podman'
 ---
 
-# Support
-This method is supported by [R2DevOps community](https://discord.r2devops.io/).
-
 # Podman
+
+:::info
+This method is supported by [R2DevOps community](https://discord.r2devops.io/).
+:::
 
 This page describes how to setup a self-managed instance of R2Devops using
 **podman**.
@@ -256,16 +257,6 @@ after your updates you can simply run the command again to do so.
 ```bash
 podman play kube podman.yml --replace --configmap configmap.yml --network intranet
 ```
-:::
-
-:::note[What's next]
-Now that you have finished this tutorial, here are some simple tasks you
-should give a try :
-
-    - 📈 Learn how to use the platform by reading the
-      [documentation](https://docs.r2devops.io)
-    - 📕 Import your first job, here is the
-      [tutorial](../../marketplace/manage-templates.mdx#-create-a-marketplace)
 :::
 
 :::danger[Not the same behavior]

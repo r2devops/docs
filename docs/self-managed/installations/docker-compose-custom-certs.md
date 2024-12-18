@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 slug: '/self-managed/docker-compose-custom-certs'
 ---
 
@@ -232,16 +232,6 @@ docker compose -f compose.custom_certs.yml up -d
 ```
 :::
 
-:::note[What's next]
-Now that you have finished this tutorial, here are some simple tasks you
-should give a try :
-
-    - 📈 Learn how to use the platform by reading the
-      [documentation](https://docs.r2devops.io)
-    - 📕 Import your first job, here is the
-      [tutorial](../marketplace/manage-templates/#-create-a-marketplace)
-:::
-
 :::danger[Not the same behavior]
 Did you encounter a problem during the installation process ? See the
 [troubleshooting](../troubleshooting.md) section.
@@ -325,7 +315,7 @@ To restore a backup from scratch on a new system, follow this process:
    ```
 1. If the IP address of your server changed from your previous installation,
    update your DNS records. See [section
-   2](#domain-name) of domain configuration
+   2](#-domain-name) of domain configuration
 1. Launch the restore script
    ```bash
    ./restore.sh <path_to_your_backup_file>
