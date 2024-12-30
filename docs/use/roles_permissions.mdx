@@ -1,0 +1,48 @@
+---
+sidebar_position: 2
+---
+
+# Roles and Permissions
+
+## 👥 Roles
+
+### Admin
+
+- Admins have the highest level of access on the platform. They can manage authorized maintainers, configure policies, and have full control over settings.
+- **Who is Admin**:
+    - If your **R2Devops instance** is connected to an entire **GitLab self-managed instance**: any GitLab instance Admin.
+    - If your **R2Devops instance** is connected to a **GitLab group**: any user at least Maintainer in the root group.
+
+### Maintainer
+
+- Maintainers can manage projects, run analyses, and configure settings and policies. They have significant control but cannot manage authorized maintainers or run new analyses.
+- **Who is Maintainer**: any user from a group manually added in `Settings > Authorization` page.
+
+### Member
+
+- Members can view filtered analyses based on their rights on GitLab projects.
+- **Who is Member**:
+    - If your **R2Devops instance** is connected to an entire **GitLab self-managed instance**: any user logged on the GitLab instance.
+    - If your **R2Devops instance** is connected to a **GitLab group**: any user between Guest and Developer (included) in the root group.
+
+### No one
+
+- This role has no permissions and cannot perform any actions on the platform.
+- **Who is no one**: any user not in the previously described roles.
+
+## 🔒 Permissions
+
+| Permission                          | Admin | Maintainer | Member | No one |
+|-------------------------------------|-------|------------|--------|--------|
+| Read template labels                | ✅    | ✅         | ✅     | ✅     |
+| Read policies                       | ✅    | ✅         | ✅     | ❌     |
+| View analysis                       | ✅    | ✅         | 🟡     | ❌     |
+| Configure policies                  | ✅    | ✅         | ❌     | ❌     |
+| Edit template labels                | ✅    | ✅         | ❌     | ❌     |
+| Edit & view acknowledged issues     | ✅    | ✅         | ❌     | ❌     |
+| Edit & view organization assets     | ✅    | ✅         | ❌     | ❌     |
+| View authorized maintainers         | ✅    | ✅         | ❌     | ❌     |
+| Edit authorized maintainers         | ✅    | ❌         | ❌     | ❌     |
+| Run new analysis                    | ✅    | ❌         | ❌     | ❌     |
+
+🟡 : access filtered on projects and group user can read on GitLab
