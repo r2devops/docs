@@ -50,6 +50,7 @@ detailed explanation of the variables
 - **`JOBS_API_DOMAIN`**: The base URL for the backend API
 - **`JOBS_FRONTEND_URL`**: The URL of the frontend application
 - **`GITLEAKS_PATH`**: The path to the Gitleaks binary for detecting secrets
+- **`JOBS_ANALYSIS_TIMEOUT`**: The duration after which we consider an analysis as failed (the more projects you have, the higher this value should be). Default: `10m`
 
 ### Session and Security
 
