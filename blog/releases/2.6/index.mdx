@@ -1,13 +1,13 @@
 ---
 
-title: 2.6 Release
-description: R2Devops 2.6 released includes the abilities to schedule automatic analysis, compliance control over merge request approval, and an improved analysis issues experience.
+title: 2.7 Release
+description: R2Devops 2.7 released includes the abilities to schedule automatic analysis, compliance control over merge request approval, and an improved analysis issues experience.
 tags: [Releases, Analysis, Onboarding, Permissions, Templates, Compliance, Roles]
 date: 2025-02-05
 
 ---
 
-# R2Devops 2.6 Release
+# R2Devops 2.7 Release
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ReleaseBottomButton from '@site/src/components/ReleaseBottomButton/ReleaseBottomButton.component';
@@ -76,14 +76,22 @@ resolution more efficiently.
 
 ## ⚙️ Minor Updates
 
-- Improve the default configuration of `Project protection` policy
+- Improved the default configuration of the `Project protection` policy
+- Each issue has been documented in the dashboard documentation
+- Renamed "Marketplace" to "CI/CD Catalog"
+- Removed access to the CI/CD catalog for SaaS platform and non-connected users
+- Added 3 new issue types to the analysis:
+    - `Merge request approval rule is below the minimum level of approvals required`
+    - `Merge request approval settings are not compliant`
+    - `No merge request approval rule covering all protected branches`
+- Improved dashboard navigation
 
 <ReleaseBottomButton />
 
 ---
 
 :::note Versions
-- Backend: `v2.6.0`
-- Frontend: `v2.3.9`
-- Helm chart: `v2.6.0`
+- Backend: `v2.7.0`
+- Frontend: `v2.5.0`
+- Helm chart: `v2.7.0`
 :::
