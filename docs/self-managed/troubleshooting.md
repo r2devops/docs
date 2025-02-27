@@ -18,16 +18,11 @@ OIDC](docker-compose/#-gitlab-oidc)
 
 Issues related to installation on Kubernetes using the Helm chart
 
-:::danger[No persistent volumes for chart dependencies PostgreSQL, Redis and/or MinIO]
+:::danger[No persistent volumes for chart dependencies PostgreSQL and/or Redis]
 These 3 dependencies requires Persistent Volumes to work. If you haven't a
 default storage class or if you want to use a specific storage class you need to add an option in all of theses values:
 
     ```yaml
-    minio:
-      [...]
-      global:
-        storageClass: REPLACE_ME_BY_STORAGE_CLASS
-
     postgresql:
       [...]
       global:

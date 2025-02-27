@@ -173,7 +173,6 @@ Generate random secrets for all components:
 sed -i."" "s/REPLACE_ME_BY_SECRET_KEY/$(openssl rand -hex 32)/g" .env
 sed -i."" "s/REPLACE_ME_BY_JOBS_DB_PASSWORD/$(openssl rand -hex 16)/g" .env
 sed -i."" "s/REPLACE_ME_BY_JOBS_REDIS_PASSWORD/$(openssl rand -hex 16)/g" .env
-sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
 ```
 
 ### 📄 Configure certificate
@@ -269,7 +268,6 @@ Data required to fully backup and restore a R2Devops system are the following:
 - Databases:
   - PostgreSQL database of Jobs service
 - Files data:
-  - Files stored in the Minio service
   - File storing data about certificate for Traefik service
 
 All these data can be easily backup and restored using 2 scripts from the

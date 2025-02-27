@@ -23,7 +23,7 @@ This page describes how to run a self-managed instance of R2Devops on
 ## 🛠️ Installation
 
 The Helm chart used in this documentation allows installing all these services
-embedded in the chart as dependencies or to use external `S3`, `PostgreSQL`
+embedded in the chart as dependencies or to use external `PostgreSQL`
 and/or `Redis`. Both alternatives are detailed below.
 
 ### 📥 Initialize your cluster
