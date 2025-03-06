@@ -29,17 +29,17 @@ and/or `Redis`. Both alternatives are detailed below.
 ### 📥 Initialize your cluster
 
 1. Choose a namespace name and set it in a variable
-   ```sh
-   export R2DEVOPS_NS="r2devops"
-   ```
+    ```sh
+    export R2DEVOPS_NS="r2devops"
+    ```
 1. Create the namespace
-   ```sh
-   kubectl create ns $R2DEVOPS_NS
-   ```
+    ```sh
+    kubectl create ns $R2DEVOPS_NS
+    ```
 1. Add R2Devops repo
-   ```sh
-   helm repo add r2devops https://charts.r2devops.io/
-   ```
+    ```sh
+    helm repo add r2devops https://charts.r2devops.io/
+    ```
 
 ### 📄 Domain name
 
@@ -52,9 +52,9 @@ You need a domain to run R2Devops. For example, if you have the domain name
 
 1. Create DNS record
 
-   - Name: `r2devops.<domain_name>`
-   - Type: `A`
-   - Content: `<your-cluster-public-ip>`
+    - Name: `r2devops.<domain_name>`
+    - Type: `A`
+    - Content: `<your-cluster-public-ip>`
 
 ### 🦊 GitLab OIDC
 
@@ -65,19 +65,18 @@ to connect it to your GitLab instance.
    any group. Open the chosen group in GitLab interface and navigate through
    `Settings > Applications`:
 
-   ![Profile_Menu](./img/profile_menu_gitlab.png)
+    ![Profile_Menu](./img/profile_menu_gitlab.png)
 
 1. Then, create an application with the following information
 
-   - Name: `R2Devops self-managed`
-   - Redirect URI :
-     `https://r2devops.<domain_name>/api/auth/gitlab/callback`
-   - Confidential: `true` (let the box checked)
-   - Scopes: `api`
+    - Name: `R2Devops self-managed`
+    - Redirect URI : `https://r2devops.<domain_name>/api/auth/gitlab/callback`
+    - Confidential: `true` (let the box checked)
+    - Scopes: `api`
 
 1. Click on `Save Application` and you should see the following screen:
 
-   ![Application](./img/application_created_gitlab.png)
+    ![Application](./img/application_created_gitlab.png)
 
 1. Store `Application ID` and `Secret` somewhere safe, we will need to use them
    in next step
@@ -107,57 +106,56 @@ custom value file.
 
    Replace all occurrences of `REDACTED` by your R2Devops secrets encoded in
    base64 and create following secret:
+    - `license-key`: your R2Devops license
+    - `secret-key`: 256 bit secret key used to encrypt sensitive data (`openssl rand -hex 32`)
+    - `gitlab-oauth2-client-id`: Application ID of the GitLab application
+    - `gitlab-oauth2-client-secret`: Secret of the GitLab application
 
-   - `license-key`: your R2Devops license
-   - `secret-key`: 256 bit secret key used to encrypt sensitive data (`openssl rand -hex 32`)
-   - `gitlab-oauth2-client-id`: Application ID of the GitLab application
-   - `gitlab-oauth2-client-secret`: Secret of the GitLab application
-
-   ```yaml
-   apiVersion: v1
-   kind: Secret
-   metadata:
-     name: r2devops-secret
-     namespace: r2devops
-   type: Opaque
-   data:
-     license-key: REDACTED
-     secret-key: REDACTED
-     gitlab-oauth2-client-id: REDACTED
-     gitlab-oauth2-client-secret: REDACTED
-   ```
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: r2devops-secret
+      namespace: r2devops
+    type: Opaque
+    data:
+      license-key: REDACTED
+      secret-key: REDACTED
+      gitlab-oauth2-client-id: REDACTED
+      gitlab-oauth2-client-secret: REDACTED
+    ```
 
 1. PostgreSQL secret
 
-   Replace `REDACTED` by your postgres password encoded in base64. If you want
-   to use postgres embedded in this chart, choose the value.
+    Replace `REDACTED` by your postgres password encoded in base64. If you want
+    to use postgres embedded in this chart, choose the value.
 
-   ```yaml
-   apiVersion: v1
-   kind: Secret
-   metadata:
-     name: postgresql-secret
-     namespace: r2devops
-   type: Opaque
-   data:
-     password: REDACTED
-   ```
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+        name: postgresql-secret
+        namespace: r2devops
+    type: Opaque
+    data:
+        password: REDACTED
+    ```
 
 1. Redis secret
 
-   Replace `REDACTED` by your redis password encoded in base64. If you want to
-   use redis embedded in this chart, choose the value.
+    Replace `REDACTED` by your redis password encoded in base64. If you want to
+    use redis embedded in this chart, choose the value.
 
-   ```yaml
-   apiVersion: v1
-   kind: Secret
-   metadata:
-     name: redis-secret
-     namespace: r2devops
-   type: Opaque
-   data:
-     password: REDACTED
-   ```
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+        name: redis-secret
+        namespace: r2devops
+    type: Opaque
+    data:
+        password: REDACTED
+    ```
 
 #### 🤖 R2Devops
 
@@ -171,70 +169,92 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
    limited to 5 projects.
    :::
 
-   ```yaml
-   front:
-     host: 'r2devops.mydomain.com'
+    ```yaml
+    front:
+      host: 'r2devops.mydomain.com'
 
-   jobs:
-     host: 'r2devops.mydomain.com'
+    jobs:
+      host: 'r2devops.mydomain.com'
 
-     # Not using secret for license (comment if you use secret)
-     extraEnv:
-       - name: LICENSE
-         value: '<license-key>'
-       - name: SECRET_KEY
-         value: '<secret-key>'
-       - name: GITLAB_OAUTH2_CLIENT_ID
-         value: '<gitlab-oauth2-client-id>'
-       - name: GITLAB_OAUTH2_CLIENT_SECRET
-         value: '<gitlab-oauth2-client-secret>'
+      # Not using secret for license (comment if you use secret)
+      extraEnv:
+        - name: LICENSE
+          value: '<license-key>'
+        - name: SECRET_KEY
+          value: '<secret-key>'
+        - name: GITLAB_OAUTH2_CLIENT_ID
+          value: '<gitlab-oauth2-client-id>'
+        - name: GITLAB_OAUTH2_CLIENT_SECRET
+          value: '<gitlab-oauth2-client-secret>'
 
-     # Using existing secret for license (uncomment if you use secret)
-     #extraEnv:
-     #  - name: LICENSE
-     #    valueFrom:
-     #      secretKeyRef:
-     #        name: "r2devops-secret"
-     #        key: "license-key"
-     #  - name: SECRET_KEY
-     #    valueFrom:
-     #      secretKeyRef:
-     #        name: "r2devops-secret"
-     #        key: "secret-key"
-     #  - name: GITLAB_OAUTH2_CLIENT_ID
-     #    valueFrom:
-     #      secretKeyRef:
-     #        name: "r2devops-secret"
-     #        key: "gitlab-oauth2-client-id"
-     #  - name: GITLAB_OAUTH2_CLIENT_SECRET
-     #    valueFrom:
-     #      secretKeyRef:
-     #        name: "r2devops-secret"
-     #        key: "gitlab-oauth2-client-secret"
+      # Using existing secret for license (uncomment if you use secret)
+      #extraEnv:
+      #  - name: LICENSE
+      #    valueFrom:
+      #      secretKeyRef:
+      #        name: "r2devops-secret"
+      #        key: "license-key"
+      #  - name: SECRET_KEY
+      #    valueFrom:
+      #      secretKeyRef:
+      #        name: "r2devops-secret"
+      #        key: "secret-key"
+      #  - name: GITLAB_OAUTH2_CLIENT_ID
+      #    valueFrom:
+      #      secretKeyRef:
+      #        name: "r2devops-secret"
+      #        key: "gitlab-oauth2-client-id"
+      #  - name: GITLAB_OAUTH2_CLIENT_SECRET
+      #    valueFrom:
+      #      secretKeyRef:
+      #        name: "r2devops-secret"
+      #        key: "gitlab-oauth2-client-secret"
 
-   worker:
-     replicaCount: 10 # Default is 5. Increase it depending of your needs
-   ```
+    worker:
+      replicaCount: 10 # Default is 5. Increase it depending of your needs
+    ```
+
 1. Add your GitLab instance domain and organization
 
-   :::info[Organization]
-   If you use a SaaS version of GitLab (like `gitlab.com`): add the name
-   of your organization top-level group in `organization`. Else, let it
-   empty
-   :::
-   ```yaml
-   gitlab:
-     domain: 'https://gitlab.mydomain.com'
-     organization: ''
-   ```
+    :::info[Organization]
+    If you use a SaaS version of GitLab (like `gitlab.com`): add the name
+    of your organization top-level group in `organization`. Else, let it
+    empty
+    :::
+
+    ```yaml
+    gitlab:
+        domain: 'https://gitlab.mydomain.com'
+        organization: ''
+    ```
 
 1. Add your Ingress configuration
+
    ```yaml
    ingress:
      enabled: true
      className: '' # Add class name for your ingress controller
      annotations: {} # Add annotation required by your ingress controller or certificate manager
    ```
+
+1. (Optional) Add your custom Certificate Authority
+
+    You can either:
+    - Reference an existing secret containing your CA public root certificate
+      using the `existingSecret` key.
+    - Or manually add your CA public root certificate in the values using the
+      `certificates` key.
+
+    ```yaml
+    customCertificateAuthority:
+      existingSecret: ""
+      certificates: []
+      # - name: rootCA.crt # Must have the .crt extension
+      #   value: |
+      #     -----BEGIN CERTIFICATE-----
+      #     (SNIPPED FOR BREVITY)
+      #     -----END CERTIFICATE-----
+    ```
 
 #### 📘 PostgreSQL
 
@@ -245,52 +265,52 @@ Add following configuration (**1 OR 2**) in your `custom_values.yaml` file:
 
 1. Use postgresql embedded in this chart
 
-   ```yaml
-   postgresql:
-     dependency:
-       enabled: true
-     global:
-       postgresql:
-         # Not using secret for auth (comment if you use secret)
-         auth:
-           password: REPLACE_ME_BY_NEW_POSTGRESQL_PASSWORD
-           postgresPassword: REPLACE_ME_BY_NEW_POSTGRESQL_PASSWORD
+    ```yaml
+    postgresql:
+      dependency:
+        enabled: true
+      global:
+        postgresql:
+          # Not using secret for auth (comment if you use secret)
+          auth:
+            password: REPLACE_ME_BY_NEW_POSTGRESQL_PASSWORD
+            postgresPassword: REPLACE_ME_BY_NEW_POSTGRESQL_PASSWORD
 
-         # Using existing secret for auth (uncomment if you use secret)
-         #auth:
-         #  username: r2devops
-         #  existingSecret: "postgresql-secret"
-         #  secretKeys:
-         #    adminPasswordKey: "password"
-         #    userPasswordKey: "password"
-   ```
+          # Using existing secret for auth (uncomment if you use secret)
+          #auth:
+          #  username: r2devops
+          #  existingSecret: "postgresql-secret"
+          #  secretKeys:
+          #    adminPasswordKey: "password"
+          #    userPasswordKey: "password"
+    ```
 
 2. Use an external postgresql (database must be created)
 
-   ```yaml
-   postgresql:
-     dependency:
-       enabled: false
-     custom:
-       host: REPLACE_ME_BY_POSTGRES_HOST
-       dbName: REPLACE_ME_BY_POSTGRES_DB_NAME
-       sslmode: 'require'
-       port: 5432
-     global:
-       postgresql:
-         # Not using secret for auth (comment if you use secret)
-         auth:
-           username: REPLACE_ME_BY_POSTGRES_USERNAME
-           postgresPassword: REPLACE_ME_BY_POSTGRES_PASSWORD
+    ```yaml
+    postgresql:
+      dependency:
+        enabled: false
+      custom:
+        host: REPLACE_ME_BY_POSTGRES_HOST
+        dbName: REPLACE_ME_BY_POSTGRES_DB_NAME
+        sslmode: 'require'
+        port: 5432
+      global:
+        postgresql:
+          # Not using secret for auth (comment if you use secret)
+          auth:
+            username: REPLACE_ME_BY_POSTGRES_USERNAME
+            postgresPassword: REPLACE_ME_BY_POSTGRES_PASSWORD
 
-         # Using existing secret for auth password (uncomment if you use secret)
-         #auth:
-         #  username: r2devops
-         #  existingSecret: "postgresql-secret"
-         #  secretKeys:
-         #    adminPasswordKey: "password"
-         #    userPasswordKey: "password"
-   ```
+          # Using existing secret for auth password (uncomment if you use secret)
+          #auth:
+          #  username: r2devops
+          #  existingSecret: "postgresql-secret"
+          #  secretKeys:
+          #    adminPasswordKey: "password"
+          #    userPasswordKey: "password"
+    ```
 
 #### 📕 Redis
 
@@ -301,43 +321,43 @@ Add following configuration (**1 OR 2**) in your `custom_values.yaml` file:
 
 1. Use redis embedded in this chart
 
-   ```yaml
-   redis:
-     dependency:
-       enabled: true
+    ```yaml
+    redis:
+      dependency:
+        enabled: true
 
-     # Not using secret for auth (comment if you use secret)
-     auth:
-       password: REPLACE_ME_BY_NEW_REDIS_PASSWORD
+      # Not using secret for auth (comment if you use secret)
+      auth:
+        password: REPLACE_ME_BY_NEW_REDIS_PASSWORD
 
-     # Using existing secret for auth (uncomment if you use secret)
-     #auth:
-     #  existingSecret: "redis-secret"
-     #  existingSecretPasswordKey: "password"
-   ```
+      # Using existing secret for auth (uncomment if you use secret)
+      #auth:
+      #  existingSecret: "redis-secret"
+      #  existingSecretPasswordKey: "password"
+    ```
 
 2. Use an external redis (database must be created)
 
-   ```yaml
-   redis:
-     dependency:
-       enabled: false
-     custom:
-       port: 6379
-       host: REPLACE_ME_BY_REDIS_HOST
-       user: REPLACE_ME_BY_REDIS_USENAME
-       cert: |
-         REPLACE_ME_BY_REDIS_TLS_CERTIFICATE
+    ```yaml
+    redis:
+      dependency:
+        enabled: false
+      custom:
+        port: 6379
+        host: REPLACE_ME_BY_REDIS_HOST
+        user: REPLACE_ME_BY_REDIS_USENAME
+        cert: |
+          REPLACE_ME_BY_REDIS_TLS_CERTIFICATE
 
-     # Not using secret for auth (comment if you use secret)
-     auth:
-       password: REPLACE_ME_BY_REDIS_PASSWORD
+      # Not using secret for auth (comment if you use secret)
+      auth:
+        password: REPLACE_ME_BY_REDIS_PASSWORD
 
-     # Using existing secret for auth (uncomment if you use secret)
-     #auth:
-     #  existingSecret: "redis-secret"
-     #  existingSecretPasswordKey: "password"
-   ```
+      # Using existing secret for auth (uncomment if you use secret)
+      #auth:
+      #  existingSecret: "redis-secret"
+      #  existingSecretPasswordKey: "password"
+    ```
 
 ### 🚀 Install the chart
 
