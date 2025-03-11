@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ReleaseBottomButton from '@site/src/components/ReleaseBottomButton/ReleaseBottomButton.component';
 import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.component';
 
-**We are excited to introduce R2Devops 2.9! This release introduces ISO 27001 compliance control, verification of organization roles count, and an enhanced analysis issues experience to improve your workflow and security.**
+**We are excited to introduce R2Devops 2.9! This release introduces ISO 27001 compliance control, verification of organization roles quotas, and an enhanced analysis issues experience to improve your workflow and security.**
 
 <!-- truncate -->
 
@@ -27,7 +27,7 @@ Get comprehensive **ISO 27001 compliance controls** for **CI/CD pipelines** to h
 
 <ReleaseLabels licenses={[0, 1, 2]} />
 
-To enhance security and maintain proper access control, you can now have control over **organization role count verification**. This feature prevents role sprawl by allowing you to set minimum and maximum limits for each role (**Owner**, **Maintainer**, **Developer**, and **Total members**) within a policy.
+To enhance security and maintain proper access control, you can now have control over **organization role quotas verifications**. This feature prevents role sprawl by allowing you to set minimum and maximum limits for each role (**Owner**, **Maintainer**, **Developer**, and **Total members**) within **Access and Authorization** policy.
 
 By enforcing these limits, you can ensure your organization follows the **principle of least privilege**, reducing unnecessary access and improving security.
 
@@ -47,6 +47,7 @@ The analysis issues interface now offers improved **visibility and control** wit
 - Sort issues list by type by default
 - Redirect to related GitLab pages when clicking project/group links in issues list
 - Fix GitLab community edition incompatibilities
+- Split each issues filters into different tabs
 
 <ReleaseBottomButton />
 
