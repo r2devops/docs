@@ -1,7 +1,7 @@
 ---
 
 title: 2.9 Release
-description: R2Devops 2.9 release introduces ISO 27001 compliance control, verification of organization roles count, and an enhanced analysis issues experience to improve your workflow and security.
+description: R2Devops 2.9 release introduces ISO 27001 compliance control, AI pipeline composition compliance, verification of organization roles count, and an enhanced analysis issues experience to improve your workflow and security.
 tags: [Releases, Analysis, Compliance, Roles, Security]
 date: 2025-03-11
 
@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ReleaseBottomButton from '@site/src/components/ReleaseBottomButton/ReleaseBottomButton.component';
 import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.component';
 
-**We are excited to introduce R2Devops 2.9! This release introduces ISO 27001 compliance control, verification of organization roles quotas, and an enhanced analysis issues experience to improve your workflow and security.**
+**We are excited to introduce R2Devops 2.9! This release introduces ISO 27001 compliance control, AI pipeline composition compliance, verification of organization roles quotas, and an enhanced analysis issues experience to improve your workflow and security.**
 
 <!-- truncate -->
 
@@ -24,6 +24,16 @@ import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.comp
 Get comprehensive **ISO 27001 compliance controls** for **CI/CD pipelines** to help your organization pass **certification** with automated compliance checks against **ISO 27001 requirements**.
 
 ![Screenshot of the "ISO 27001 compliance controls" on R2Devops](./iso27001_compliance.png)
+
+## 🤖 AI Pipeline Composition Compliance
+
+<ReleaseLabels licenses={[1, 2]} />
+
+Leverage **AI-powered compliance detection** for your CI/CD pipelines. This feature automatically analyzes pipeline actions and validates them against your organization's compliance standards.
+
+![Screenshot of the "AI Pipeline Composition Compliance" on R2Devops](./ai_pipeline_composition.png)
+
+By implementing AI compliance checks, ensure your pipelines maintain security standards while reducing manual verification overhead.
 
 ## 👥 Organization Roles Verification
 
@@ -55,7 +65,10 @@ The analysis issues interface now offers improved **visibility and control** wit
 - Sort issues list by type by default
 - Redirect to related GitLab pages when clicking project/group links in issues list
 - Fix GitLab community edition incompatibilities
-- Split each issues filters into different tabs
+- Split issue filters into separate tabs
+- Remove the `Details > Secrets` page since all data is now available on the issues page
+- Improve the UX of policy configuration
+ 
 
 <ReleaseBottomButton />
 
