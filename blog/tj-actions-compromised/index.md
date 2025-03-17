@@ -23,8 +23,6 @@ schema: |
 
 A critical **supply chain attack** has impacted the **GitHub Actions ecosystem**, specifically targeting the widely used [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) workflow. This action, commonly used in **CI/CD pipelines** to detect modified files in pull requests, was compromised, allowing attackers to **steal secrets** and potentially gain control over repositories.
 
-If your **CI/CD pipelines rely on GitHub Actions**, this incident highlights the **urgent need for supply chain security** and better monitoring of dependencies in automation workflows.
-
 ## How the Attack Worked
 
 The attack followed a **classic software supply chain compromise** strategy:
