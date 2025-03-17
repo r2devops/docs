@@ -19,9 +19,10 @@ schema: |
 
 # Could the TJ Actions Compromise Happen on GitLab?
 
-## What Happened? (March 2025)
+## What Happened?
 
-A critical **supply chain attack** has impacted the **GitHub Actions ecosystem**, specifically targeting the widely used [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) workflow. This action, commonly used in **CI/CD pipelines** to detect modified files in pull requests, was compromised, allowing attackers to **steal secrets** and potentially gain control over repositories.
+A critical **supply chain attack** has impacted the **GitHub Actions ecosystem**, specifically targeting the widely used [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) workflow. 
+This action, commonly used in **CI/CD pipelines** to detect modified files in pull requests, was compromised, allowing attackers to **steal secrets** and potentially gain control over repositories.
 
 [CVE-2025-30066](https://www.cve.org/CVERecord?id=CVE-2025-30066) has been assigned to this incident.
 
@@ -43,7 +44,7 @@ The attack followed a **classic software supply chain compromise** strategy:
 
 
 
-## The Impact: Why This is a Big Deal
+## The Impact
 
 - **Secrets Exposure** 🔓  
   Any organization using the affected action could have **leaked sensitive credentials**, putting production environments at risk.  
@@ -57,9 +58,7 @@ The attack followed a **classic software supply chain compromise** strategy:
 - **Reputation & Financial Damage** 💸  
   Organizations affected by this attack may face **downtime, data breaches, or even customer trust loss**, resulting in **significant financial impact**.
 
-## How to Protect Your CI/CD Pipelines
-
-**Immediate Actions for GitHub Users:**
+## Immediate Actions for GitHub Users
 
 - **Audit Your CI/CD Pipelines** – Identify and remove any usage of `tj-actions/changed-files`, replacing it with a trusted alternative.
 - **Lock Actions Versions** – Avoid using `latest` tags; always specify exact versions to prevent unwanted updates.
@@ -78,9 +77,10 @@ Any shared **templates, scripts, or dependencies** used across projects could be
 
 ### Why GitLab CI/CD Pipelines Are Also at Risk:  
 - **Unverified Dependencies** – Like GitHub Actions, GitLab CI/CD relies on external scripts, container images, and templates that can be compromised.  
-- **Hardcoded Credentials** – If secrets are stored in unprotected GitLab CI/CD variables, they could be exposed through a malicious script injection.  
-- **Third-Party Integrations** – Attackers can target **runners, pipeline templates, or dependencies** to introduce vulnerabilities.  
-- **Lack of Version Pinning** – Using **floating tags (e.g., `latest`)** in scripts or images makes pipelines vulnerable to unexpected changes and compromises.  
+- **Hardcoded Credentials** – Storing secrets in unprotected GitLab CI/CD variables increases the risk of exposure through unauthorized access or malicious modifications
+- **Lack of Version Pinning** – Using **floating tags (e.g., `latest`)** in scripts or images makes pipelines vulnerable to unexpected changes and compromises.
+- **Limited Visibility** – Without continuous monitoring, unauthorized pipeline changes or security policy violations might go unnoticed, increasing the risk of supply chain attacks.
+- **Excessive Permissions & Privileges** – If user roles and permissions are not carefully managed, unintended modifications to pipelines can occur, creating opportunities for exploitation.
 
 The takeaway? **GitLab CI/CD pipelines need real-time security monitoring and proactive controls** to prevent **supply chain attacks** before they happen.
 
