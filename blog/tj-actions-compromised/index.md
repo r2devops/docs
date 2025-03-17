@@ -23,6 +23,8 @@ schema: |
 
 A critical **supply chain attack** has impacted the **GitHub Actions ecosystem**, specifically targeting the widely used [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) workflow. This action, commonly used in **CI/CD pipelines** to detect modified files in pull requests, was compromised, allowing attackers to **steal secrets** and potentially gain control over repositories.
 
+[CVE-2025-30066](https://www.cve.org/CVERecord?id=CVE-2025-30066) has been assigned to this incident.
+
 ## How the Attack Worked
 
 The attack followed a **classic software supply chain compromise** strategy:
@@ -65,9 +67,10 @@ This kind of attack **exploits the trust developers place in third-party actions
 ✅ **Restrict Secrets Exposure:** Use **scoped tokens** and **fine-grained permissions** for GitHub Actions to limit damage in case of compromise.  
 ✅ **Enable Dependency Scanning:** Regularly **scan and audit** all third-party actions for security vulnerabilities.
 
-## Reduce Risks For GitLab with R2Devops
 
-R2Devops helps organizations **secure their GitLab CI/CD pipelines** by automating compliance and security checks:
+## Could This Happen on GitLab? 
+This type of vulnerability isn’t limited to [GitHub](https://github.com). It can affect any CI/CD platform, including [GitLab](https://gitlab.com). The key to protection? Real-time monitoring and proactive security. Here’s how R2Devops helps organizations **secure their GitLab CI/CD pipelines**.
+
 
 - **Detect & Alert on Non-Trusted Dependencies**  
   Identify any use of third-party actions, templates, or components that are **not part of an approved security policy**.
@@ -85,7 +88,9 @@ R2Devops helps organizations **secure their GitLab CI/CD pipelines** by automati
 
 ## Take Action Now
 
-🔗 [Learn more about R2Devops and secure your CI/CD pipelines today](https://r2devops.io/)  
+Using GitLab ?
+[Ensure security and compliance in GitLab CI/CD](https://r2devops.io/)  with real-time monitoring using R2Devops.
+ 
 
-🔄 **Share this with your security teams** to help them understand the critical risks in CI/CD supply chains.
+🔄 **Share this with your security teams** to help them anticipate the critical risks in CI/CD supply chains.
 
