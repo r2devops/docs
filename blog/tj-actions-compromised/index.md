@@ -105,4 +105,3 @@ The takeaway? **GitLab CI/CD pipelines need real-time security monitoring and pr
 - [Step Security blog](https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised)
 - [Wiz blog](https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066)
 
-
