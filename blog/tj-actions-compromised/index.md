@@ -1,6 +1,6 @@
 ---
 title: "Could a Supply Chain Attack Like tj-actions/change-files Hit GitLab CI/CD Pipelines?"
-description: "Critical security alert: Learn about the TJ Actions supply chain attack and how to protect your CI/CD pipelines from similar threats."
+description: "Critical security alert: Learn about the TJ Actions supply chain attack and how to protect your GitLab CI/CD pipelines from similar threats."
 tags: ["CI/CD", "Security", "GitLab", "DevOps", "Supply Chain Security", "TJ Actions", "GitHub Actions", "CI/CD Security"]
 date: 2025-03-19
 schema: |
@@ -8,7 +8,7 @@ schema: |
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Could a Supply Chain Attack Like tj-actions/change-files Hit GitLab CI/CD Pipelines?",
-    "description": "Critical security alert: Learn about the TJ Actions supply chain attack and how to protect your CI/CD pipelines from similar threats.",
+    "description": "Critical security alert: Learn about the TJ Actions supply chain attack and how to protect your GitLab CI/CD pipelines from similar threats.",
     "datePublished": "2025-03-19",
     "author": {
       "@type": "Organization",
