@@ -210,6 +210,20 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
       #        name: "r2devops-secret"
       #        key: "gitlab-oauth2-client-secret"
 
+      # Uncomment to enable AI features
+      #  - name: AI_API_KEY
+      #    value: "<your-API-key>"
+      #  - name: AI_ENDPOINT  # Optional, default is "https://api.anthropic.com/v1/"
+      #    value: "<your-custom-endpoint>"
+      #  - name: AI_MODEL  # Optional, default is "claude-3-7-sonnet-20250219"
+      #    value: "<your-custom-model>"
+      #  - name: AI_MODEL_LIGHT  # Optional, default is "claude-3-5-haiku-20241022"
+      #    value: "<your-custom-light-model>"
+      #
+      # R2Devops uses an OpenAI-compatible API format, so you can connect to any provider offering an OpenAI-compatible endpoint by adjusting these variables.
+      #
+      # See [reference](../reference.md) for more details on AI variables.
+
     worker:
       replicaCount: 10 # Default is 5. Increase it depending of your needs
     ```

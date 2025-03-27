@@ -92,3 +92,14 @@ detailed explanation of the variables
 - **`JOBS_REDIS_PASSWORD`**: The password for Redis authentication
 - **`JOBS_REDIS_CERT`**: The certificate path for Redis (optional)
 - **`JOBS_REDIS_SET_NAMESPACES_TTL`**: The TTL for Redis namespaces (e.g., `24h`)
+
+### AI Configuration
+
+These variables are optional and only required if you want to enable AI features:
+
+- **`AI_API_KEY`**: The API key for authentication with the AI service
+- **`AI_ENDPOINT`**: The base URL for the AI API. Defaults to `https://api.anthropic.com/v1/`
+- **`AI_MODEL`**: The model to use for AI features. Defaults to `claude-3-7-sonnet-20250219`
+- **`AI_MODEL_LIGHT`**: A lighter/faster model used for less complex operations. It can be the same that the model above. Defaults to `claude-3-5-haiku-20241022`
+
+R2Devops uses an OpenAI-compatible API format, so you can connect to any provider offering an OpenAI-compatible endpoint by adjusting these variables.

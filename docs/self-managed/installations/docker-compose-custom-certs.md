@@ -175,6 +175,28 @@ sed -i."" "s/REPLACE_ME_BY_JOBS_DB_PASSWORD/$(openssl rand -hex 16)/g" .env
 sed -i."" "s/REPLACE_ME_BY_JOBS_REDIS_PASSWORD/$(openssl rand -hex 16)/g" .env
 ```
 
+### 🤖 (Optional) AI Configuration
+
+This step is required only if you want to enable AI features.
+
+In `.env` file:
+
+1. Add your API key
+   ```bash title=".env" hl_lines="1"
+   AI_API_KEY="<your-API-key>"
+   ```
+1. (Optional) Add your custom Endpoint and Model
+
+   R2Devops uses an OpenAI-compatible API format, so you can connect to any provider offering an OpenAI-compatible endpoint by adjusting these variables.
+
+   ```bash title=".env" hl_lines="1-3"
+   AI_ENDPOINT="<your-custom-endpoint>"        # Optional, default is "https://api.anthropic.com/v1/"
+   AI_MODEL="<your-custom-model>"              # Optional, default is "claude-3-7-sonnet-20250219"
+   AI_MODEL_LIGHT="<your-custom-light-model>"  # Optional, default is "claude-3-5-haiku-20241022"
+   ```
+
+See [reference](../reference.md) for more details on AI variables.
+
 ### 📄 Configure certificate
 
 1. Generate your certificate
