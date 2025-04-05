@@ -15,14 +15,14 @@ sidebar_position: 2
 
 ### Maintainer
 
-- Maintainers can manage projects and configure settings and policies. They have significant control but cannot manage authorized maintainers or run new analyses.
-- **Who is Maintainer**: any user from a group manually added in `Settings > Authorization` page.
+- Maintainers can manage projects, configure settings and policies and run analysis if an organization token is set. They have significant control but cannot manage authorized maintainers.
+- **Who is Maintainer**: any user (from `Guest`) from a group manually added in the `Settings > Authorization` page.
 
 ### Member
 
 - Members can view filtered analyses based on their rights on GitLab projects.
 - **Who is Member**:
-    - If your **R2Devops instance** is connected to an entire **GitLab self-managed instance**: any user logged on the GitLab instance.
+    - If your **R2Devops instance** is connected to an entire **GitLab self-managed instance**: any user logged into the GitLab instance.
     - If your **R2Devops instance** is connected to a **GitLab group**: any user between Guest and Developer (included) in the root group.
 
 ### No one
@@ -38,15 +38,15 @@ sidebar_position: 2
 | Read analysis issues                  | ✅    | ✅         | 🟡     | ❌     |
 | Read analysis details                 | ✅    | ✅         | 🟡     | ❌     |
 | Read projects & groups selected       | ✅    | ✅         | 🟡     | ❌     |
-| Read AI settings                      | ✅    | ✅         | ✅     | ❌     |
+| Read organization settings            | ✅    | ✅         | ✅     | ❌     |
 | Read scheduled analysis settings      | ✅    | ✅         | ✅     | ❌     |
 | Read authorized maintainers settings  | ✅    | ✅         | ❌     | ❌     |
 | Edit policies                         | ✅    | ✅         | ❌     | ❌     |
 | Edit analysis issues status           | ✅    | ✅         | ❌     | ❌     |
 | Edit projects & groups selected       | ✅    | ✅         | ❌     | ❌     |
-| Edit AI settings                      | ✅    | ✅         | ❌     | ❌     |
+| Edit organization settings            | ✅    | ✅         | ❌     | ❌     |
 | Edit scheduled analysis settings      | ✅    | ✅         | ❌     | ❌     |
+| Run new analysis                      | ✅    | ✅         | ❌     | ❌     |
 | Edit authorized maintainers settings  | ✅    | ❌         | ❌     | ❌     |
-| Run new analysis                      | ✅    | ❌         | ❌     | ❌     |
 
-🟡 : access filtered on projects and group user can read on GitLab
+🟡 : access filtered on projects and groups that users can read on GitLab
