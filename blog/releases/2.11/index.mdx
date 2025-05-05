@@ -1,6 +1,6 @@
 ---
 title: 2.11 Release
-description: R2Devops 2.11 release introduces GitLab CI/CD Catalog Components support, custom AI model configuration, enhanced issue remediation, and improved project analysis.
+description: R2Devops 2.11 release introduces GitLab CI/CD Catalog Components compliance, custom AI model configuration, enhanced issue remediation, and project analysis.
 tags: [Releases, Compliance, Security, AI, CI/CD]
 date: 2025-05-12
 ---
@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ReleaseBottomButton from '@site/src/components/ReleaseBottomButton/ReleaseBottomButton.component';
 import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.component';
 
-**We are excited to announce R2Devops 2.11! This release brings pipeline composition compliance with GitLab CI/CD Catalog Components, custom AI model configuration, enhanced issue remediation capabilities, and project analysis page.**
+**We are excited to announce R2Devops 2.11! This release brings pipeline composition compliance with GitLab CI/CD Catalog Components, custom AI model configuration, enhanced issue remediation capabilities, and a project analysis page.**
 
 {/* truncate */}
 
@@ -22,21 +22,14 @@ import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.comp
 Ensure pipeline composition compliance with GitLab CI/CD Catalog Components:
 
 - Select GitLab Catalog Components as required in your pipeline composition rules
-- Enforce compliance for components included with the `component` keyword
-- Maintain organization standards without needing to add components to R2Devops Catalog
+- Enforce compliance for components included with the `component` keyword in your projects' CI/CD configuration
+- Maintain organization standards without needing to check projects one by one
 
 ## 🧠 Custom AI Model Configuration
 
 <ReleaseLabels licenses={[0, 1, 2]} />
 
-Configure your preferred AI model for enhanced platform capabilities:
-
-- Set up your own AI model in the organization settings
-- Customize issue remediation recommendations based on your data
-- Leverage AI-powered pipeline composition rule analysis with your chosen provider
-- Previously limited to Anthropic, now supports multiple providers
-
-{/* ![Screenshot of the "Custom AI Model Configuration" on R2Devops](./custom_ai_config.png) */}
+Set up your own AI model in the `Settings` > `Organization` > `AI Configuration` page, previously limited to Anthropic. This allows you to leverage your preferred AI provider.
 
 ## 🔧 Enhanced Issue Remediation
 
@@ -49,9 +42,9 @@ Resolve issues faster with improved remediation capabilities:
 - Remediate missing components and templates in pipeline composition
 - View remediation summaries before applying changes
 
-{/* ![Screenshot of "Issue Remediation" on R2Devops](./issue_remediation.png) */}
+![Screenshot of "Issue Remediation" on R2Devops](./auto_fix_ai.gif)
 
-## 📊 Comprehensive Project Analysis
+## 📊 Project Analysis
 
 <ReleaseLabels licenses={[0, 1, 2]} />
 
@@ -62,18 +55,27 @@ Gain deeper insights into your project health:
 - Track R2Devops branch status when remediation merge requests have been created
 - Prioritize remediation efforts based on comprehensive project data
 
-{/* ![Screenshot of "Project Analysis Dashboard" on R2Devops](./project_analysis.png) */}
+![Screenshot of "Project Analysis Dashboard" on R2Devops](./projects_analysis.png)
 
 ## ⚙️ Minor Updates
 
-
+- Improved clarity about `Forbidden version` for `Image containers` and `Templates/Components`
+- Enhanced saved filters in `Issues` page
+- Added quick links to `Issues` page with specific filters
+- Improved visibility of inputs for images registry patterns
+- Renamed some texts in `Issues` page for better clarity
+- Added more metrics to `Templates` page:
+    - `Custom templates or components used`
+    - `Using forbidden version`
+    - `Catalog templates or components used`
+- Removed policy cards that cannot be configured
 
 <ReleaseBottomButton />
 
 ---
 
 :::note Versions
-- Backend: `v2.16.5`
-- Frontend: `v2.15.1`
+- Backend: `v2.16.6`
+- Frontend: `v2.15.2`
 - Helm chart: `v2.11.0`
 :::
