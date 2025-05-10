@@ -17,7 +17,7 @@ docker-compose configuration. Specifications:
 - Hardware
   - CPU x86_64/amd64 with at least 2 cores
   - 4 GB RAM
-  - 30 GB of storage for R2Devops
+  - 250 GB of storage for R2Devops
 - Network
 
   - Users must be able to reach the R2Devops server on TCP ports 80 and 443
