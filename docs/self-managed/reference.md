@@ -51,6 +51,9 @@ detailed explanation of the variables
 - **`JOBS_FRONTEND_URL`**: The URL of the frontend application
 - **`GITLEAKS_PATH`**: The path to the Gitleaks binary for detecting secrets
 - **`JOBS_ANALYSIS_TIMEOUT`**: The duration after which we consider an analysis as failed (the more projects you have, the higher this value should be). Default: `10m`
+- **`JOBS_ANALYSIS_UNFINISHED_CLEANUP_AGE`**: Age at which unfinished analyses should be cleaned up. Default: `168h` (7 days)
+- **`JOBS_ANALYSIS_COMPLETE_CLEANUP_AGE`**: Age at which all analyses should be cleaned up. Default: `8760h` (365 days)
+- **`JOBS_HTTP_CLIENT_TIMEOUT`**: Timeout for HTTP clients (REST and GraphQL). Default: `30s`
 
 ### Session and Security
 
@@ -82,6 +85,7 @@ detailed explanation of the variables
 - **`JOBS_DB_SSLMODE`**: The SSL mode for database connections (e.g., `disable`)
 - **`JOBS_DB_TIMEZONE`**: The timezone for database operations
 - **`JOBS_DB_PASSWORD`**: The password for database authentication
+- **`JOBS_DB_QUERY_TIMEOUT`**: Default timeout for all database operations. Default: `10s`
 
 ### Redis Database
 
@@ -92,3 +96,4 @@ detailed explanation of the variables
 - **`JOBS_REDIS_PASSWORD`**: The password for Redis authentication
 - **`JOBS_REDIS_CERT`**: The certificate path for Redis (optional)
 - **`JOBS_REDIS_SET_NAMESPACES_TTL`**: The TTL for Redis namespaces (e.g., `24h`)
+- **`JOBS_REDIS_LIST_TASK_ANALYSIS_TTL`**: TTL for all Redis task lists (analysis, policy, processing). Default: `2h`
