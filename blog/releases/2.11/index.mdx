@@ -69,6 +69,12 @@ Gain deeper insights into your project health:
     - `Using forbidden version`
     - `Catalog templates or components used`
 - Removed policy cards that cannot be configured
+- Optimization of database usage (stricter timeouts, new indexes, split of heavy request in batches)
+- Correction of schedule analysis cron synchronization when several instances of API are launched
+- New analysis cleaning mechanism with configurable retention periods:
+    - `JOBS_ANALYSIS_UNFINISHED_CLEANUP_AGE`: Age at which unfinished analyses should be cleaned up. Default: `168h` (7 days)
+    - `JOBS_ANALYSIS_COMPLETE_CLEANUP_AGE`: Age at which all analyses should be cleaned up. Default: `8760h` (365 days)
+- Improved processing of hanging HTTP connections
 
 <ReleaseBottomButton />
 
