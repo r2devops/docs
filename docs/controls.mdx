@@ -1,70 +1,73 @@
 ---
-title: GitLab Policy Controls
-description: Overview of security and compliance controls for GitLab projects
-sidebar_position: 1
+sidebar_position: 3.5
+id: controls
 ---
 
-# GitLab Policy Controls
+import SeverityBadge from '../src/components/SeverityBadge';
+import FixDurationBadge from '../src/components/FixDurationBadge';
 
-R2DevOps performs various security and compliance checks on your GitLab projects to ensure they follow best practices. This document provides an overview of the controls we apply.
+
+# R2Devops Policies
+
+R2Devops performs various security and compliance checks on your GitLab projects to ensure they follow best practices. This document provides an overview of the controls we apply.
 
 ## Policy Categories
 
-Our controls are grouped into the following categories:
+Controls are grouped into the following categories:
 
 ### Container Security
-| Control | Description | Impact | Severity | Fix Time |
-|---------|-------------|---------|----------|----------|
-| Unknown image source | Images from unknown sources may contain malware or vulnerabilities | Can introduce malicious code that steals API tokens, source code, or alters it | High | Medium (1-4h) |
-| Untrusted image source | Images from untrusted sources pose significant security risks | Can introduce malicious code that steals API tokens, source code, or alters it | Critical | Medium (1-4h) |
-| Forbidden container image tag | Using mutable tags like 'latest' is discouraged | Can result in insecure containers or unexpected breaking changes | Medium | Quick (&lt;1h) |
+| Control | Impact | Severity | Fix Duration |
+|---------|--------|----------|--------------|
+| <span title="Images from unknown sources may contain malware or vulnerabilities" style={{ textDecoration: 'underline dotted', cursor: 'help' }}>Unknown image source</span> | Can introduce malicious code that steals API tokens, source code, or alters it | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Images from untrusted sources pose significant security risks" style={{ textDecoration: 'underline dotted', cursor: 'help' }}>Untrusted image source</span> | Can introduce malicious code that steals API tokens, source code, or alters it | <SeverityBadge severity="Critical" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Using mutable tags like 'latest' is discouraged" style={{ textDecoration: 'underline dotted', cursor: 'help' }}>Forbidden container image tag</span> | Can result in insecure containers or unexpected breaking changes | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
 
 ### Secret Management
-| Control | Description | Impact | Severity | Fix Time |
-|---------|-------------|---------|----------|----------|
-| Unprotected variable | Variables without protection can be exposed | Unauthorized users can exploit variables, leading to security breaches | Medium | Quick (&lt;1h) |
-| Unmasked variable | Variables should be masked to prevent exposure in logs | Exposed values can result in unauthorized access to sensitive data | Medium | Quick (&lt;1h) |
-| Unmasked and unprotected variable | Most critical variable protection issue | Increases likelihood of sensitive data leakage and unauthorized access | High | Quick (&lt;1h) |
-| Secret leak in pipeline configuration | Hardcoded secrets in pipeline configs | Increases risk of unauthorized access, data leaks, and resource misuse | Critical | Quick (&lt;1h) |
+| Control | Impact | Severity | Fix Duration |
+|---------|--------|----------|--------------|
+| <span title="Variables without protection can be exposed" style={{ textDecoration: 'underline dotted', cursor: 'help' }}>Unprotected variable</span> | Unauthorized users can exploit variables, leading to security breaches | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="Variables should be masked to prevent exposure in logs" style={{ textDecoration: 'underline dotted', cursor: 'help' }}>Unmasked variable</span> | Exposed values can result in unauthorized access to sensitive data | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="Most critical variable protection issue" style={{ textDecoration: 'underline dotted', cursor: 'help' }}>Unmasked and unprotected variable</span> | Increases likelihood of sensitive data leakage and unauthorized access | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="Hardcoded secrets in pipeline configs" style={{ textDecoration: 'underline dotted', cursor: 'help' }}>Secret leak in pipeline configuration</span> | Increases risk of unauthorized access, data leaks, and resource misuse | <SeverityBadge severity="Critical" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
 
 ### CI/CD Pipeline Configuration
-| Control | Description | Impact | Severity | Fix Time |
-|---------|-------------|---------|----------|----------|
-| Hardcoded job | Jobs should use templates instead of hardcoding | Makes pipelines harder to maintain and risks non-compliance with standards | Medium | Medium (1-4h) |
-| Forbidden override of job | Overriding protected jobs is not allowed | May cause inconsistent or insecure pipeline configurations | Medium | Medium (1-4h) |
-| Outdated template | Templates should be kept up to date | May have known vulnerabilities or lack compliance with current standards | Low | Quick (&lt;1h) |
-| Forbidden template version | Some template versions may contain vulnerabilities | Can result in insecure templates or unexpected breaking changes | Medium | Quick (&lt;1h) |
-| Missing required template | Required security templates must be included | Results in non-compliant and insecure pipeline configurations | High | Medium (1-4h) |
-| Forbidden override of required template | Required templates should not be modified | Can lead to non-compliant and insecure pipelines | High | Medium (1-4h) |
-| Forbidden override of global variable | Global variables should not be overridden | May result in inconsistent or insecure pipeline behavior | Medium | Medium (1-4h) |
-| Invalid pipeline composition | Pipeline configuration must follow composition rules | Can lead to unverified code being deployed, increasing security risks | High | Long (1-2d) |
-| No pipeline composition requirement defined | Projects should define composition requirements | Can result in insecure or incomplete pipeline setups | High | Medium (1-4h) |
-| Missing required component | Required components must be included | Results in non-compliant and insecure pipeline configurations | High | Medium (1-4h) |
-| Forbidden override of required component | Required components should not be modified | Can lead to non-compliant and insecure pipelines | High | Medium (1-4h) |
+| Control | Impact | Severity | Fix Duration |
+|---------|--------|----------|--------------|
+| <span title="Jobs should use templates instead of hardcoding">Hardcoded job</span> | Makes pipelines harder to maintain and risks non-compliance with standards | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Overriding protected jobs is not allowed">Forbidden override of job</span> | May cause inconsistent or insecure pipeline configurations | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Templates should be kept up to date">Outdated template</span> | May have known vulnerabilities or lack compliance with current standards | <SeverityBadge severity="Low" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="Some template versions may contain vulnerabilities">Forbidden template version</span> | Can result in insecure templates or unexpected breaking changes | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="Required security templates must be included">Missing required template</span> | Results in non-compliant and insecure pipeline configurations | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Required templates should not be modified">Forbidden override of required template</span> | Can lead to non-compliant and insecure pipelines | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Global variables should not be overridden">Forbidden override of global variable</span> | May result in inconsistent or insecure pipeline behavior | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Pipeline configuration must follow composition rules">Invalid pipeline composition</span> | Can lead to unverified code being deployed, increasing security risks | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Long" info="1-2d" /> |
+| <span title="Projects should define composition requirements">No pipeline composition requirement defined</span> | Can result in insecure or incomplete pipeline setups | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Required components must be included">Missing required component</span> | Results in non-compliant and insecure pipeline configurations | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
+| <span title="Required components should not be modified">Forbidden override of required component</span> | Can lead to non-compliant and insecure pipelines | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
 
 ### Branch Protection
-| Control | Description | Impact | Severity | Fix Time |
-|---------|-------------|---------|----------|----------|
-| Branch protection missing | Critical branches should be protected | Highly vulnerable to unauthorized modifications | Critical | Quick (&lt;1h) |
-| Branch protection configuration not compliant | Protection settings must meet standards | Can lead to unauthorized code changes, security vulnerabilities, and compliance issues | High | Quick (&lt;1h) |
+| Control | Impact | Severity | Fix Duration |
+|---------|--------|----------|--------------|
+| <span title="Critical branches should be protected">Branch protection missing</span> | Highly vulnerable to unauthorized modifications | <SeverityBadge severity="Critical" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="Protection settings must meet standards">Branch protection configuration not compliant</span> | Can lead to unauthorized code changes, security vulnerabilities, and compliance issues | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
 
 ### Merge Request Settings
-| Control | Description | Impact | Severity | Fix Time |
-|---------|-------------|---------|----------|----------|
-| Merge request approval rule is below minimum | MRs need sufficient approvals | Can lead to unreviewed code being merged, increasing security risks | High | Quick (&lt;1h) |
-| Merge request approval settings are not compliant | MR settings must meet standards | Can lead to unreviewed code being merged, increasing security risks | High | Quick (&lt;1h) |
-| No merge request approval rule covering all protected branches | All protected branches need approval rules | Increases likelihood of unauthorized or insecure changes being merged | High | Quick (&lt;1h) |
-| Merge request settings are not compliant | General MR settings must meet standards | Can lead to unauthorized code changes and security vulnerabilities | Medium | Quick (&lt;1h) |
+| Control | Impact | Severity | Fix Duration |
+|---------|--------|----------|--------------|
+| <span title="MRs need sufficient approvals">Merge request approval rule is below minimum</span> | Can lead to unreviewed code being merged, increasing security risks | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="MR settings must meet standards">Merge request approval settings are not compliant</span> | Can lead to unreviewed code being merged, increasing security risks | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="All protected branches need approval rules">No merge request approval rule covering all protected branches</span> | Increases likelihood of unauthorized or insecure changes being merged | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
+| <span title="General MR settings must meet standards">Merge request settings are not compliant</span> | Can lead to unauthorized code changes and security vulnerabilities | <SeverityBadge severity="Medium" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
 
 ### Role Management
-| Control | Description | Impact | Severity | Fix Time |
-|---------|-------------|---------|----------|----------|
-| Members' role quotas are not respected | Project roles must follow quota policies | Can lead to uncontrolled access to project resources, weakening security | High | Medium (1-4h) |
+| Control | Impact | Severity | Fix Duration |
+|---------|--------|----------|--------------|
+| <span title="Project roles must follow quota policies">Members' role quotas are not respected</span> | Can lead to uncontrolled access to project resources, weakening security | <SeverityBadge severity="High" /> | <FixDurationBadge duration="Medium" info="1-4h" /> |
 
 ### Security Policy
-| Control | Description | Impact | Severity | Fix Time |
-|---------|-------------|---------|----------|----------|
-| Missing security policy source on project | Projects should define security policies | Project may become non-compliant and vulnerable to risks | Critical | Quick (&lt;1h) |
+| Control | Impact | Severity | Fix Duration |
+|---------|--------|----------|--------------|
+| <span title="Projects should define security policies">Missing security policy source on project</span> | Project may become non-compliant and vulnerable to risks | <SeverityBadge severity="Critical" /> | <FixDurationBadge duration="Quick" info="<1h" /> |
 
 ## Severity Levels
 
@@ -72,11 +75,11 @@ Policies are classified by severity level to help prioritize remediation:
 
 | Severity | Description |
 |----------|-------------|
-| Critical | Severe impact requiring immediate attention |
-| High | Significant impact requiring prompt attention |
-| Medium | Moderate impact requiring attention |
-| Low | Minor impact with low urgency |
-| Info | Informational issue with minimal impact |
+| <SeverityBadge severity="Critical" /> | Severe impact requiring immediate attention |
+| <SeverityBadge severity="High" /> | Significant impact requiring prompt attention |
+| <SeverityBadge severity="Medium" /> | Moderate impact requiring attention |
+| <SeverityBadge severity="Low" /> | Minor impact with low urgency |
+| <SeverityBadge severity="Info" /> | Informational issue with minimal impact |
 
 ## Fix Duration Categories
 
@@ -84,7 +87,7 @@ Each policy includes an estimated fix time:
 
 | Duration | Description |
 |----------|-------------|
-| Quick | Less than 1 hour to fix |
-| Medium | 1-4 hours to fix |
-| Long | 1-2 days to fix |
-| Extended | More than 2 days to fix | 
+| <FixDurationBadge duration="Quick" info="<1h" /> | Less than 1 hour to fix |
+| <FixDurationBadge duration="Medium" info="1-4h" /> | 1-4 hours to fix |
+| <FixDurationBadge duration="Long" info="1-2d" /> | 1-2 days to fix |
+| <FixDurationBadge duration="Extended" info=">2d" /> | More than 2 days to fix | 
