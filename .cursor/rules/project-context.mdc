@@ -1,0 +1,44 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Context
+
+This project is a documentation website built with Docusaurus v3.5.2, a modern static site generator optimized for documentation.
+
+## Key Technologies
+- **Framework**: Docusaurus v3.5.2
+- **Language**: TypeScript
+- **UI Library**: React 18
+- **Styling**: CSS Modules with clsx for class composition
+- **Search**: docusaurus-lunr-search for full-text search
+- **Icons**: FontAwesome 6.5.2
+- **Code Highlighting**: prism-react-renderer
+- **Content**: MDX (Markdown with JSX)
+
+## Project Structure
+- `/docs/` - Main documentation content
+- `/src/` - Source code and components
+- `/static/` - Static assets
+- `/blog/` - Blog posts
+- `/build/` - Production build output
+- `docusaurus.config.ts` - Main configuration file
+- `sidebars.ts` - Documentation sidebar configuration
+
+## Development
+- Node.js >= 18.0 required
+- Uses Prettier for code formatting
+- TypeScript for type safety
+- Development server available via `npm start`
+- Build process via `npm run build`
+
+## Features
+- Full-text search capability
+- Blog support
+- TypeScript support
+- MDX support for rich documentation
+- Responsive design
+- Code syntax highlighting
+
+- FontAwesome icon integration 
