@@ -5,7 +5,7 @@ slug: '/self-managed/docker-compose'
 
 # Docker compose
 
-This page describes how to setup a self-managed instance of R2Devops using
+This page describes how to set up a self-managed instance of R2Devops using
 **Docker-compose**.
 
 ## 💻 Requirements
@@ -23,8 +23,8 @@ docker-compose configuration. Specifications:
   - Users must be able to reach the R2Devops server on TCP ports 80 and 443
   - The R2Devops server must be able to access internet
   - The R2Devops server must be able to communicate with GitLab instance
-  - The installation process required to have a write access to the DNS Zone
-    to setup R2Devops domain
+  - The installation process requires write access to the DNS Zone
+    to set up R2Devops domain
   - If the server is not reachable from internet or if you want to use your
     own certificate for HTTPS, you need to be able to generate certificate
     during the installation process for R2Devops domain
