@@ -52,37 +52,29 @@ docker-compose configuration. Specifications:
 
 ### 📋 Organization
 
-In your `.env` file:
+**In your `.env` file:**
 
 1. Add your organization
 
    - If you use a SaaS version of GitLab (like `gitlab.com`): add the path of
      your organization top-level group in `ORGANIZATION` variable
-
-   ```bash title=".env" hl_lines="1"
-   ORGANIZATION="<top-level-group-name>"
-   ```
+      ```bash title=".env" hl_lines="1"
+      ORGANIZATION="<top-level-group-path>"
+      ```
 
    - Else, let the `ORGANIZATION` variable empty
+      ```bash title=".env" hl_lines="1"
+      ORGANIZATION=""
+      ```
 
-   ```bash title=".env" hl_lines="1"
-   ORGANIZATION=""
-   ```
+2. Add your license
 
-2. (Optional) Add your license
+   - If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
+   - Add your license key in the `LICENSE` variable:
+      ```bash title=".env" hl_lines="1"
+      LICENSE="<license-key>"
+      ```
 
-   :::info[License key]
-   If you do not have a license key, you can let the variable `LICENSE`
-   empty (`value: ""`). Your R2Devops instance will be limited to 5
-   projects.
-
-   Add your license key (provided by R2Devops): edit the `.env` file by
-   updating value of `LICENSE` variable:
-
-   ```bash title=".env" hl_lines="1"
-   LICENSE="<license-key>"
-   ```
-   :::
 ### 📄 Domain name
 
 1. Edit the `.env` file by updating value of `DOMAIN_NAME`, `CERTIFICATE_EMAIL`

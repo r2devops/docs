@@ -58,7 +58,7 @@ unqualified-search-registries = ["docker.io"]
 
 ### 📋 Organization
 
-In your `.env` file:
+**In your `.env` file:**
 
 1. Add your organization
 
@@ -66,7 +66,7 @@ In your `.env` file:
      your organization top-level group in `ORGANIZATION` variable
 
    ```bash title=".env" hl_lines="1"
-   ORGANIZATION="<top-level-group-name>"
+   ORGANIZATION="<top-level-group-path>"
    ```
 
    - Else, let the `ORGANIZATION` variable empty
@@ -75,20 +75,15 @@ In your `.env` file:
    ORGANIZATION=""
    ```
 
-2. (Optional) Add your license
+2. Add your license
 
-   :::info[License key]
-   If you do not have a license key, you can let the variable `LICENSE`
-   empty (`value: ""`). Your R2Devops instance will be limited to 5
-   projects.
-
-   Add your license key (provided by R2Devops): edit the `.env` file by
-   updating value of `LICENSE` variable:
+   - If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
+   - Add your license key in the `LICENSE` variable:
 
    ```bash title=".env" hl_lines="1"
    LICENSE="<license-key>"
    ```
-   :::
+
 ### 📄 Domain name
 
 1. Edit the `.env` file by updating value of `DOMAIN_NAME`, `CERTIFICATE_EMAIL`

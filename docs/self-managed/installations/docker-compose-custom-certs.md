@@ -52,7 +52,7 @@ docker-compose configuration. Specifications:
 
 ### 📋 Organization
 
-In your `.env` file:
+**In your `.env` file:**
 
 1. Add your organization
 
@@ -60,7 +60,7 @@ In your `.env` file:
      your organization top-level group in `ORGANIZATION` variable
 
    ```bash title=".env" hl_lines="1"
-   ORGANIZATION="<top-level-group-name>"
+   ORGANIZATION="<top-level-group-path>"
    ```
 
    - Else, let the `ORGANIZATION` variable empty
@@ -69,20 +69,14 @@ In your `.env` file:
    ORGANIZATION=""
    ```
 
-2. (Optional) Add your license
+2. Add your license
 
-   :::info[License key]
-   If you do not have a license key, you can let the variable `LICENSE`
-   empty (`value: ""`). Your R2Devops instance will be limited to 5
-   projects.
-
-   Add your license key (provided by R2Devops): edit the `.env` file by
-   updating value of `LICENSE` variable:
+   - If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
+   - Add your license key in the `LICENSE` variable:
 
    ```bash title=".env" hl_lines="1"
    LICENSE="<license-key>"
    ```
-   :::
 
 ### 📄 Domain name
 
@@ -114,7 +108,6 @@ In your `.env` file:
        "allowExternalQueries": true
    }
    ```
-
 
    ```bash title="Example with domain name 'mydomain.com'" hl_lines="3-5"
    {
@@ -323,3 +316,5 @@ To restore a backup from scratch on a new system, follow this process:
 Did you encounter a problem during the restore process ? See the
 [troubleshooting](../troubleshooting.md) section.
 :::
+
+
