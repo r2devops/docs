@@ -19,6 +19,7 @@ This page describes how to run a self-managed instance of R2Devops on
   - [Kubectl](https://github.com/kubernetes/kubectl)
 - Write access to the DNS zone of the domain to use with R2Devops
 - A user account on the GitLab instance
+- If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
 
 ## 🛠️ Installation
 
@@ -161,13 +162,7 @@ custom value file.
 
 Add R2Devops related configuration in your new values file `custom_values.yaml`:
 
-1. Add license key (provided by R2Devops) and R2Devops domain
-
-   :::info[License key]
-   If you do not have a license key, you can let the variable
-   `LICENSE` empty (`value: ""`). Your R2Devops instance will be
-   limited to 5 projects.
-   :::
+1. Add license key and R2Devops domain
 
     ```yaml
     front:
@@ -217,7 +212,7 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
 1. Add your GitLab instance domain and organization
 
     :::info[Organization]
-    If you use a SaaS version of GitLab (like `gitlab.com`): add the name
+    If you use a SaaS version of GitLab (like `gitlab.com`): add the path
     of your organization top-level group in `organization`. Else, let it
     empty
     :::

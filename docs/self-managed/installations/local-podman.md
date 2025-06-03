@@ -74,7 +74,7 @@ Preferences > Applications` (example:
    variable (else, let it empty):
 
    ```bash title=".env" hl_lines="1"
-   ORGANIZATION="<top-level-group-name>"
+   ORGANIZATION="<top-level-group-path>"
    ```
 
 1. Replace `<your-gitlab-url>` by domain of your GitLab server in the
@@ -95,19 +95,13 @@ Preferences > Applications` (example:
    sed -i "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
    ```
 
-## 🔐 (Optional) Add your license
+## 🔐 Add your license
 
-:::info[License key]
-If you do not have a license key, you can let the variable `LICENSE` empty
-(`value: ""`). Your R2Devops instance will be limited to 5 projects.
-:::
-
-Add your license key (provided by R2Devops): edit the `.env` file by updating
-value of `LICENSE` variable:
-
-```bash title=".env" hl_lines="1"
-LICENSE="<license-key>"
-```
+- If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
+- Add your license key in the `LICENSE` variable:
+   ```bash title=".env" hl_lines="1"
+   LICENSE="<license-key>"
+   ```
 
 ## 📄 Prepare podman for launch
 
