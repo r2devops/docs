@@ -95,14 +95,6 @@ Preferences > Applications` (example:
    sed -i "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
    ```
 
-## 🔐 Add your license
-
-- If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
-- Add your license key in the `LICENSE` variable:
-   ```bash title=".env" hl_lines="1"
-   LICENSE="<license-key>"
-   ```
-
 ## 📄 Prepare podman for launch
 
 Generate podman network:

@@ -60,10 +60,9 @@ detailed explanation of the variables
 - **`JOBS_SESSION_TTL`**: The validity duration of a user session (e.g., `24h`)
 - **`SECRET_KEY`**: The encryption key for sensitive data. Ensure this is securely generated and kept private
 
-### Organization and License
+### Organization
 
 - **`ORGANIZATION`**: For self-managed GitLab, leave empty to consider all groups. For SaaS GitLab, specify the path of the top-level group of your organization
-- **`LICENSE`**: The license key for the application
 
 ### Logging
 
