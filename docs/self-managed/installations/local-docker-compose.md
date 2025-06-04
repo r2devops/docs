@@ -84,7 +84,6 @@ Preferences > Applications` (example:
    sed -i."" "s/REPLACE_ME_BY_SECRET_KEY/$(openssl rand -hex 32)/g" .env
    sed -i."" "s/REPLACE_ME_BY_JOBS_DB_PASSWORD/$(openssl rand -hex 16)/g" .env
    sed -i."" "s/REPLACE_ME_BY_JOBS_REDIS_PASSWORD/$(openssl rand -hex 16)/g" .env
-   sed -i."" "s/REPLACE_ME_BY_S3_SECRET_KEY/$(openssl rand -hex 16)/g" .env
    ```
 
 ## 🚀 Launch R2Devops!
