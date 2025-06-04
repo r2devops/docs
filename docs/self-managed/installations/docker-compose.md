@@ -67,14 +67,6 @@ docker-compose configuration. Specifications:
       ORGANIZATION=""
       ```
 
-2. Add your license
-
-   - If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
-   - Add your license key in the `LICENSE` variable:
-      ```bash title=".env" hl_lines="1"
-      LICENSE="<license-key>"
-      ```
-
 ### 📄 Domain name
 
 1. Edit the `.env` file by updating value of `DOMAIN_NAME`, `CERTIFICATE_EMAIL`

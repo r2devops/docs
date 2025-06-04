@@ -19,7 +19,6 @@ This page describes how to run a self-managed instance of R2Devops on
   - [Kubectl](https://github.com/kubernetes/kubectl)
 - Write access to the DNS zone of the domain to use with R2Devops
 - A user account on the GitLab instance
-- If you don't already have a license, get a free license [here](https://tally.so/r/wo1L0b).
 
 ## 🛠️ Installation
 
@@ -107,7 +106,6 @@ custom value file.
 
    Replace all occurrences of `REDACTED` by your R2Devops secrets encoded in
    base64 and create following secret:
-    - `license-key`: your R2Devops license
     - `secret-key`: 256 bit secret key used to encrypt sensitive data (`openssl rand -hex 32`)
     - `gitlab-oauth2-client-id`: Application ID of the GitLab application
     - `gitlab-oauth2-client-secret`: Secret of the GitLab application
@@ -120,7 +118,6 @@ custom value file.
       namespace: r2devops
     type: Opaque
     data:
-      license-key: REDACTED
       secret-key: REDACTED
       gitlab-oauth2-client-id: REDACTED
       gitlab-oauth2-client-secret: REDACTED
@@ -162,7 +159,7 @@ custom value file.
 
 Add R2Devops related configuration in your new values file `custom_values.yaml`:
 
-1. Add license key and R2Devops domain
+1. Add R2Devops domain
 
     ```yaml
     front:
@@ -171,10 +168,8 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
     jobs:
       host: 'r2devops.mydomain.com'
 
-      # Not using secret for license (comment if you use secret)
+      # Not using secret for configuration (comment if you use secret)
       extraEnv:
-        - name: LICENSE
-          value: '<license-key>'
         - name: SECRET_KEY
           value: '<secret-key>'
         - name: GITLAB_OAUTH2_CLIENT_ID
@@ -182,13 +177,8 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
         - name: GITLAB_OAUTH2_CLIENT_SECRET
           value: '<gitlab-oauth2-client-secret>'
 
-      # Using existing secret for license (uncomment if you use secret)
+      # Using existing secret for configuration (uncomment if you use secret)
       #extraEnv:
-      #  - name: LICENSE
-      #    valueFrom:
-      #      secretKeyRef:
-      #        name: "r2devops-secret"
-      #        key: "license-key"
       #  - name: SECRET_KEY
       #    valueFrom:
       #      secretKeyRef:
@@ -393,8 +383,6 @@ front:
 jobs:
   host: "r2devops.mydomain.com"
   extraEnv:
-    - name: LICENSE
-      value: "REDACTED"
     - name: SECRET_KEY
       value: "REDACTED"
     - name: GITLAB_OAUTH2_CLIENT_ID
@@ -446,8 +434,6 @@ front:
 jobs:
   host: "r2devops.mydomain.com"
   extraEnv:
-    - name: LICENSE
-      value: "REDACTED"
     - name: SECRET_KEY
       value: "REDACTED"
     - name: GITLAB_OAUTH2_CLIENT_ID
