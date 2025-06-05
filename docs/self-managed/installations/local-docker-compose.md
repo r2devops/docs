@@ -20,6 +20,7 @@ confidentiality and security of your information.
 
 ## 💻 Requirements
 
+- **GitLab instance version >=17.7**
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Docker](https://docs.docker.com/engine/install/)
 

@@ -10,6 +10,7 @@ This page describes how to run a self-managed instance of R2Devops on
 
 ## 💻 Requirements
 
+- **GitLab instance version >=17.7**
 - A Kubernetes cluster with:
   - One ingress controller(ex: [Nginx](https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx) or [Traefik](https://artifacthub.io/packages/helm/traefik/traefik))
   - A certificate manager with a ACME provider: [cert-manager](https://artifacthub.io/packages/helm/cert-manager/cert-manager)

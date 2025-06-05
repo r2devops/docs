@@ -24,6 +24,7 @@ confidentiality and security of your information.
 
 ## 💻 Requirements
 
+- **GitLab instance version >=17.7**
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [podman](https://https://podman.io/docs/installation)
 - Docker hub registry must be resolved by podman in file **/etc/containers/registries.conf**

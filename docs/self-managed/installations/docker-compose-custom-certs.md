@@ -10,29 +10,28 @@ This page describes how to set up a self-managed instance of R2Devops using
 
 ## 💻 Requirements
 
-The system requires a Linux server. It runs in 🐳 Docker containers using a
-docker-compose configuration. Specifications:
-
-- OS: Ubuntu or Debian
-- Hardware
-  - CPU x86_64/amd64 with at least 2 cores
-  - 4 GB RAM
-  - 250 GB of storage for R2Devops
-- Network
-  - Users must be able to reach the R2Devops server on TCP ports 80 and 443
-  - The R2Devops server must be able to access internet
-  - The R2Devops server must be able to communicate with GitLab instance
-  - The installation process requires write access to the DNS Zone
-    to set up R2Devops domain
-  - If the server is not reachable from internet or if you want to use your
-    own certificate for HTTPS, you need to be able to generate certificate
-    during the installation process for R2Devops domain
-
-- Installed software
-  - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-  - [Docker](https://docs.docker.com/engine/install/)
-  - Note: both compose plugin (`docker compose`) and `docker-compose` CLI are
-    working. The first one is installed by default with `Docker`
+- **GitLab instance version >=17.7**
+- The system requires a Linux server. It runs in 🐳 Docker containers using a
+  docker-compose configuration. Specifications:
+   - OS: Ubuntu or Debian
+   - Hardware
+      - CPU x86_64/amd64 with at least 2 cores
+      - 4 GB RAM
+      - 250 GB of storage for R2Devops
+   - Network
+      - Users must be able to reach the R2Devops server on TCP ports 80 and 443
+      - The R2Devops server must be able to access internet
+      - The R2Devops server must be able to communicate with GitLab instance
+      - The installation process requires write access to the DNS Zone
+         to set up R2Devops domain
+      - If the server is not reachable from internet or if you want to use your
+         own certificate for HTTPS, you need to be able to generate certificate
+         during the installation process for R2Devops domain
+   - Installed software
+      - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+      - [Docker](https://docs.docker.com/engine/install/)
+      - Note: both compose plugin (`docker compose`) and `docker-compose` CLI are
+         working. The first one is installed by default with `Docker`
 
 ## 🛠️ Installation
 
