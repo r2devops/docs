@@ -11,7 +11,6 @@ date: 2024-11-29
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ReleaseBottomButton from '@site/src/components/ReleaseBottomButton/ReleaseBottomButton.component';
-import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.component';
 
 **We are thrilled to introduce R2Devops 2.1! This release brings a powerful new policy for managing branch protection and access rights on projects, an enhanced method for controlling variable overrides, and improved compliance for pipeline composition.**
 
@@ -19,15 +18,11 @@ import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.comp
 
 ## 🛡️ Projects Branch Protection Policy
 
-<ReleaseLabels licenses={[1, 2]} />
-
 This policy allows you to ensure that your projects branches are correctly protected. You will be alerted by issues if your branches are not protected with correct configuration regarding force push, code owner approval, push and merge access right.
 
 ![Screenshot of the "Projects Protection" page on R2Devops](./branch_protection.png)
 
 ## ⚙️ Variables Overrides Control
-
-<ReleaseLabels licenses={[2]} />
 
 You can now enable an authorized variable list and define patterns for variable names that are allowed to be overridden. Any variables that do not match these patterns will be treated as forbidden overrides and you will be alerted with an issue.
 
@@ -36,7 +31,7 @@ You can now enable an authorized variable list and define patterns for variable 
 
 ## 🔍 Pipeline Actions Compliance
 
-<ReleaseLabels licenses={[2]} />
+
 
 We’ve enhanced pipeline composition compliance detection. Now, you can review each action performed or missing in your project's CI/CD pipelines.
 
