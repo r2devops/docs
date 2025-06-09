@@ -66,14 +66,12 @@ To create a new page, follow these steps:
     ```mdx
     ## 🔍 Enhanced CI/CD Compliance
 
-    <ReleaseLabels licenses={[2]} selfManagedOnly />
     ```
 
     | Example: A feature available for all cases
     ```mdx "Example: A feature available for all cases"
     ## 📚 Streamlined Dashboard Documentation & New Certifications Section
 
-    <ReleaseLabels licenses={[ 0, 1, 2 ]} />
     ```
     You also have to introduce the component `<ReleaseBottomButton />` at the end of every releases which is a CTA to test the platform, introduce it like this:
 

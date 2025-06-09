@@ -11,15 +11,12 @@ date: 2025-01-03
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ReleaseBottomButton from '@site/src/components/ReleaseBottomButton/ReleaseBottomButton.component';
-import ReleaseLabels from '@site/src/components/ReleaseLabels/ReleaseLabels.component';
 
 **We are thrilled to introduce R2Devops 2.4! This release brings a new dashboard access for everyone, improved pipelines images registry resolution and simplified onboarding.**
 
 <!-- truncate -->
 
 ## 📊 Dashboard Access for Everyone
-
-<ReleaseLabels licenses={[0, 1, 2]} />
 
 All members of your organization can now access dashboard results. This enables them to monitor the security and compliance status of their pipelines, fostering better adoption of best practices across the entire organization.
 
@@ -29,8 +26,6 @@ All R2Devops roles and permissions are described [in the documentation](/docs/us
 
 ## 🔍 Improved Pipelines Images Registry Resolution
 
-<ReleaseLabels licenses={[1, 2]} />
-
 Previously, when a container image used to run a pipeline job contained a variable, it was resolved only using variables explicitly declared in the CI configuration file. Now, variable resolution also includes the following sources:
 
 - Project variables
@@ -39,8 +34,6 @@ Previously, when a container image used to run a pipeline job contained a variab
 - GitLab predefined variables
 
 ## 🚀 Simplified Onboarding
-
-<ReleaseLabels licenses={[0, 1, 2]} />
 
 The new onboarding process will guide you through configuring your organization and policies. This makes it easy to set up your instance tailored to your CI/CD security and compliance requirements.
 
