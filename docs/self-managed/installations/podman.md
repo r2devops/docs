@@ -48,10 +48,9 @@ unqualified-search-registries = ["docker.io"]
    git clone https://github.com/r2devops/self-managed.git r2devops
    cd r2devops
    ```
-1. Create your configuration files
+1. Create your configuration file
    ```sh
    cp .env.example .env
-   cp .docker/r2devops/config.json.example .docker/r2devops/config.json
    ```
 
 ### 📋 Organization
@@ -75,47 +74,21 @@ unqualified-search-registries = ["docker.io"]
 
 ### 📄 Domain name
 
-1. Edit the `.env` file by updating value of `DOMAIN_NAME`, `CERTIFICATE_EMAIL`
-   and `JOBS_GITLAB_URL` variables
+1. Edit the `.env` file by updating value of `DOMAIN_NAME` and `JOBS_GITLAB_URL` variables
 
    ```bash title=".env" hl_lines="1-3"
-   DOMAIN_NAME="r2devops.<domain_name>"
-   CERTIFICATE_EMAIL="<your_email>"
+   DOMAIN_NAME="<r2devops_domain_name>"
    JOBS_GITLAB_URL="https://<url_of_your_gitlab_instance>"
    ```
 
-   ```bash title="Example with domain name 'mydomain.com'" hl_lines="1-3"
+   ```bash title="Example with domain name 'r2devops.mydomain.com' for R2Devops and 'gitlab.mydomain.com' for GitLab" hl_lines="1-3"
    DOMAIN_NAME="r2devops.mydomain.com"
-   CERTIFICATE_EMAIL="tech@mydomain.com"
    JOBS_GITLAB_URL="https://gitlab.mydomain.com"
    ```
 
-1. Edit the `.docker/r2devops/config.json` file by updating `apiUrl`,
-   `apiUrlIdentities` and `gitLabApiUrl` parameters
+1. Create DNS record
 
-   :::warning
-     Set `allowExternalQueries` to `false` if you want to prevent R2Devops from initiating queries to sources other than `backend` and `GitLab`.
-   :::
-   ```bash hl_lines="3-5"
-   {
-       "appTitle": "R2Devops",
-       "apiUrl": "https://r2devops.<domain_name>/api",
-       "gitLabApiUrl": "https://<gitlab_intance_domain>",
-       "selfHosted": true,
-       "docUrl": "https://docs.r2devops.io",
-       "debug": false,
-       "allowExternalQueries": true
-   }
-   ```
-
-   ```bash title="Example with domain name 'mydomain.com'" hl_lines="1-3"
-   "apiUrl": "https://r2devops.mydomain.com/api",
-   "gitLabApiUrl": "https://gitlab.mydomain.com",
-   ```
-
-2. Create DNS record
-
-   - Name: `r2devops.<domain_name>`
+   - Name: `<r2devops_domain_name>`
    - Type: `A`
    - Content: `<your-server-public-ip>`
 
@@ -139,8 +112,7 @@ group. Open the chosen group in GitLab interface and navigate through
 Then, create an application with the following information :
 
 - Name: `R2Devops self-managed`
-- Redirect URI :
-  `https://r2devops.<domain_name>/api/auth/gitlab/callback`
+- Redirect URI : `https://<r2devops_domain_name>/api/auth/gitlab/callback`
 - Confidential: `true` (let the box checked)
 - Scopes: `api`
 
@@ -287,17 +259,16 @@ Data required to fully backup and restore a R2Devops system are the following:
 All these data can be easily backup and restored using 2 scripts from the
 installation git repository:
 
-- `backup_podman.sh`
-- `restore_podman.sh`
+- `scripts/backup_podman.sh`
+- `scripts/restore_podman.sh`
 
 ### 💽 Backup
 
 To backup the system, go to your installation git repository and run the
-following commands:
+following command:
 
 ```bash
-cp scripts/*_podman.sh .
-./backup_podman.sh <postgres image version>
+./scripts/backup_podman.sh 13
 ```
 
 The script will create a `backups` directory and create a backup archive inside
@@ -307,7 +278,7 @@ it prefixed with the date (`backup_r2-$DATE`)
 You can use a cron job to perform regular backups.
 Here is a cron job that launch a backup every day at 2am:
 ```bash
-0 2 * * * /r2devops/backup_podman.sh <postgres image version>
+0 2 * * * /r2devops/scripts/backup_podman.sh 13
 ```
 It can be added to your crontab with the command `crontab -e`. Check more
 information about cron jobs
@@ -325,14 +296,13 @@ To restore a backup from scratch on a new system, follow this process:
    ```bash
    git clone https://gitlab.com/r2devops/self-managed.git r2devops
    cd r2devops
-   cp scripts/*_podman.sh .
    ```
 1. If the IP address of your server changed from your previous installation,
    update your DNS records. See [section
    2](#-domain-name) of domain configuration
 1. Launch the restore script
    ```bash
-   ./restore_podman.sh <postgres image version> <path_to_your_backup_file>
+   ./scripts/restore_podman.sh 13 <path_to_your_backup_file>
    ```
 
 :::danger[Any errors during the restore process ?]

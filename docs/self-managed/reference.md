@@ -4,45 +4,9 @@ sidebar_position: 100
 
 # Reference
 
-This reference explains the global configuration options for R2Devops,
-including frontend configuration and backend environment variables. The
-frontend configuration is stored in a JSON file, while the backend settings are
-managed through environment variables.
+This reference explains the global configuration options for R2Devops. All configuration is managed through environment variables.
 
-## Frontend
-
-The frontend configuration file is a JSON file that should be mounted to
-`/app/.next/server/app/config.body` in our official container. It contains the
-following options:
-
-```json
-{
-  "appTitle": "R2Devops",
-  "apiUrl": "https://r2devops.REPLACEME/api",
-  "gitLabApiUrl": "https://gitlab.com/",
-  "selfHosted": true,
-  "docUrl": "https://docs.r2devops.io",
-  "debug": false,
-  "allowExternalQueries": true
-}
-```
-
-### Options
-
-- **`appTitle`**: The title of the application displayed in the user interface
-- **`apiUrl`**: The R2Devops API URL for API calls made by the frontend
-- **`gitLabApiUrl`**: URL of the gitlab instance for API calls made by the frontend
-- **`selfHosted`**: A boolean indicating if the application is self-hosted (`true`) or SaaS (`false`)
-- **`docUrl`**: The URL to the R2Devops documentation site
-- **`debug`**: Enables debug mode when set to `true`
-- **`allowExternalQueries`**: A boolean that, when `true`, allows the frontend to perform external queries
-
-## Backend
-
-The backend configuration is managed through environment variables. Below is a
-detailed explanation of the variables
-
-### General Configuration
+## General Configuration
 
 - **`JOBS_LISTEN_ADDR`**: The address on which the backend listens (e.g., `localhost`)
 - **`JOBS_LISTEN_PORT`**: The port on which the backend listens (e.g., `3000`)
@@ -55,27 +19,32 @@ detailed explanation of the variables
 - **`JOBS_ANALYSIS_COMPLETE_CLEANUP_AGE`**: Age at which all analyses should be cleaned up. Default: `8760h` (365 days)
 - **`JOBS_HTTP_CLIENT_TIMEOUT`**: Timeout for HTTP clients (REST and GraphQL). Default: `30s`
 
-### Session and Security
+## Frontend Configuration
+
+- **`DEBUG`**: Enables debug mode for the frontend when set to `true`. Default: `false`
+- **`ALLOW_EXTERNAL_QUERIES`**: When set to `true`, allows the frontend to perform external queries. Set to `false` if you want to prevent R2Devops from initiating queries to sources other than backend and GitLab. Default: `true`
+
+## Session and Security
 
 - **`JOBS_SESSION_TTL`**: The validity duration of a user session (e.g., `24h`)
 - **`SECRET_KEY`**: The encryption key for sensitive data. Ensure this is securely generated and kept private
 
-### Organization
+## Organization
 
 - **`ORGANIZATION`**: For self-managed GitLab, leave empty to consider all groups. For SaaS GitLab, specify the path of the top-level group of your organization
 
-### Logging
+## Logging
 
 - **`LOG_LEVEL`**: The logging level (`error`, `warn`, `info`, `debug`)
 - **`LOG_FORMATTER`**: The log output format (`json` or `text`)
 
-### GitLab Integration
+## GitLab Integration
 
 - **`JOBS_GITLAB_URL`**: The URL of the GitLab instance (e.g., `https://gitlab.com`)
 - **`GITLAB_OAUTH2_CLIENT_ID`**: The client ID for GitLab OAuth2
 - **`GITLAB_OAUTH2_CLIENT_SECRET`**: The client secret for GitLab OAuth2
 
-### PostgreSQL Database
+## PostgreSQL Database
 
 - **`JOBS_DB_HOST`**: The host address of the PostgreSQL database
 - **`JOBS_DB_PORT`**: The port of the PostgreSQL database
@@ -86,7 +55,7 @@ detailed explanation of the variables
 - **`JOBS_DB_PASSWORD`**: The password for database authentication
 - **`JOBS_DB_QUERY_TIMEOUT`**: Default timeout for all database operations. Default: `10s`
 
-### Redis Database
+## Redis Database
 
 - **`JOBS_REDIS_HOST`**: The host address of the Redis database
 - **`JOBS_REDIS_PORT`**: The port of the Redis database

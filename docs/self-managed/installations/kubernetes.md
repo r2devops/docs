@@ -53,7 +53,7 @@ You need a domain to run R2Devops. For example, if you have the domain name
 
 1. Create DNS record
 
-    - Name: `r2devops.<domain_name>`
+    - Name: `<r2devops_domain_name>`
     - Type: `A`
     - Content: `<your-cluster-public-ip>`
 
@@ -71,7 +71,7 @@ to connect it to your GitLab instance.
 1. Then, create an application with the following information
 
     - Name: `R2Devops self-managed`
-    - Redirect URI : `https://r2devops.<domain_name>/api/auth/gitlab/callback`
+    - Redirect URI : `https://<r2devops_domain_name>/api/auth/gitlab/callback`
     - Confidential: `true` (let the box checked)
     - Scopes: `api`
 
