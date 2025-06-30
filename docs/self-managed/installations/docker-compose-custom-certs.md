@@ -42,10 +42,9 @@ This page describes how to set up a self-managed instance of R2Devops using
    git clone https://github.com/r2devops/self-managed.git r2devops
    cd r2devops
    ```
-1. Create your configuration files
+1. Create your configuration file
    ```sh
    cp .env.example .env
-   cp .docker/r2devops/config.json.example .docker/r2devops/config.json
    ```
 
 ### 📋 Organization
@@ -69,45 +68,21 @@ This page describes how to set up a self-managed instance of R2Devops using
 
 ### 📄 Domain name
 
-1. Edit the `.env` file by updating value of `DOMAIN_NAME`, and
+1. Edit the `.env` file by updating value of `DOMAIN_NAME` and
    `JOBS_GITLAB_URL` variables
 
    ```bash title=".env" hl_lines="1-3"
-   DOMAIN_NAME="r2devops.<domain_name>"
+   DOMAIN_NAME="<r2devops_domain_name>"
    JOBS_GITLAB_URL="https://<url_of_your_gitlab_instance>"
    ```
 
-   ```bash title="Example with domain name 'mydomain.com'" hl_lines="1-3"
+   ```bash title="Example with domain name 'r2devops.mydomain.com' for R2Devops and 'gitlab.mydomain.com' for GitLab" hl_lines="1-3"
    DOMAIN_NAME="r2devops.mydomain.com"
    JOBS_GITLAB_URL="https://gitlab.mydomain.com"
    ```
-1. Edit the `.docker/r2devops/config.json` file by updating `apiUrl`,
-   `apiUrlIdentities` and `gitLabApiUrl` parameters
-   :::warning
-     Set `allowExternalQueries` to `false` if you want to prevent R2Devops from initiating queries to sources other than `backend` and `GitLab`.
-   :::
-   ```bash hl_lines="3-5"
-   {
-       "appTitle": "R2Devops",
-       "apiUrl": "https://r2devops.<domain_name>/api",
-       "gitLabApiUrl": "https://<gitlab_intance_domain>",
-       "selfHosted": true,
-       "docUrl": "https://docs.r2devops.io",
-       "debug": false,
-       "allowExternalQueries": true
-   }
-   ```
-
-   ```bash title="Example with domain name 'mydomain.com'" hl_lines="3-5"
-   {
-       "apiUrl": "https://r2devops.mydomain.com/api",
-       "gitLabApiUrl": "https://gitlab.mydomain.com",
-   }
-   ```
-
 1. Create DNS record
 
-   - Name: `r2devops.<domain_name>`
+   - Name: `<r2devops_domain_name>`
    - Type: `A`
    - Content: `<your-server-public-ip>`
 
@@ -127,8 +102,7 @@ group. Open the chosen group in GitLab interface and navigate through
 Then, create an application with the following information :
 
 - Name: `R2Devops self-managed`
-- Redirect URI :
-  `https://r2devops.<domain_name>/api/auth/gitlab/callback`
+- Redirect URI : `https://<r2devops_domain_name>/api/auth/gitlab/callback`
 - Confidential: `true` (let the box checked)
 - Scopes: `api`
 
@@ -163,18 +137,20 @@ sed -i."" "s/REPLACE_ME_BY_JOBS_REDIS_PASSWORD/$(openssl rand -hex 16)/g" .env
 
    :::info
    - If you already have certificate or if you want to generate it using
-   your own process, you can directly go to step 2 - This step requires [certbot](https://github.com/certbot/certbot)
+   your own process, you can directly go to step 2
+   - This step requires [certbot](https://github.com/certbot/certbot)
+   :::
 
    ```bash
-   certbot certonly --manual --preferred-challenges dns -d r2devops.<your_domain>
+   certbot certonly --manual --preferred-challenges dns -d <r2devops_domain_name>
    # Add DNS entry to solve DNS challenge
    ```
-   :::
 1. Copy the fullchain and the private key
 
    :::info
    If you generated your certificates using certbot, they are located in
    `/etc/letsencrypt/live/`
+   :::
 
    Replace path in commands below by the path of your certificate:
 
@@ -182,7 +158,6 @@ sed -i."" "s/REPLACE_ME_BY_JOBS_REDIS_PASSWORD/$(openssl rand -hex 16)/g" .env
    cp path_to_r2devops_cert_fullchain .docker/traefik/certs/r2devops_fullchain.pem
    cp path_to_r2devops_cert_privkey .docker/traefik/certs/r2devops_privkey.pem
    ```
-   :::
 
 ### 📋 (Optional) Add your custom CA
 
@@ -255,8 +230,8 @@ Data required to fully backup and restore a R2Devops system are the following:
 All these data can be easily backup and restored using 2 scripts from the
 installation git repository:
 
-- `backup.sh`
-- `restore.sh`
+- `scripts/backup.sh`
+- `scripts/restore.sh`
 
 ### 💽 Backup
 
@@ -264,7 +239,7 @@ To backup the system, go to your installation git repository and run the
 following command:
 
 ```bash
-./backup.sh
+./scripts/backup.sh 13
 ```
 
 The script will create a `backups` directory and create a backup archive inside
@@ -274,7 +249,7 @@ it prefixed with the date (`backup_r2-$DATE`)
 You can use a cron job to perform regular backups.
 Here is a cron job that launch a backup every day at 2am:
 ```bash
-0 2 * * * /r2devops/backup.sh
+0 2 * * * /r2devops/scripts/backup.sh 13
 ```
 It can be added to your crontab with the command `crontab -e`. Check more
 information about cron jobs
@@ -298,7 +273,7 @@ To restore a backup from scratch on a new system, follow this process:
    2](#-domain-name) of domain configuration
 1. Launch the restore script
    ```bash
-   ./restore.sh <path_to_your_backup_file>
+   ./scripts/restore.sh 13 <path_to_your_backup_file>
    ```
 
 :::danger[Any errors during the restore process ?]

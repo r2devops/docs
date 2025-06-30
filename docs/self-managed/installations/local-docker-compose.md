@@ -46,10 +46,9 @@ Preferences > Applications` (example:
    git clone https://github.com/r2devops/self-managed.git r2devops
    cd r2devops
    ```
-1. Create your configuration files
+1. Create your configuration file
    ```sh
    cp .env.local.example .env
-   cp .docker/r2devops/config.local.json.example .docker/r2devops/config.json
    ```
 
 ## 📚 Update the configuration
@@ -75,10 +74,9 @@ Preferences > Applications` (example:
    ```bash
    export GITLAB_INSTANCE_URL="https://<your-gitlab-url>"
    ```
-1. Run the following commands to update configuration:
+1. Run the following command to update configuration:
    ```bash
    sed -i."" "s|GITLAB_INSTANCE_URL|${GITLAB_INSTANCE_URL}|g" .env
-   sed -i."" "s|GITLAB_INSTANCE_URL|${GITLAB_INSTANCE_URL}|g" .docker/r2devops/config.json
    ```
 1. Run the following commands to generate random secrets for all components:
    ```bash
