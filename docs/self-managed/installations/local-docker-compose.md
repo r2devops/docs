@@ -53,32 +53,32 @@ Preferences > Applications` (example:
 
 ## 📚 Update the configuration
 
-1. Edit the `.env` file: copy/paste the `Application ID` and the `Secret` from
-   the application you just created
+1. Edit the `.env` file:
 
-   ```bash title=".env" hl_lines="1-2"
-   GITLAB_OAUTH2_CLIENT_ID="<application-id>"
-   GITLAB_OAUTH2_CLIENT_SECRET="<application-secret>"
-   ```
+   - Copy/paste the `Application ID` and the `Secret` from
+     the GitLab application you just created
 
-1. **Only if you use a SaaS version of GitLab (like `gitlab.com`):** edit the
-   `.env` file to add the name of your top-level group in `ORGANIZATION`
-   variable (else, let it empty):
+      ```bash title=".env"
+      GITLAB_OAUTH2_CLIENT_ID="<application-id>"
+      GITLAB_OAUTH2_CLIENT_SECRET="<application-secret>"
+      ```
 
-   ```bash title=".env" hl_lines="1"
-   ORGANIZATION="<top-level-group-path>"
-   ```
+   - Replace `<your-gitlab-url>` by domain of your GitLab server
 
-1. Replace `<your-gitlab-url>` by domain of your GitLab server in the
-   following command and run it:
-   ```bash
-   export GITLAB_INSTANCE_URL="https://<your-gitlab-url>"
-   ```
-1. Run the following command to update configuration:
-   ```bash
-   sed -i."" "s|GITLAB_INSTANCE_URL|${GITLAB_INSTANCE_URL}|g" .env
-   ```
+      ```bash title=".env"
+      JOBS_GITLAB_URL="https://<your-gitlab-url>"
+      ```
+
+   -  **Only if you use a SaaS version of GitLab (like `gitlab.com`):**
+      add the name of your top-level group in `ORGANIZATION` variable
+      (else, let it empty)
+
+      ```bash title=".env"
+      ORGANIZATION="<top-level-group-path>"
+      ```
+
 1. Run the following commands to generate random secrets for all components:
+
    ```bash
    sed -i."" "s/REPLACE_ME_BY_SECRET_KEY/$(openssl rand -hex 32)/g" .env
    sed -i."" "s/REPLACE_ME_BY_JOBS_DB_PASSWORD/$(openssl rand -hex 16)/g" .env
