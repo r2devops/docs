@@ -31,13 +31,9 @@ and/or `Redis`. Both alternatives are detailed below.
 
 ### 📥 Initialize your cluster
 
-1. Choose a namespace name and set it in a variable
+1. Create the namespace for R2Devops
     ```sh
-    export R2DEVOPS_NS="r2devops"
-    ```
-1. Create the namespace
-    ```sh
-    kubectl create ns $R2DEVOPS_NS
+    kubectl create ns r2devops
     ```
 1. Add R2Devops repo
     ```sh
@@ -196,7 +192,7 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
       #        key: "gitlab-oauth2-client-secret"
 
     worker:
-      replicaCount: 10 # Default is 5. Increase it depending of your needs
+      replicaCount: 20 # Default is 20. Increase it depending of your needs
     ```
 
 1. Add your GitLab instance domain and organization
@@ -300,7 +296,7 @@ redis:
 Run the following command:
 
 ```sh
-helm upgrade -n $R2DEVOPS_NS --install r2devops r2devops/r2devops -f custom_values.yaml
+helm upgrade -n r2devops --create-namespace --install r2devops r2devops/r2devops -f custom_values.yaml
 ```
 
 :::success[Congratulations]
