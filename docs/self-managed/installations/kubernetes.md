@@ -11,6 +11,8 @@ This page describes how to run a self-managed instance of R2Devops on
 ## 💻 Requirements
 
 - **GitLab instance version >=17.7**
+- **A Redis instance version >= 6**
+- **A PostgreSQL instance version >= 13**
 - A Kubernetes cluster with:
   - One ingress controller(ex: [Nginx](https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx) or [Traefik](https://artifacthub.io/packages/helm/traefik/traefik))
   - A certificate manager with a ACME provider: [cert-manager](https://artifacthub.io/packages/helm/cert-manager/cert-manager)
@@ -82,15 +84,12 @@ to connect it to your GitLab instance.
 1. Store `Application ID` and `Secret` somewhere safe, we will need to use them
    in next step
 
-### ⚙️ Configure `values`
+### ⚙️ Configure your values
 
 This section describes how to configure your custom values file. The default
 `values.yaml` is available
 [here](https://github.com/r2devops/self-managed/blob/main/charts/r2devops/values.yaml).
-Two examples are available at the end of this documentation:
-
-1. [Using only services embedded in the chart](#-no-external-services)
-2. [Using only external services](#-external-services)
+An [example](#-configuration-example) is available at the end of this documentation.
 
 :::note
 For the following sections, we assume that your custom value file will be
@@ -244,106 +243,57 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
 
 #### 📘 PostgreSQL
 
-You can choose between 2 options: use postgresql embedded in this chart or
-use an external postgresql.
+Add following configuration in your `custom_values.yaml` file
 
-Add following configuration (**1 OR 2**) in your `custom_values.yaml` file:
+```yaml
+postgresql:
 
-1. Use postgresql embedded in this chart
+  custom:
+    host: REPLACE_ME_BY_POSTGRES_HOST
+    dbName: REPLACE_ME_BY_POSTGRES_DB_NAME
+    sslmode: 'require'
+    port: 5432
 
-    ```yaml
+  global:
     postgresql:
-      dependency:
-        enabled: true
-      global:
-        postgresql:
-          # Not using secret for auth (comment if you use secret)
-          auth:
-            password: REPLACE_ME_BY_NEW_POSTGRESQL_PASSWORD
-            postgresPassword: REPLACE_ME_BY_NEW_POSTGRESQL_PASSWORD
 
-          # Using existing secret for auth (uncomment if you use secret)
-          #auth:
-          #  username: r2devops
-          #  existingSecret: "postgresql-secret"
-          #  secretKeys:
-          #    adminPasswordKey: "password"
-          #    userPasswordKey: "password"
-    ```
+      # Not using secret for auth (comment if you use secret)
+      auth:
+        username: REPLACE_ME_BY_POSTGRES_USERNAME
+        postgresPassword: REPLACE_ME_BY_POSTGRES_PASSWORD
 
-2. Use an external postgresql (database must be created)
-
-    ```yaml
-    postgresql:
-      dependency:
-        enabled: false
-      custom:
-        host: REPLACE_ME_BY_POSTGRES_HOST
-        dbName: REPLACE_ME_BY_POSTGRES_DB_NAME
-        sslmode: 'require'
-        port: 5432
-      global:
-        postgresql:
-          # Not using secret for auth (comment if you use secret)
-          auth:
-            username: REPLACE_ME_BY_POSTGRES_USERNAME
-            postgresPassword: REPLACE_ME_BY_POSTGRES_PASSWORD
-
-          # Using existing secret for auth password (uncomment if you use secret)
-          #auth:
-          #  username: r2devops
-          #  existingSecret: "postgresql-secret"
-          #  secretKeys:
-          #    adminPasswordKey: "password"
-          #    userPasswordKey: "password"
-    ```
+      # Using existing secret for auth password (uncomment if you use secret)
+      #auth:
+      #  username: r2devops
+      #  existingSecret: "postgresql-secret"
+      #  secretKeys:
+      #    adminPasswordKey: "password"
+      #    userPasswordKey: "password"
+```
 
 #### 📕 Redis
 
-You can choose between 2 options: use redis embedded in this chart or
-use an external redis.
+Add following configuration in your `custom_values.yaml` file:
 
-Add following configuration (**1 OR 2**) in your `custom_values.yaml` file:
+```yaml
+redis:
 
-1. Use redis embedded in this chart
+  custom:
+    port: 6379
+    host: REPLACE_ME_BY_REDIS_HOST
+    user: REPLACE_ME_BY_REDIS_USENAME
+    cert: |
+      REPLACE_ME_BY_REDIS_TLS_CERTIFICATE
 
-    ```yaml
-    redis:
-      dependency:
-        enabled: true
+  # Not using secret for auth (comment if you use secret)
+  auth:
+    password: REPLACE_ME_BY_REDIS_PASSWORD
 
-      # Not using secret for auth (comment if you use secret)
-      auth:
-        password: REPLACE_ME_BY_NEW_REDIS_PASSWORD
-
-      # Using existing secret for auth (uncomment if you use secret)
-      #auth:
-      #  existingSecret: "redis-secret"
-      #  existingSecretPasswordKey: "password"
-    ```
-
-2. Use an external redis (database must be created)
-
-    ```yaml
-    redis:
-      dependency:
-        enabled: false
-      custom:
-        port: 6379
-        host: REPLACE_ME_BY_REDIS_HOST
-        user: REPLACE_ME_BY_REDIS_USENAME
-        cert: |
-          REPLACE_ME_BY_REDIS_TLS_CERTIFICATE
-
-      # Not using secret for auth (comment if you use secret)
-      auth:
-        password: REPLACE_ME_BY_REDIS_PASSWORD
-
-      # Using existing secret for auth (uncomment if you use secret)
-      #auth:
-      #  existingSecret: "redis-secret"
-      #  existingSecretPasswordKey: "password"
-    ```
+  # Using existing secret for auth (uncomment if you use secret)
+  #auth:
+  #  existingSecret: "redis-secret"
+  #  existingSecretPasswordKey: "password"
+```
 
 ### 🚀 Install the chart
 
@@ -365,69 +315,11 @@ Did you encounter a problem during the installation process ? See the
 ### 📚 Configuration example
 
 :::info
-The following examples run in a Kubernetes cluster using `nginx` as
-`ingressController`, `cert-manager` and a `clusterIssuer` named
-`letsencrypt-production`
-:::
+This example run in a Kubernetes cluster using:
+- `nginx` as ingressController
+- `cert-manager`
+- A clusterIssuer named `letsencrypt-production`
 
-#### 📦 No external services
-
-This is an example of custom `values.yaml` file using all services from chart
-dependencies.
-
-:::note[Example]
-
-```yaml
-front:
-  host: "r2devops.mydomain.com"
-
-jobs:
-  host: "r2devops.mydomain.com"
-  extraEnv:
-    - name: SECRET_KEY
-      value: "REDACTED"
-    - name: GITLAB_OAUTH2_CLIENT_ID
-      value: "REDACTED"
-    - name: GITLAB_OAUTH2_CLIENT_SECRET
-      value: "REDACTED"
-
-gitlab:
-  domain: "https://gitlab.mydomain.com"
-
-worker:
-  replicaCount: 15
-
-ingress:
-  enabled: true
-  className: "nginx"
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-production"
-
-# ref. https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
-postgresql:
-  dependency:
-    enabled: true
-  global:
-    postgresql:
-      auth:
-        password: REDACTED
-        postgresPassword: REDACTED
-
-# ref. https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
-redis:
-  dependency:
-    enabled: true
-  auth:
-    password: REDACTED
-```
-:::
-
-#### 📥 External services
-
-This is an example of custom `values.yaml` file using external services for
-PostgreSQL and Redis.
-
-:::note[Example]
 ```yaml
 front:
   host: "r2devops.mydomain.com"
@@ -454,10 +346,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
 
-# ref. https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
 postgresql:
-  dependency:
-    enabled: false
   global:
     postgresql:
       auth:
@@ -469,10 +358,7 @@ postgresql:
     dbName: "r2devops"
     sslmode: "require"
 
-# ref. https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
 redis:
-  dependency:
-    enabled: false
   auth:
     password: REDACTED
   custom:
