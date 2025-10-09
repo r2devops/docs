@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Roles and Permissions
+# GitLab Integration & Permissions
 
 ## 👥 Roles
 
@@ -15,8 +15,8 @@ sidebar_position: 2
 
 ### Maintainer
 
-- Maintainers can manage projects, configure settings and policies and run analysis if an organization token is set. They have significant control but cannot manage authorized maintainers.
-- **Who is Maintainer**: any user (from `Guest`) from a group manually added in the `Settings > Authorization` page.
+- Maintainers can manage projects, configure settings and policies, and run analysis if an organization token is set. They have significant control but cannot manage authorized maintainers.
+- **Who is Maintainer**: any user (starting from `Guest` level) from a group manually added in the `Settings > Authorization` page.
 
 ### Member
 
@@ -28,7 +28,7 @@ sidebar_position: 2
 ### No one
 
 - This role has no permissions and cannot perform any actions on the platform.
-- **Who is no one**: any user not in the previously described roles.
+- **Who is No one**: any user not in the previously described roles.
 
 ## 🔒 Permissions
 
@@ -46,3 +46,21 @@ sidebar_position: 2
 | Edit authorized maintainers settings  | ✅    | ❌         | ❌     | ❌     |
 
 🟡 : access filtered on projects and groups that users can read on GitLab
+
+## 🔑 GitLab Token Configuration
+
+R2Devops uses GitLab tokens to communicate with your GitLab instance:
+- To run analysis, it uses the **Access Token** added in `Settings > Organization > Analysis Token`
+- To run all other queries, it uses the **OIDC Token** of the currently logged-in user
+
+To create the **Access Token**:
+- The token should be a Personal Access Token, ideally linked to a Service Account (not a human)
+- If your **R2Devops instance** is connected to an entire **GitLab self-managed instance**
+    - If [Admin Mode](https://docs.gitlab.com/administration/settings/sign_in_restrictions/#admin-mode) is NOT enabled on your instance
+        - Option 1: the token owner must be **Admin** and the token scope must be **`api`**
+        - Option 2: the token owner must be **Maintainer** of all root groups and the token scope must be **`api`**
+    - If [Admin Mode](https://docs.gitlab.com/administration/settings/sign_in_restrictions/#admin-mode) is enabled on your instance
+        - Option 1: the token owner must be **Admin** and the token scope must be **`api`** and **`admin_mode`**
+        - Option 2: the token owner must be **Maintainer** of all root groups and the token scope must be **`api`**
+- If your **R2Devops instance** is connected to a **GitLab group**
+    - The token owner must be **Maintainer** of the root group and the token scope must be **`api`**
