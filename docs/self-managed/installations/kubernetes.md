@@ -197,17 +197,19 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
 
 1. Add your GitLab instance domain and organization
 
-    :::info[Organization]
-    If you use a SaaS version of GitLab (like `gitlab.com`): add the path
-    of your organization top-level group in `organization`. Else, let it
-    empty
-    :::
+    - **If you want to connect R2Devops to a specific GitLab group only**: add the path of the group in `organization` (to run the onboarding, you must be at least **Maintainer in this group**)
+        ```yaml
+        gitlab:
+            domain: 'https://gitlab.mydomain.com'
+            organization: '<group-path>'
+        ```
 
-    ```yaml
-    gitlab:
-        domain: 'https://gitlab.mydomain.com'
-        organization: ''
-    ```
+    - **If you want to connect R2Devops to the whole GitLab instance**: let `organization` empty (to run the onboarding, you must be a **GitLab instance Admin**)
+        ```yaml
+        gitlab:
+            domain: 'https://gitlab.mydomain.com'
+            organization: ''
+        ```
 
 1. Add your Ingress configuration
 

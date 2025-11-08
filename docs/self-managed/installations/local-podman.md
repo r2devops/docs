@@ -77,12 +77,14 @@ Preferences > Applications` (example:
       JOBS_GITLAB_URL="https://<your-gitlab-url>"
       ```
 
-   -  **Only if you use a SaaS version of GitLab (like `gitlab.com`):**
-      add the name of your top-level group in `ORGANIZATION` variable
-      (else, let it empty)
-
+   - **If you want to connect R2Devops to a specific GitLab group only**: add the path of the group in `ORGANIZATION` variable (to run the onboarding, you must be at least **Maintainer in this group**)
       ```bash title=".env"
-      ORGANIZATION="<top-level-group-path>"
+      ORGANIZATION="<group-path>"
+      ```
+
+   - **If you want to connect R2Devops to the whole GitLab instance**: let the `ORGANIZATION` variable empty (to run the onboarding, you must be a **GitLab instance Admin**)
+      ```bash title=".env"
+      ORGANIZATION=""
       ```
 
 1. Run the following commands to generate random secrets for all components:

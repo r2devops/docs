@@ -57,17 +57,12 @@ unqualified-search-registries = ["docker.io"]
 
 **In your `.env` file:**
 
-1. Add your organization
-
-   - If you use a SaaS version of GitLab (like `gitlab.com`): add the path of
-     your organization top-level group in `ORGANIZATION` variable
-
+- **If you want to connect R2Devops to a specific GitLab group only**: add the path of the group in `ORGANIZATION` variable (to run the onboarding, you must be at least **Maintainer in this group**)
    ```bash title=".env" hl_lines="1"
-   ORGANIZATION="<top-level-group-path>"
+   ORGANIZATION="<group-path>"
    ```
 
-   - Else, let the `ORGANIZATION` variable empty
-
+- **If you want to connect R2Devops to the whole GitLab instance**: let the `ORGANIZATION` variable empty (to run the onboarding, you must be a **GitLab instance Admin**)
    ```bash title=".env" hl_lines="1"
    ORGANIZATION=""
    ```
