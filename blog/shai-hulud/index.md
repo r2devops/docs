@@ -23,7 +23,6 @@ schema: |
 
 # Shai-Hulud 2.0: When `npm install` Becomes a CI/CD Attack
 
-![Shai-Hulud 2.0 Supply Chain Attack](/assets/shai-hulud-header.jpg)
 
 **Between November 21 and 23, 2025**, attackers compromised maintainer accounts to publish trojanized versions of popular npm packages. Unlike typical malware that might run quietly in the background, this variant is aggressively designed to harvest credentials and establish persistence within build environments.
 
