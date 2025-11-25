@@ -28,6 +28,8 @@ schema: |
 
 ## What is Shai-Hulud 2.0?
 
+Scale at a glance: ~700 npm packages linked to the campaign, 25k+ malicious GitHub repos auto-created, and large-scale secret leaks (GitHub tokens, AWS/GCP/Azure creds).
+
 ### The Attack Vector: `preinstall` Scripts
 The malware executes during the `preinstall` phase of `npm install`. This is particularly dangerous because it runs immediately when a developer or a CI runner installs dependencies—often before any tests or security scans have a chance to run.
 
@@ -50,17 +52,7 @@ Researchers have observed "cross-victim exfiltration," where secrets stolen from
 ### 3. The "Discussion" Backdoor
 The introduction of a malicious GitHub workflow (`discussion.yaml`) is a clever persistence mechanism. It turns a standard community feature (Discussions) into a command-and-control channel, specifically targeting self-hosted runners which often have higher privileges or access to internal networks.
 
-## And for GitLab CI/CD Teams?
 
-Even though Shai-Hulud targets npm and GitHub, the lesson is universal: **Attackers go where pipelines download, execute, and publish.**
-
-For GitLab-based organizations, protecting your infrastructure boils down to three critical questions:
-
-*   **What exactly runs in our install jobs?** Are you blindly trusting `npm install`, or do you have controls in place to vet scripts before execution?
-*   **Which secrets can each job/runner access?** Are your runners over-privileged? Can a simple install job access production deployment keys?
-*   **Can we prove continuously that pipelines remain compliant?** Security isn't a one-time check. It requires continuous monitoring to ensure no unauthorized changes or risky behaviors are introduced.
-
-When those answers are measured continuously, your exposure to the next wave of supply-chain attacks drops sharply.
 
 ## Immediate Action Plan
 
@@ -86,8 +78,27 @@ Revoke and regenerate npm tokens, GitHub PATs, and SSH keys.
 Rotate AWS/Azure/GCP credentials used in your pipelines.
 
 ### 🛡️ Harden Your Pipelines
-- Disable Scripts: Where possible, use npm install --ignore-scripts in CI environments to prevent preinstall execution, or use tools that allowlisting specific scripts.
+- Disable lifecycle scripts in CI when possible (--ignore-scripts for selected jobs)
+- Restrict runner egress to trusted domains
+- Audit GitHub workflows for unauthorized files (discussion.yaml)
 
-- Network Segmentation: Restrict outbound network access for your CI runners. They should only be able to talk to trusted domains (e.g., your package registry and source control), not arbitrary attacker-controlled repos.
+## And for GitLab CI/CD Teams?
 
-- Monitor Workflows: Audit your repositories for unexpected workflow files, specifically looking for .github/workflows/discussion.yaml or commits referencing "Shai-Hulud".
+Even though Shai-Hulud targets npm and GitHub, the lesson is universal: **Attackers go where pipelines download, execute, and publish.**
+
+For GitLab users, the same principles apply: lock down what runs during install jobs, scope CI tokens to the minimum, and continuously validate pipelines against your internal standards.
+
+
+
+
+## Prevent and anticipate supply-chain risk with continuous CI/CD compliance
+
+Preventing the next supply-chain incident starts where attackers now hit first: **your CI/CD**.
+
+Instead of relying on periodic audits or last-minute checklists, organizations need a real-time view of what pipelines actually execute, whether they still follow internal standards, and where drift or non-conformities appear.
+
+With [R2Devops](https://r2devops.io) teams use the CI/CD Compliance Dashboard to instantly spot which projects are not compliant with security best practices—before those gaps quietly become open doors for the next attack.
+
+If you want to see what continuous CI/CD compliance looks like in GitLab, you can try R2Devops in minutes.
+
+![R2Devops CI/CD Dashboard](./r2devops_dashboard.png)
