@@ -3,14 +3,12 @@ title: "Shai-Hulud 2.0: When npm install Becomes a CI/CD Attack"
 description: "Shai-Hulud 2.0 is a massive supply chain attack targeting CI/CD pipelines via malicious npm packages. Learn how to detect it and secure your GitLab & GitHub workflows immediately."
 tags: ["CI/CD", "Security", "GitLab", "DevOps", "Supply Chain Security", "Shai-Hulud", "GitHub Actions", "npm", "Malware"]
 date: 2025-11-25
-image: "/assets/shai-hulud-header.jpg"
 schema: |
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Shai-Hulud 2.0: When npm install Becomes a CI/CD Attack",
     "description": "Shai-Hulud 2.0 is a massive supply chain attack targeting CI/CD pipelines via malicious npm packages. Learn how to detect it and secure your GitLab & GitHub workflows immediately.",
-    "image": "https://r2devops.io/assets/shai-hulud-header.jpg",
     "datePublished": "2025-11-25",
     "keywords": "CI/CD, Security, GitLab, DevOps, Supply Chain Security, Shai-Hulud, npm",
     "author": {
