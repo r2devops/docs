@@ -27,6 +27,8 @@ This action, commonly used in **CI/CD pipelines** to detect modified files in pu
 
 [CVE-2025-30066](https://www.cve.org/CVERecord?id=CVE-2025-30066) has been assigned to this incident.
 
+{/* truncate */}
+
 ## How the Attack Worked
 
 The attack followed a **classic software supply chain compromise** strategy:

@@ -30,6 +30,8 @@ schema: |
 
 Scale at a glance: ~700 npm packages linked to the campaign, 25k+ malicious GitHub repos auto-created, and large-scale secret leaks (GitHub tokens, AWS/GCP/Azure creds).
 
+{/* truncate */}
+
 ### The Attack Vector: `preinstall` Scripts
 The malware executes during the `preinstall` phase of `npm install`. This is particularly dangerous because it runs immediately when a developer or a CI runner installs dependencies—often before any tests or security scans have a chance to run.
 
