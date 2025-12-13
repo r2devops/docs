@@ -31,7 +31,10 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [
+    require.resolve('docusaurus-lunr-search'),
+    require.resolve('docusaurus-plugin-image-zoom'),
+  ],
   presets: [
     [
       'classic',
@@ -137,6 +140,13 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    zoom: {
+      selector: '.markdown img',
+      background: {
+        light: 'rgba(255, 255, 255, 0.9)',
+        dark: 'rgba(50, 50, 50, 0.9)',
+      },
     },
     metadata: [
       {
