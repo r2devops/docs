@@ -192,7 +192,7 @@ Add R2Devops related configuration in your new values file `custom_values.yaml`:
       #        key: "gitlab-oauth2-client-secret"
 
     worker:
-      replicaCount: 20 # Default is 20. Increase it depending of your needs
+      replicaCount: 5 # Default is 5. Increase it depending of your needs
     ```
 
 1. Add your GitLab instance domain and organization
@@ -336,7 +336,7 @@ gitlab:
   domain: "https://gitlab.mydomain.com"
 
 worker:
-  replicaCount: 20
+  replicaCount: 5
 
 ingress:
   enabled: true
