@@ -22,7 +22,8 @@ confidentiality and security of your information.
 
 - **GitLab instance version >=17.7**
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Docker](https://docs.docker.com/engine/install/)
+- [Docker](https://docs.docker.com/engine/install/) >= v24.0
+- [Docker Compose](https://docs.docker.com/compose/install/) >= v2.20.3
 
 ## 🦊 GitLab Application
 

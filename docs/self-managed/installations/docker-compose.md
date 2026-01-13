@@ -29,7 +29,8 @@ This page describes how to set up a self-managed instance of R2Devops using
          during the installation process for R2Devops domain
    - Installed software
       - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-      - [Docker](https://docs.docker.com/engine/install/)
+      - [Docker](https://docs.docker.com/engine/install/) >= v24.0
+      - [Docker Compose](https://docs.docker.com/compose/install/) >= v2.20.3
       - Note: both compose plugin (`docker compose`) and `docker-compose` CLI are
          working. The first one is installed by default with `Docker`
 
